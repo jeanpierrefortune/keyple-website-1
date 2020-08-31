@@ -6,8 +6,10 @@ function addCopyButtons(clipboard) {
     document.querySelectorAll('pre > code').forEach(function (codeBlock) {
         if (codeBlock.classList.contains('language-java')
             || codeBlock.classList.contains('language-kt')
-            || codeBlock.classList.contains('language-cpp')) {
-            var button = document.createElement('button');
+            || codeBlock.classList.contains('language-kotlin')
+            || codeBlock.classList.contains('language-cpp')
+            || codeBlock.classList.contains('language-gradle')) {
+            const button = document.createElement('button');
             button.className = 'copy-code-button';
             button.type = 'button';
             button.innerText = 'Copy';
@@ -24,8 +26,13 @@ function addCopyButtons(clipboard) {
                     button.innerText = 'Error';
                 });
             });
-            var pre = codeBlock.parentNode;
-            pre.parentNode.insertBefore(button, pre.nextSibling);
+            const pre = codeBlock.parentNode;
+            if (pre.parentNode.classList.contains('highlight')) {
+                const highlight = pre.parentNode;
+                highlight.parentNode.insertBefore(button, highlight.nextSibling);
+            } else {
+                pre.parentNode.insertBefore(button, pre.nextSibling);
+            }
         }
     });
 }
@@ -33,7 +40,7 @@ function addCopyButtons(clipboard) {
 if (navigator && navigator.clipboard) {
     addCopyButtons(navigator.clipboard);
 } else {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.7.0/clipboard-polyfill.promise.js';
     script.integrity = 'sha256-waClS2re9NUbXRsryKoof+F9qc1gjjIhc2eT7ZbIv94=';
     script.crossOrigin = 'anonymous';
