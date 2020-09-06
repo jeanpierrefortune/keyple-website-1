@@ -5,17 +5,17 @@
 
 [[main]]
   name = "What is Eclipse Keyple"
-  url = "#demo"
+  url = "what-is-keyple/"
   weight = 10
 
 [[main]]
-  name = "Use cases"
-  url = "#accomplishments"
+  name = "What is Eclipse Keyple 2"
+  url = "what-is-keyple-page/"
   weight = 20
 
 [[main]]
-  name = "Blog"
-  url = "#posts"
+  name = "News"
+  url = "#news"
   weight = 30
 
 [[main]]
@@ -23,8 +23,12 @@
   url = "docs/"
   weight = 40
 
+[[main]]
+  name = "Community"
+  url = "community/"
+  weight = 50
 
 [[main]]
-  name = "Support"
-  url = "#contact"
-  weight = 50
+  name = "Support & Trainings"
+  url = "community/support-trainings/"
+  weight = 60

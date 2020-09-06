@@ -13,7 +13,7 @@
 #   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "ocean"
+theme = "keyple-theme"
 
 # Enable users to switch between day and night mode?
 day_night = true
@@ -22,11 +22,11 @@ day_night = true
 #   Latest font sets (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in font sets in `themes/academic/data/fonts/`
 #   Browse user installed font sets in `data/fonts/`
-font = ""
+font = "keyple-font"
 
 # Choose a font size.
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
-font_size = "L"
+font_size = "M"
 
 ############################
 ## Basic Info
@@ -48,7 +48,7 @@ local_business_type = ""
 org_name = "Eclipse"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = ""
+description = "Keyple™ accelerates the integration and development of ticketing and access control applications by enabling all to implement systems based on a common, open and modular platform, while benefiting from Calypso®'s key features of reliability, security and interoperability."
 
 ############################
 ## Site Features
@@ -71,11 +71,11 @@ diagram = false
 # Privacy pack
 #   Show a cookie consent message to visitors
 #   Anonymize IP in Google Analytics (if enabled)
-privacy_pack = false
+privacy_pack = true
 
 # Enable visitors to edit pages?
 #   `repo` defines the repository URL. `editable` defines which page types can be edited.
-edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir = "", repo_branch = "master", editable = {docs = true, page = false, post = false}}
+edit_page = {repo_url = "https://github.com/calypsonet/keyple-website", content_dir = "", repo_branch = "master", editable = {docs = true, page = true, post = true}}
 
 # Show related content at the bottom of pages?
 show_related = {docs = true, page = true, post = true, project = true, publication = true, talk = true}
@@ -88,7 +88,7 @@ show_related = {docs = true, page = true, post = true, project = true, publicati
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "keyple@calypsonet.org"
+# email = "keyple@calypsonet.org"
 # phone = "888 888 88 88"
 
 # Address
@@ -153,7 +153,7 @@ main_menu = {align = "c", show_logo = true}
 reading_time = true
 
 # Display next/previous section pager? (true/false)
-section_pager = false
+section_pager = true
 docs_section_pager = true  # Display pager in Docs layout (e.g. tutorials)?
 
 # Enable in-built social sharing buttons? (true/false)
@@ -161,7 +161,7 @@ sharing = true
 
 # Show a copyright license from creativecommons.org in the site footer?
 # Page specific copyright licenses are also possible by adding this option to a page's front matter.
-copyright_license = {enable = false, allow_derivatives = false, share_alike = true, allow_commercial = false, notice = "This work is licensed under {license}"}
+copyright_license = {enable = false, allow_derivatives = true, share_alike = true, allow_commercial = true, notice = "This work is licensed under {license}"}
 
 # Highlight the site author (superuser) in author lists? (true/false)
 highlight_superuser = false
@@ -273,7 +273,7 @@ plugins_js  = []
   #   1: Google Maps
   #   2: OpenStreetMap (Mapnik)
   #   3: OpenStreetMap (Mapbox)
-  engine = 2
+  engine = 0
   api_key = ""
   zoom = 15
 
@@ -282,7 +282,7 @@ plugins_js  = []
 ############################
 [marketing]
   google_analytics = ""
-  google_tag_manager = ""
+  #google_tag_manager = "GTM-5WLCZXC"
 
 ############################
 ## Content Management System
