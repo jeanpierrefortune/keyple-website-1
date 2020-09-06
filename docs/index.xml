@@ -1,4 +1,283 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Global Architecture of Keyple | Eclipse Keyple</title><link>/keyple-website/docs/</link><atom:link href="/keyple-website/docs/index.xml" rel="self" type="application/rss+xml"/><description>Global Architecture of Keyple</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate><image><url>/keyple-website/images/logo_huf486703852f23de97ac27dc4bd4c6f1c_3349_300x300_fit_lanczos_2.png</url><title>Global Architecture of Keyple</title><link>/keyple-website/docs/</link></image><item><title>Get Started with Keyple-Java</title><link>/keyple-website/docs/getstarted-java/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/getstarted-java/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Global Architecture of Keyple | Eclipse Keyple</title><link>/keyple-website/docs/</link><atom:link href="/keyple-website/docs/index.xml" rel="self" type="application/rss+xml"/><description>Global Architecture of Keyple</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate><image><url>/keyple-website/images/logo_hud2fb0b35622057c5c7bb20829420fe80_179328_300x300_fit_lanczos_2.png</url><title>Global Architecture of Keyple</title><link>/keyple-website/docs/</link></image><item><title>Get Started with Keyple-Java</title><link>/keyple-website/docs/build-your-first-app-android/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/build-your-first-app-android/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Keyple SDK is supported by the Operating System Android. As Keyple request low level reader access, the key features of
+the SDK relies on components called &amp;lsquo;Plugins&amp;rsquo;.&lt;/p>
+&lt;p>Keyple Android Plugins are low level implementation of Keyple contracts described in the section &amp;lsquo;Develop a plugin&amp;rsquo; in Developer
+guide. Once a plugin is provided, any classic Android application can use Keyple to provide ticketing features.&lt;/p>
+&lt;p>This Guide will describe how to start a ticketing application using Keyple SDK.&lt;/p>
+&lt;h2 id="compatibility">Compatibility&lt;/h2>
+&lt;ul>
+&lt;li>Android OS 19+&lt;/li>
+&lt;/ul>
+&lt;h1 id="integration">Integration&lt;/h1>
+&lt;h2 id="sdk-integration">SDK Integration&lt;/h2>
+&lt;h3 id="keyple-core">Keyple Core&lt;/h3>
+&lt;p>This high-level API is convenient for developers implementing smart card processing application for terminal interfaced
+with smart card readers. Access to the readers is provided by the plugins.&lt;/p>
+&lt;p>To use Keyple core API (and in fact, anything keyple&amp;rsquo;s related) import the jar within the gradle dependencies of your
+Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>Please refer to Architecture/Keyle Core&lt;/p>
+&lt;h3 id="keyple-plugins">Keyple Plugins&lt;/h3>
+&lt;p>There are many Keyple plugins available, the one to use depends on the device and ticketing tools you are aiming to
+use.&lt;/p>
+&lt;p>For a standard device the keyple-android-plugin-nfc and keyple-android-plugin-omapi should be be used. They will allow keyple to
+connect to, respectively, a smart card in the NFC field of the device or, a smart card inserted in a SIM like port. The
+plugins for Android are Android Libraries (AAR).&lt;/p>
+&lt;p>To use the plugins simply import it within the gradle dependencies of your Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h3 id="keyple-calypso">Keyple Calypso&lt;/h3>
+&lt;p>The Keyple Calypso User API is an extension of the Keyple Core User API to manage Calypso Portable Object securely using
+Calypso SAM.&lt;/p>
+&lt;p>Please refer to Architecture/Keyle Calypso&lt;/p>
+&lt;p>To use Keyple Calypso User API simply import the jar within the gradle dependencies of your Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h2 id="initializing-the-sdk">Initializing the SDK&lt;/h2>
+&lt;h3 id="register-a-plugin">Register a plugin&lt;/h3>
+&lt;p>The Singleton SeProxyService is the entry point of the SE Proxy Service, its instance has to be called by a
+ticketing application in order to establish a link with a SE’s application.&lt;/p>
+&lt;p>In order to access to SE we have to register at least one plugin.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+/* register Omapi Plugin to the SeProxyService */
+try {
+SeProxyService.getInstance().registerPlugin(AndroidOmapiPluginFactory(this))
+} catch (e: KeyplePluginInstantiationException) {
+/* do something with it */
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="retrieve-the-readers">Retrieve the readers&lt;/h3>
+&lt;p>With the plugin registered we can retrieve all instance of the component mapping the smartcard readers provided by this
+plugins. For example, some plugins provide access to contact and contactless readers)&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME is a constant provided by the keyple plugin
+val readers = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).readers
+&lt;/code>&lt;/pre>
+&lt;h3 id="retrieve-one-specific-reader">Retrieve one specific reader&lt;/h3>
+&lt;p>It is also possible to retrieve a specific reader.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME and READER_NAME are constants provided by the used keyple plugin
+val reader = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).getReader(READER_NAME)
+&lt;/code>&lt;/pre>
+&lt;h2 id="select-a-po">Select a PO&lt;/h2>
+&lt;h3 id="seproxy-api">SeProxy API&lt;/h3>
+&lt;p>Using a reader, it is possible to select a PO using its AID. Here we use the low level SeProxy API of Keyple core to do so.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin"> /*
+* Configuration of the selector
+* Setting of an AID based selection of a Calypso REV3 PO
+*/
+val seSelector = SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
+.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
+.build()
+//build the request by passing the seSelector.
+//As second parameter of the SeRequest consctructor, an APDU can be added to be executed
+//right after the selection.
+val seRequest = SeRequest(seSelector, null)
+//A ProxyReader is a physical reader, it allows to send and receive synchronised APDUS
+val seResponse = (reader.value as ProxyReader).transmitSeRequest(seRequest, ChannelControl.KEEP_OPEN)
+//Check is selection is successful
+if (seResponse?.selectionStatus?.hasMatched() == true) {
+//Selection is done
+} else {
+//Selection failed
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="selection-api">Selection API&lt;/h3>
+&lt;p>The bellow example illustrates the same operation using the Selection API, an higher level API of Keyple Core.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">var seSelection = SeSelection()
+/*
+* Close the channel after the selection
+*/
+seSelection.prepareReleaseSeChannel()
+/*
+* AID based selection: get the first application occurrence matching the AID, keep the
+* physical channel open
+*/
+seSelection.prepareSelection(GenericSeSelectionRequest(
+SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(AidSelector.builder()
+.aidToSelect(seAidPrefix)
+.fileOccurrence(AidSelector.FileOccurrence.FIRST)
+.fileControlInformation(AidSelector.FileControlInformation.FCI).build())
+.build()))
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Execution og the selection
+*/
+val selectionsResult = seSelection.processExplicitSelection(reader)
+/**
+* Check if PO has been selected successfuly
+*/
+if (selectionsResult.hasActiveSelection()) {
+//Selection is done
+val matchedSe = selectionsResult.activeMatchingSe
+val fci = matchedSe.fciBytes
+val atr = matchedSe.atrBytes
+} else {
+//Selection failed
+}
+&lt;/code>&lt;/pre>
+&lt;h2 id="reading-and-writing-data">Reading and writing data&lt;/h2>
+&lt;h3 id="reading-environment-and-usage">Reading Environment and usage&lt;/h3>
+&lt;p>Exemple of reading Environmement and usage data of an Hoplink application. As Hoplink is a calypso application, we can map
+cast the result of the selection with CalypsoPo. It will allow us to easily access calypso datas.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">var poAid= &amp;quot;A000000291A000000191&amp;quot;
+val sfiHoplinkEFEnvironment = 0x14.toByte()
+val sfiHoplinkEFUsage = 0x1A.toByte()
+/*
+* Prepare a Calypso PO selection
+*/
+val seSelection = SeSelection()
+/*
+* Setting of an AID based selection of a Calypso REV3 PO
+*
+* Select the first application matching the selection AID whatever the SE
+* communication protocol keep the logical channel open after the selection
+*/
+/*
+* Calypso selection: configures a PoSelectionRequest with all the desired
+* attributes to make the selection and read additional information afterwards
+*/
+val poSelectionRequest = PoSelectionRequest(
+PoSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
+.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
+.invalidatedPo(InvalidatedPo.REJECT).build())
+/*
+* Prepare the reading order and keep the associated parser for later use once
+* the selection has been made.
+*/
+poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFEnvironment, 1)
+poSelectionRequest.prepareReadRecordFile(
+sfiHoplinkEFUsage, 1)
+/*
+* Add the selection case to the current selection (we could have added other
+* cases here)
+*
+* Ignore the returned index since we have only one selection here.
+*/
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Actual PO communication: operate through a single request the Calypso PO
+* selection and the file read
+*/
+try {
+val selectionsResult = seSelection.processExplicitSelection(seReader)
+if (selectionsResult.hasActiveSelection()) {
+val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
+val environmentAndHolder = calypsoPo.getFileBySfi(sfiHoplinkEFEnvironment).data.content
+val usage = calypsoPo.getFileBySfi(sfiHoplinkEFUsage).data.content
+} else {
+//The selection of the PO Failed
+}
+} catch (e: Exception) {
+//The selection of the PO Failed with an error
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="incrementing-a-counter">Incrementing a counter&lt;/h3>
+&lt;p>In this example, we&amp;rsquo;ll increase Counter 1 by 10 on a contactless ticketing NFC PO. The counter will be increased
+when the PO will enter NFC Field.&lt;/p>
+&lt;h4 id="setup-to-catch-reader-event">Setup to catch reader event&lt;/h4>
+&lt;pre>&lt;code class="language-kotlin">/*
+* In order to received readers events (Inserted, removed etc..), the interface ObservableReader.ReaderObserver must be
+* implemented.
+*
+*/
+import org.eclipse.keyple.core.seproxy.event.ObservableReader
+import org.eclipse.keyple.core.seproxy.event.ReaderEvent
+class MainActivity : ObservableReader.ReaderObserver{
+//Initialise Android NFC Reader
+override fun initReaders() {
+// Initialize SEProxy with Android Plugins
+val nfcPlugin = SeProxyService.getInstance().registerPlugin(AndroidNfcPluginFactory())
+//Example of plugin for device with a sam reader
+val samPlugin = SeProxyService.getInstance().registerPlugin(AndroidFamocoPluginFactory())
+// Configuration of AndroidNfc Reader
+poReader = nfcPlugin.getReader(AndroidNfcReader.READER_NAME) as AndroidNfcReader
+poReader.setParameter(&amp;quot;FLAG_READER_RESET_STATE&amp;quot;, &amp;quot;0&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_PRESENCE_CHECK_DELAY&amp;quot;, &amp;quot;100&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_NO_PLATFORM_SOUNDS&amp;quot;, &amp;quot;0&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_SKIP_NDEF_CHECK&amp;quot;, &amp;quot;0&amp;quot;)
+(poReader as ObservableReader).addObserver(this)
+(poReader as ObservableReader).addSeProtocolSetting(SeCommonProtocols.PROTOCOL_ISO14443_4,
+AndroidNfcProtocolSettings.getSetting(SeCommonProtocols.PROTOCOL_ISO14443_4))
+}
+// Reader event will be caught in this method
+override fun update(event: ReaderEvent?) {
+CoroutineScope(Dispatchers.Main).launch {
+when (event?.eventType) {
+ReaderEvent.EventType.SE_MATCHED -&amp;gt; {
+//PO with set AID detected
+samReader.setParameter(AndroidFamocoReader.FLAG_READER_RESET_STATE, &amp;quot;&amp;quot;)
+val samResource = checkSamAndOpenChannel(samReader)
+val selectionsResult = seSelection.processDefaultSelection(event.defaultSelectionsResponse)
+if (selectionsResult.hasActiveSelection()) {
+val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
+val poTransaction = PoTransaction(SeResource(poReader, calypsoPo), getSecuritySettings(samResource))
+when (transactionType) {
+TransactionType.INCREASE -&amp;gt; {
+/*
+* Open Session for the debit key
+*/
+poTransaction.processOpening(PoTransaction.SessionSetting.AccessLevel.SESSION_LVL_LOAD)
+poTransaction.prepareReadRecordFile(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
+poTransaction.processPoCommandsInSession()
+//Process PO increase counter by 10
+poTransaction.prepareIncreaseCounter(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt(), 10)
+poTransaction.processClosing(ChannelControl.CLOSE_AFTER)
+addResultEvent(&amp;quot;Increase by 10: SUCCESS&amp;quot;)
+}
+}
+}
+//Notifying Keyple that we handled event
+(poReader as ObservableReader).notifySeProcessed()
+}
+ReaderEvent.EventType.SE_INSERTED -&amp;gt; {
+//PO detected but AID didn't match with AID set
+//Notifying Keyple that we handled event
+(poReader as ObservableReader).notifySeProcessed()
+}
+ReaderEvent.EventType.SE_REMOVED -&amp;gt; {
+//Action when SE is Removed
+}
+ReaderEvent.EventType.TIMEOUT_ERROR -&amp;gt; {
+//Action when timeout with SE
+}
+}
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="launch-detection">Launch detection&lt;/h4>
+&lt;pre>&lt;code class="language-kotlin"> /* Prepare a Calypso PO selection */
+val seSelection = SeSelection(MultiSeRequestProcessing.FIRST_MATCH)
+/* Calypso selection: configures a PoSelector with all the desired attributes to make the selection and read additional information afterwards */
+val poSelectionRequest = PoSelectionRequest(PoSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(SeSelector.AidSelector.builder().aidToSelect(CalypsoClassicInfo.AID).build())
+.invalidatedPo(PoSelector.InvalidatedPo.REJECT).build())
+/* Prepare the reading order */
+poSelectionRequest.prepareReadRecordFile(CalypsoClassicInfo.SFI_EnvironmentAndHolder, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
+/*
+* Add the selection request to the current selection (we could have added other request
+* here)
+*/
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Provide the SeReader with the selection operation to be processed when a PO is
+* inserted.
+*/
+(poReader as ObservableReader).setDefaultSelectionRequest(seSelection.selectionOperation,
+ObservableReader.NotificationMode.MATCHED_ONLY)
+// notify reader that se detection has been launched
+poReader.startSeDetection(ObservableReader.PollingMode.REPEATING)
+&lt;/code>&lt;/pre>
+&lt;p>#FAQ:&lt;/p>
+&lt;p>When should I use the Selection API instead of SeProxy API?&lt;/p></description></item><item><title>Get Started with Keyple-Java</title><link>/keyple-website/docs/build-your-first-app-java/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/build-your-first-app-java/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
 &lt;p>The example demonstrate Keyple capabilities with the Keyple PCSC plugin and PO/SAM provided in the Calypso Test Kit.&lt;/p>
 &lt;h2 id="build">Build&lt;/h2>
 &lt;p>The example can run on any machine: Linux, Windows and MacOS. If not installed in your machine, you will need to download :&lt;/p>
@@ -356,7 +635,7 @@ private final static String SAM_READER_NAME = &amp;quot;XXX&amp;quot;;
 &lt;p>seProxyService.getPlugin(PLUGIN_NAME) methode: plugin -&amp;gt; readers -&amp;gt; X -&amp;gt; terminal -&amp;gt; name .&lt;/p>
 &lt;/blockquote>
 &lt;p>Run the application.&lt;/p>
-&lt;p>Note: All project dependencies, including Keyple components, are downloaded during the first run, which can take several minutes.&lt;/p></description></item><item><title>Keyple ‘Core’ – User guide (high level API)</title><link>/keyple-website/docs/keyplecore-userguide/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/keyplecore-userguide/</guid><description>&lt;p>This high-level API is convenient for developers implementing smart card processing application for terminal interfaced with smart card readers.&lt;/p>
+&lt;p>Note: All project dependencies, including Keyple components, are downloaded during the first run, which can take several minutes.&lt;/p></description></item><item><title>Keyple ‘Core’ – Architecture</title><link>/keyple-website/docs/architecture-keyplecore/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/architecture-keyplecore/</guid><description>&lt;p>This high-level API is convenient for developers implementing smart card processing application for terminal interfaced with smart card readers.&lt;/p>
 &lt;h2 id="packages--features">Packages &amp;amp; features&lt;/h2>
 &lt;p>The Keyple Core User API is a tool to manage readers, and to select “generic” Secure Elements.&lt;/p>
 &lt;table>
@@ -545,7 +824,93 @@ cf.
 &lt;blockquote>
 &lt;p>cf.
 &lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/generic/pc/UseCase4_SequentialMultiSelection/src/main/java/org/eclipse/keyple/example/generic/pc/usecase4/SequentialMultiSelection_Pcsc.java" target="_blank" rel="noopener">“Generic Use Case 4 / Sequential Multi-Selection”&lt;/a> example&lt;/p>
-&lt;/blockquote></description></item><item><title>Keyple Calypso – User guide (high level API)</title><link>/keyple-website/docs/keyplecalypso-userguide/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/keyplecalypso-userguide/</guid><description>&lt;h2 id="packages--features">Packages &amp;amp; features&lt;/h2>
+&lt;/blockquote></description></item><item><title>(WIP)Developer guide - Develop a Plugin</title><link>/keyple-website/docs/developer-guide-plugin/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/developer-guide-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
+illustrate the creation processus using the implementation of the Android NFC Plugin and OMAPI plugins.
+This plugins can be consulted with the keyple-java/android repository.&lt;/p>
+&lt;h2 id="imports">Imports&lt;/h2>
+&lt;p>Your plugin will use be based upon Keyple Core libraries:&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h2 id="implement-keyple-reader">Implement Keyple Reader&lt;/h2>
+&lt;p>The basis component of a Keyple plugin is the implementation of an AbstractLocalReader. The AbstractLocalReader implementation will map the native reader&amp;rsquo;s
+features of the device to Keyple Reader component allowing to be used within the Keyple suite.&lt;/p>
+&lt;p>The &amp;lsquo;local&amp;rsquo; in AbstractLocalReader is used to specify devices physicaly connected to the device.&lt;/p>
+&lt;p>Relying on native libraries capacities of the device, implementations to be done are:&lt;/p>
+&lt;ul>
+&lt;li>checkSePresence()&lt;/li>
+&lt;li>getATR()&lt;/li>
+&lt;li>openPhysicalChannel()&lt;/li>
+&lt;li>closePhysicalChannel()&lt;/li>
+&lt;li>isPhysicalChannelOpen()&lt;/li>
+&lt;li>ProtocolFlagMatches()&lt;/li>
+&lt;li>TransmitApdu&lt;/li>
+&lt;/ul>
+&lt;p>###Examples&lt;/p>
+&lt;h4 id="checksepresence">checkSePresence()&lt;/h4>
+&lt;p>Allow Keyple to check if the secure elements is inserted or in the NFC field of the device.&lt;/p>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//nativeReader is an instance of android.se.omapi.Reader
+override fun checkSePresence(): Boolean {
+return nativeReader.isSecureElementPresent
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//When a SE is presented in the NFC field, we can get a tagproxy object. When the SE is removed,
+//this value is reinited. So when it is not null, we can assume the SE is currently in the field.
+public override fun checkSePresence(): Boolean {
+return tagProxy != null
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="getatr">getAtr()&lt;/h4>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//Session is a native object of android.se.omapi package
+override fun getATR(): ByteArray? {
+return session?.let {
+it.atr
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//TagProxy is an object mapping android.nfc.tech.TagTechnology. Atr is obtained from data of this object (epending of protocol)
+public override fun getATR(): ByteArray? {
+val atr = tagProxy?.atr
+return if (atr?.isNotEmpty() == true) atr else null
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="openphysicalchannel">openPhysicalChannel()&lt;/h4>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">@Throws(KeypleReaderIOException::class)
+override fun openPhysicalChannel() {
+try {
+session = nativeReader.openSession()
+} catch (e: IOException) {
+throw KeypleReaderIOException(&amp;quot;IOException while opening physical channel.&amp;quot;, e)
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">@Throws(KeypleReaderIOException::class)
+public override fun openPhysicalChannel() {
+if (tagProxy?.isConnected != true) {
+try {
+tagProxy?.connect()
+} catch (e: IOException) {
+throw KeypleReaderIOException(&amp;quot;Error while opening physical channel&amp;quot;, e)
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Also, this implementation could be done extending AbstractObservableLocalReader. It provides :&lt;/p>
+&lt;ul>
+&lt;li>State machine regarding SE event: &amp;lsquo;WAIT_FOR_START_DETECTION&amp;rsquo;, &amp;lsquo;WAIT_FOR_SE_INSERTION&amp;rsquo;&amp;hellip;&lt;/li>
+&lt;li>Extended readers features
+&lt;ul>
+&lt;li>Smart Insertion Reader: Allow to detect SE insertion&lt;/li>
+&lt;li>Smart Removal Reader: Allow to detect SE Removal&lt;/li>
+&lt;li>Smart Selection Reader: Allow to use native SE selection process&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Keyple Calypso – Architecture</title><link>/keyple-website/docs/architecture-keyplecalypso/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/architecture-keyplecalypso/</guid><description>&lt;h2 id="packages--features">Packages &amp;amp; features&lt;/h2>
 &lt;p>The &lt;strong>Keyple Calypso User API is an extension of the Keyple Core User API&lt;/strong> to manage Calypso Portable Object securely using Calypso SAM:&lt;/p>
 &lt;ul>
 &lt;li>The generic Secure Element selection is enhanced for the &lt;strong>selection of a Calypso PO&lt;/strong>. The FCI response is automatically analyzed in order to identify the revision and the features supported by the Calypso PO. The invalidation status is also checked.&lt;/li>
