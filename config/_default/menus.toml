@@ -32,3 +32,9 @@
   name = "Support & Trainings"
   url = "community/support-trainings/"
   weight = 60
+
+[[main]]
+    name = "Javadoc"
+    post = "<span class='alert'>Core</span>"
+    url = "/reference/core/index.html"
+    weight = -100
