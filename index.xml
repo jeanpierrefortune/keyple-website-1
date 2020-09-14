@@ -894,7 +894,7 @@ Definition of automatic selection request in case of SE insertion on an Observab
 &lt;h4 id="se-presence-check--explicit-selection-transaction">SE presence check &amp;amp; “explicit selection transaction”&lt;/h4>
 &lt;p>A SE reader has the capability to check is a SE is present or not.&lt;/p>
 &lt;blockquote>
-&lt;p>For SE terminal processing for which the presence of a SE in a reader is &amp;ldquo;static&amp;rsquo; during a transaction, the transaction starts in general with the verification of the SE presence. If the SE is present, the transaction can continue with the selection of the SE. We call this kind of transaction: an &amp;ldquo;explicit selection transaction&amp;rdquo;.&lt;/p>
+&lt;p>For SE terminal processing for which the presence of a SE in a reader is &amp;ldquo;static' during a transaction, the transaction starts in general with the verification of the SE presence. If the SE is present, the transaction can continue with the selection of the SE. We call this kind of transaction: an &amp;ldquo;explicit selection transaction&amp;rdquo;.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="plugin--reader-events">Plugin &amp;amp; Reader events&lt;/h3>
 &lt;p>For some SE terminal, the processing is dynamically driven by the insertion/remove of a SE in a reader, or by the plug/unplug of a reader.&lt;/p>
@@ -1173,7 +1173,7 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;p>The PO transaction could also be defined to allow multiple sessions: in this case the transaction is automatically split in several session as necessary.&lt;/p>
 &lt;blockquote>
 &lt;p>cf.
-&lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java" target="_blank" rel="noopener">“Calypso Use Case 5 / PO Multiple Session&amp;rdquo;&lt;/a> example&lt;/p>
+&lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java" target="_blank" rel="noopener">“Calypso Use Case 5 / PO Multiple Session&amp;quot;&lt;/a> example&lt;/p>
 &lt;/blockquote></description></item><item><title>FAQ</title><link>/keyple-website/community/faq/</link><pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate><guid>/keyple-website/community/faq/</guid><description/></item><item><title>First Meet Up Eclipse Keyple</title><link>/keyple-website/post/firstmeetupeclipsekeyple/</link><pubDate>Wed, 01 Jul 2020 15:19:23 +0200</pubDate><guid>/keyple-website/post/firstmeetupeclipsekeyple/</guid><description>&lt;p>On October 17, 2019, we organized the first Meet Up Eclipse Keyple! Great moments of exchanges around the first Open Source SDK for Ticketing with Benoît Boute, Nicolas Generali, Pierre Terree, Hicham ELBIZY, Benoist Laforge, Gaël Blondelle, Camille Moulin, Philippe Vappereau, Valentina Zajackowski. Many thanks to them for their interventions and also to Manon Chaix, Jean-Pierre Fortune, Olivier Delcroix, Ludovic TEIXEIRA COSTA and all the participants!&lt;/p>
 &lt;p>See the whole event on video:&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
