@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls -lrt
+
 # This script gets the latest javadoc JAR (SNAPSHOT) for the module provided in argument (e.g. keyple-java-core)
 
 # get the lastest SNAPSHOT version, put it in a variable named LATEST_SNAPSHOT_VERSION
