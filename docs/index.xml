@@ -1108,9 +1108,9 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;li>
 &lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-remotese/index.html">JavaDoc for the Keyple Remote SE plugin API&lt;/a>&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-stub/index.html">JavaDoc for the Keyple Stub plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-stub/index.html">JavaDoc for the Keyple Stub plugin API&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-nfc/index.html">JavaDoc for the Keyple Android NFC plugin API&lt;/a>&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-OMAPI/index.html">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-omapi/index.html">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
