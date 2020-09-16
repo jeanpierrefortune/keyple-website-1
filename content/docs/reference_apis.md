@@ -11,7 +11,7 @@ menu:
     weight: 1000
 ---
 # JavaDoc 
-The JavaDoc for the Keyple source is available online. The documentation is split into four separate parts:
+The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:
 
 - [JavaDoc for the Keyple Core API](/keyple-website/reference/keyple-java-core/index.html)
 - [JavaDoc for the Keyple Calypso API](/keyple-website/reference/keyple-java-calypso/index.html)
