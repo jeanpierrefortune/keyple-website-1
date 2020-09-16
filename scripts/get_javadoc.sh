@@ -12,4 +12,4 @@ LATEST_UPLOADED_SNAPSHOT=$(wget -O - -o $BASE_URL/$1/$LATEST_SNAPSHOT/maven-meta
 # get the Javadoc jar
 wget $BASE_URL/$1/$LATEST_SNAPSHOT/$1"-"$LATEST_UPLOADED_SNAPSHOT"-javadoc.jar"
 
-unzip $1"-"$LATEST_UPLOADED_SNAPSHOT"-javadoc.jar" -d ./reference/$1
+unzip $1"-"$LATEST_UPLOADED_SNAPSHOT"-javadoc.jar" -d reference/$1
