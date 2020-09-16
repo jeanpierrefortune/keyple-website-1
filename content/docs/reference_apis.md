@@ -13,6 +13,9 @@ menu:
 # JavaDoc 
 The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:
 
+RELEASES
+
+SNAPSHOTS
 - [JavaDoc for the Keyple Core API](/keyple-website/reference/keyple-java-core/index.html)
 - [JavaDoc for the Keyple Calypso API](/keyple-website/reference/keyple-java-calypso/index.html)
 - [JavaDoc for the Keyple PC/SC plugin API](/keyple-website/reference/keyple-java-plugin-pcsc/index.html)
