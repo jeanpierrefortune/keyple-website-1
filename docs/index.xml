@@ -1098,6 +1098,8 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java" target="_blank" rel="noopener">“Calypso Use Case 5 / PO Multiple Session&amp;quot;&lt;/a> example&lt;/p>
 &lt;/blockquote></description></item><item><title>Reference APIs</title><link>/keyple-website/docs/reference_apis/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/reference_apis/</guid><description>&lt;h1 id="javadoc">JavaDoc&lt;/h1>
 &lt;p>The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:&lt;/p>
+&lt;p>RELEASES&lt;/p>
+&lt;p>SNAPSHOTS&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>

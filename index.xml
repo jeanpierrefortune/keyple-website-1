@@ -1182,6 +1182,8 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;p>Discover the photos: &lt;a href="https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8">https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8&lt;/a>&lt;/p>
 &lt;p>And the presentations: &lt;a href="https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view">https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view&lt;/a>&lt;/p></description></item><item><title>Reference APIs</title><link>/keyple-website/docs/reference_apis/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/reference_apis/</guid><description>&lt;h1 id="javadoc">JavaDoc&lt;/h1>
 &lt;p>The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:&lt;/p>
+&lt;p>RELEASES&lt;/p>
+&lt;p>SNAPSHOTS&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>
