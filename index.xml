@@ -1180,23 +1180,23 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;iframe src="https://www.youtube.com/embed/4j5rkvdXU7g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
 &lt;p>Discover the photos: &lt;a href="https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8">https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8&lt;/a>&lt;/p>
-&lt;p>And the presentations: &lt;a href="https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view">https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view&lt;/a>&lt;/p></description></item><item><title>Reference APIs</title><link>/keyple-website/docs/reference_apis/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/reference_apis/</guid><description>&lt;h1 id="javadoc">JavaDoc&lt;/h1>
+&lt;p>And the presentations: &lt;a href="https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view">https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view&lt;/a>&lt;/p></description></item><item><title>Reference API</title><link>/keyple-website/docs/reference_apis/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/reference_apis/</guid><description>&lt;h1 id="javadoc">JavaDoc&lt;/h1>
 &lt;p>The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:&lt;/p>
 &lt;p>RELEASES&lt;/p>
 &lt;p>SNAPSHOTS&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html">JavaDoc for the Keyple Core API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html">JavaDoc for the Keyple Calypso API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html">JavaDoc for the Keyple Calypso API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-pcsc/index.html">JavaDoc for the Keyple PC/SC plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-pcsc/index.html">JavaDoc for the Keyple PC/SC plugin API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-remotese/index.html">JavaDoc for the Keyple Remote SE plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-remotese/index.html">JavaDoc for the Keyple Remote SE plugin API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-stub/index.html">JavaDoc for the Keyple Stub plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-stub/index.html">JavaDoc for the Keyple Stub plugin API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-nfc/index.html">JavaDoc for the Keyple Android NFC plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-nfc/index.html">JavaDoc for the Keyple Android NFC plugin API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-omapi/index.html">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-omapi/index.html">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>{:target=&amp;quot;_blank&amp;quot;}&lt;/li>
 &lt;/ul></description></item><item><title>RATP Smart Systems - Remote SE use case</title><link>/keyple-website/post/rss-remote-se/</link><pubDate>Tue, 01 Jan 2019 14:13:44 +0200</pubDate><guid>/keyple-website/post/rss-remote-se/</guid><description>&lt;p>RATP Smart Systems has integrated in 2019 Keyple into the new retail shops reloading system of RATP in Paris Great Region. 1800 Android terminals from Coppernic to retaillers has been deployed.&lt;/p></description></item><item><title/><link>/keyple-website/what-is-keyple/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/what-is-keyple/</guid><description/></item></channel></rss>
