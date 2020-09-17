@@ -1102,10 +1102,10 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;p>SNAPSHOTS&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html" target="_blank">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>
-&lt;li>[JavaDoc for the Keyple Calypso API](/keyple-website/reference/keyple-java-calypso/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
-&lt;li>[JavaDoc for the Keyple PC/SC plugin API](/keyple-website/reference/keyple-java-plugin-pcsc/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
-&lt;li>[JavaDoc for the Keyple Remote SE plugin API](/keyple-website/reference/keyple-java-plugin-remotese/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
-&lt;li>[JavaDoc for the Keyple Stub plugin API](/keyple-website/reference/keyple-java-plugin-stub/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
-&lt;li>[JavaDoc for the Keyple Android NFC plugin API](/keyple-website/reference/keyple-android-plugin-nfc/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
-&lt;li>[JavaDoc for the Keyple Android OMAPI plugin API](/keyple-website/reference/keyple-android-plugin-omapi/index.html&amp;quot; target=&amp;quot;_blank)&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html" target="_blank">JavaDoc for the Keyple Calypso API&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-pcsc/index.html" target="_blank">JavaDoc for the Keyple PC/SC plugin API&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-remotese/index.html" target="_blank">JavaDoc for the Keyple Remote SE plugin API&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-stub/index.html" target="_blank">JavaDoc for the Keyple Stub plugin API&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-nfc/index.html" target="_blank">JavaDoc for the Keyple Android NFC plugin API&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-omapi/index.html" target="_blank">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
