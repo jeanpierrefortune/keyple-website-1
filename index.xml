@@ -1187,7 +1187,7 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;ul>
 &lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html" target="_blank">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>
 &lt;li>
-&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html">JavaDoc for the Keyple Calypso API&lt;/a>&lt;/li>
+&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html?target=_blank">JavaDoc for the Keyple Calypso API&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-pcsc/index.html">JavaDoc for the Keyple PC/SC plugin API&lt;/a>&lt;/li>
 &lt;li>
