@@ -13,7 +13,7 @@
   background-color: transparent;
   border-color: transparent transparent #f3f3f3;
   border-bottom: 3px solid !important;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: bold;
 }
 .project-tab .nav-link {
@@ -21,7 +21,7 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   color: #0062cc;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
 }
 .project-tab .nav-link:hover {
@@ -72,12 +72,6 @@
   margin: 0;
 }
 
-.article-container {
-    max-width: 1280px;
-}
-.docs-article-container {
-    max-width: 1280px
-}
 #parser-commands {
   background-color: white;
 }
