@@ -1,2 +1,1 @@
-Needed by the javadoc process.
-Do not remove this file.
+Do not remove this file (necessary for the Javadoc retrieval process).

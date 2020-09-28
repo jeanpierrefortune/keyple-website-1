@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Build your First App | Eclipse Keyple</title><link>/keyple-website/docs/build-your-first-app/</link><atom:link href="/keyple-website/docs/build-your-first-app/index.xml" rel="self" type="application/rss+xml"/><description>Build your First App</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><image><url>/keyple-website/images/logo_hu673a59176cd62c570f44ed2728665b48_42188_300x300_fit_lanczos_2.png</url><title>Build your First App</title><link>/keyple-website/docs/build-your-first-app/</link></image><item><title>Build your First Java Application</title><link>/keyple-website/docs/build-your-first-app/java-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/build-your-first-app/java-app/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
+&lt;p>The example demonstrate Keyple capabilities with the Keyple PCSC plugin and PO/SAM provided in the Calypso Test Kit.&lt;/p>
+&lt;h2 id="build">Build&lt;/h2>
+&lt;p>The example can run on any machine: Linux, Windows and MacOS. If not installed in your machine, you will need to download :&lt;/p>
+&lt;p>Java 1.6 or newer&lt;/p>
+&lt;p>Gradle (any version) download&lt;/p>
+&lt;p>We recommend that you use a Java IDE like Eclipse or Intellij to create your new Gradle project.&lt;/p>
+&lt;p>Create a new Gradle project.&lt;/p>
+&lt;p>Add the following statements to your build.gradle file to import Keyple components into your project:&lt;/p>
+&lt;pre>&lt;code class="language-java">repositories {
+//to import snapshots
+maven {url 'https://oss.sonatype.org/content/repositories/snapshots' }
+//to import releases
+//maven { url 'https://oss.sonatype.org/content/repositories/releases' }
+}
+dependencies {
+//Keyple core is a mandatory library for using Keyple, in this case import the last version of keyple-java-core
+implementation group: 'org.eclipse.keyple', name: 'keyple-java-core', version: '+'
+//Import Calypso library to support Calypso Portable Object, in this case import the last version of keyple-java-calypso
+implementation group: 'org.eclipse.keyple', name: 'keyple-java-calypso', version: '+'
+//Import PCSC library to use a Pcsc reader, in this case import the last version of keyple-java-plugin-pcsc
+implementation group: 'org.eclipse.keyple', name: 'keyple-java-plugin-pcsc', version: '+'
+}
+&lt;/code>&lt;/pre>
+&lt;p>Add the following statements to your build.gradle file to import Logger components into your project:&lt;/p>
+&lt;pre>&lt;code class="language-java">dependencies {
+implementation &amp;quot;org.slf4j:slf4j-simple:1.7.25&amp;quot;
+implementation &amp;quot;org.slf4j:slf4j-ext:1.7.25&amp;quot;
+}
+&lt;/code>&lt;/pre>
+&lt;p>Copy the source code below in a new Java Class named Demo_CalypsoTestKit_App2_Pcsc:&lt;/p>
+&lt;pre>&lt;code class="language-java">/********************************************************************************
+* Copyright (c) Calypso Networks Association 2020 https://www.calypsonet-asso.org/
+*
+* See the NOTICE file(s) distributed with this work for additional information regarding copyright
+* ownership.
+*
+* This program and the accompanying materials are made available under the terms of the Eclipse
+* Public License 2.0 which is available at http://www.eclipse.org/legal/epl-2.0
+*
+* SPDX-License-Identifier: EPL-2.0
+********************************************************************************/
+import org.eclipse.keyple.calypso.command.po.parser.ReadDataStructure;
+import org.eclipse.keyple.calypso.command.po.parser.ReadRecordsRespPars;
+import org.eclipse.keyple.calypso.command.sam.SamRevision;
+import org.eclipse.keyple.calypso.transaction.*;
+import org.eclipse.keyple.core.selection.*;
+import org.eclipse.keyple.core.seproxy.*;
+import org.eclipse.keyple.core.seproxy.exception.KeypleBaseException;
+import org.eclipse.keyple.core.seproxy.exception.KeypleReaderException;
+import org.eclipse.keyple.core.seproxy.exception.NoStackTraceThrowable;
+import org.eclipse.keyple.core.seproxy.protocol.SeCommonProtocols;
+import org.eclipse.keyple.core.util.ByteArrayUtil;
+import org.eclipse.keyple.plugin.pcsc.PcscPlugin;
+import org.eclipse.keyple.plugin.pcsc.PcscPluginFactory;
+import org.eclipse.keyple.plugin.pcsc.PcscProtocolSetting;
+import org.eclipse.keyple.plugin.pcsc.PcscReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+public class Demo_CalypsoTestKit_App2_Pcsc {
+private static final Logger logger =
+LoggerFactory.getLogger(Demo_CalypsoTestKit_App2_Pcsc.class);
+/* Plugin name */
+private final static String PLUGIN_NAME = &amp;quot;PcscPlugin&amp;quot;;
+/* PO Reader name */
+private final static String PO_READER_NAME = &amp;quot;ASK LoGO 0&amp;quot;;
+/* SAM Reader name */
+private final static String SAM_READER_NAME = &amp;quot;Identive CLOUD 2700 R Smart Card Reader 0&amp;quot;;
+/* AID: Keyple test kit profile 1, Application 2 */
+private final static String AID = &amp;quot;315449432E49434131&amp;quot;;
+private final static byte RECORD_NUMBER_1 = 1;
+private final static byte SFI_EnvironmentAndHolder = (byte) 0x07;
+public static void main(String[] args) throws KeypleBaseException, NoStackTraceThrowable {
+/* Get the instance of the SeProxyService (Singleton pattern) */
+SeProxyService seProxyService = SeProxyService.getInstance();
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= Configuration of the PO &amp;amp; SAM Readers =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+/* Assign PcscPlugin to the SeProxyService */
+seProxyService.registerPlugin(new PcscPluginFactory());
+/* Get the PcscPlugin */
+ReaderPlugin plugin = seProxyService.getPlugin(PcscPlugin.PLUGIN_NAME);
+/* Get the PO reader */
+SeReader poReader = plugin.getReader(PO_READER_NAME);
+/* Sets the PO reader parameters for contactless secure elements */
+setContactlessSettings(poReader);
+/* Get a SAM reader */
+SeReader samReader = plugin.getReader(SAM_READER_NAME);
+/* Sets the reader parameters for contacts secure elements */
+setContactsSettings(samReader);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= Opening logical channel with the SAM =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+/*
+* Open logical channel for the SAM inserted in the reader
+* (We expect the right is inserted)
+*/
+SamResource samResource = checkSamAndOpenChannel(samReader);
+/* Check if the readers exists */
+if (poReader == null || samResource == null) {
+throw new IllegalStateException(&amp;quot;Bad PO or SAM reader setup&amp;quot;);
+}
+logger.info(&amp;quot;======= Secure reading of Environment and Holder file &amp;amp; Po Authentication =======&amp;quot;);
+logger.info(&amp;quot;= PO Reader NAME = {}&amp;quot;, poReader.getName());
+logger.info(&amp;quot;= SAM Reader NAME = {}&amp;quot;, samResource.getSeReader().getName());
+/* Check if a PO is present in the reader */
+if (poReader.isSePresent()) {
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= Start of the Calypso PO processing. =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= 1st PO exchange =&amp;quot;);
+logger.info(
+&amp;quot;= AID based selection =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+/*
+* Prepare a Calypso PO selection
+*/
+SeSelection seSelection = new SeSelection();
+/*
+* Setting of an AID based selection of a Calypso REV3 PO
+*
+* Select the first application matching the selection AID whatever the SE communication protocol
+* Keep the logical channel open after the selection
+*
+* Calypso PO selection: configures a PoSelectionRequest with all the desired attributes to
+* make the selection and read additional information afterwards
+*/
+PoSelectionRequest poSelectionRequest = new PoSelectionRequest(
+new PoSelector( //the selector to target a particular SE
+SeCommonProtocols.PROTOCOL_ISO14443_4, // the SE communication protocol
+null, // the ATR filter
+new PoSelector.PoAidSelector( // the AID selection data
+new SeSelector.AidSelector.IsoAid(AID), // the application identifier
+PoSelector.InvalidatedPo.REJECT), // an enum value to indicate if an invalidated PO should be accepted or not
+&amp;quot;AID: &amp;quot;+ AID), // information string (to be printed in logs)
+ChannelState.KEEP_OPEN); // tell if the channel is to be closed or not after the command
+/*
+* Add the selection case to the current selection (we could have added other cases
+* here)
+*/
+seSelection.prepareSelection(poSelectionRequest);
+/*
+* Actual PO communication: operate through a single request the Calypso PO selection
+* and the file read
+*/
+SelectionsResult selectionsResult = seSelection.processExplicitSelection(poReader);
+if (selectionsResult.hasActiveSelection()) {
+MatchingSelection matchingSelection = selectionsResult.getActiveSelection();
+CalypsoPo calypsoPo = (CalypsoPo) matchingSelection.getMatchingSe();
+logger.info(&amp;quot;The selection of the PO has succeeded.&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= 2nd PO exchange =&amp;quot;);
+logger.info(
+&amp;quot;= Open a secure session =&amp;quot;);
+logger.info(
+&amp;quot;= Reading of Environment and Holder file (SFI=07h) =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+PoTransaction poTransaction = new PoTransaction(new PoResource(poReader, calypsoPo),
+samResource, new SecuritySettings());
+/*
+* Prepare the reading order and keep the associated parser for later use once the
+* transaction has been processed.
+*/
+int readEnvironmentAndHolderParserIndex = poTransaction.prepareReadRecordsCmd(
+SFI_EnvironmentAndHolder, // the sfi top select
+ReadDataStructure.SINGLE_RECORD_DATA, // read mode enum to indicate a SINGLE, MULTIPLE or COUNTER read
+RECORD_NUMBER_1, // the record number to read (or first record to read in case of several records)
+String.format( // extra information included in the logs (can be null or empty)
+&amp;quot;EventLog (SFI=%02X, recnbr=%d))&amp;quot;,
+SFI_EnvironmentAndHolder,
+RECORD_NUMBER_1));
+/*
+* Open Session for the debit key
+*/
+boolean poProcessStatus = poTransaction.processOpening(
+PoTransaction.ModificationMode.ATOMIC,
+PoTransaction.SessionAccessLevel.SESSION_LVL_DEBIT, (byte) 0, (byte) 0);
+if (!poProcessStatus) {
+throw new IllegalStateException(&amp;quot;processingOpening failure.&amp;quot;);
+}
+if (!poTransaction.wasRatified()) {
+logger.info(
+&amp;quot;=================== Previous Secure Session was not ratified ====================&amp;quot;);
+}
+/*
+* Retrieve the data read from the parser updated during the transaction process
+*/
+byte EnvironmentAndHolderLog[] = (((ReadRecordsRespPars) poTransaction
+.getResponseParser(readEnvironmentAndHolderParserIndex)).getRecords())
+.get((int) RECORD_NUMBER_1);
+/* Log the result */
+logger.info(&amp;quot;Environment And Holder file data: {}&amp;quot;, ByteArrayUtil.toHex(EnvironmentAndHolderLog));
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= 3th PO exchange =&amp;quot;);
+logger.info(
+&amp;quot;= Close the secure session =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+/*
+* Close the Secure Session.
+* A ratification command will be sent (CONTACTLESS_MODE).
+*/
+poProcessStatus = poTransaction.processClosing(ChannelState.CLOSE_AFTER);
+if (!poProcessStatus) {
+throw new IllegalStateException(&amp;quot;processClosing failure.&amp;quot;);
+}
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+logger.info(
+&amp;quot;= Successful mutual authentication =&amp;quot;);
+logger.info(
+&amp;quot;= End of the Calypso PO processing =&amp;quot;);
+logger.info(
+&amp;quot;=================================================================================&amp;quot;);
+} else {
+logger.error(&amp;quot;The selection of the PO has failed.&amp;quot;);
+}
+} else {
+logger.error(&amp;quot;No PO were detected.&amp;quot;);
+}
+System.exit(0);
+}
+/**
+* Sets the reader parameters for contactless secure elements
+*
+* @param reader the reader to configure
+* @throws KeypleBaseException in case of an error while settings the parameters
+*/
+private static void setContactlessSettings(SeReader reader) throws KeypleBaseException {
+/* Enable logging */
+reader.setParameter(PcscReader.SETTING_KEY_LOGGING, &amp;quot;true&amp;quot;);
+/* Contactless SE works with T1 protocol */
+reader.setParameter(PcscReader.SETTING_KEY_PROTOCOL, PcscReader.SETTING_PROTOCOL_T1);
+/*
+* PC/SC card access mode:
+* The PO reader is set to EXCLUSIVE mode to avoid side effects during the selection step
+* that may result in session failures.
+*/
+reader.setParameter(PcscReader.SETTING_KEY_MODE, PcscReader.SETTING_MODE_EXCLUSIVE);
+/* Set the PO reader protocol flag */
+reader.addSeProtocolSetting(
+SeCommonProtocols.PROTOCOL_ISO14443_4,
+PcscProtocolSetting.PCSC_PROTOCOL_SETTING.get(SeCommonProtocols.PROTOCOL_ISO14443_4));
+}
+/**
+* Sets the reader parameters for contacts secure elements
+*
+* @param reader the reader to configure
+* @throws KeypleBaseException in case of an error while settings the parameters
+*/
+private static void setContactsSettings(SeReader reader) throws KeypleBaseException {
+/* Enable logging */
+reader.setParameter(PcscReader.SETTING_KEY_LOGGING, &amp;quot;true&amp;quot;);
+/* Contactless SE works with T0 protocol */
+reader.setParameter(PcscReader.SETTING_KEY_PROTOCOL, PcscReader.SETTING_PROTOCOL_T0);
+/*
+* PC/SC card access mode:
+* The SAM is left in the SHARED mode (by default) to avoid automatic resets due to the
+* limited time between two consecutive exchanges granted by Windows.
+*/
+reader.setParameter(PcscReader.SETTING_KEY_MODE, PcscReader.SETTING_MODE_SHARED);
+/* Set the SAM reader protocol flag */
+reader.addSeProtocolSetting(
+SeCommonProtocols.PROTOCOL_ISO7816_3,
+PcscProtocolSetting.PCSC_PROTOCOL_SETTING.get(SeCommonProtocols.PROTOCOL_ISO7816_3));
+}
+/**
+* Check SAM presence and consistency and return a SamResource when everything is correct.
+*
+* Throw an exception if the expected SAM is not available
+*
+* @param samReader the SAM reader
+*/
+private static SamResource checkSamAndOpenChannel(SeReader samReader) {
+/*
+* Check the availability of the SAM doing a ATR based selection,
+* open its physical and logical channels,
+* keep it open
+*/
+SeSelection samSelection = new SeSelection();
+SamSelector samSelector = new SamSelector(SamRevision.C1, &amp;quot;.*&amp;quot;, &amp;quot;Selection SAM C1&amp;quot;);
+/* Prepare selector, ignore AbstractMatchingSe here */
+samSelection.prepareSelection(new SamSelectionRequest(samSelector, ChannelState.KEEP_OPEN));
+CalypsoSam calypsoSam;
+try {
+calypsoSam = (CalypsoSam) samSelection.processExplicitSelection(samReader)
+.getActiveSelection().getMatchingSe();
+if (!calypsoSam.isSelected()) {
+throw new IllegalStateException(&amp;quot;Unable to open a logical channel for SAM!&amp;quot;);
+}
+} catch (KeypleReaderException e) {
+throw new IllegalStateException(&amp;quot;SAM Reader exception: &amp;quot; + e.getMessage());
+}
+return new SamResource(samReader, calypsoSam);
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Copy the properties file below in a new properties file named simplelogger.properties in resources. The application log output format is configurable in this properties files.&lt;/p>
+&lt;pre>&lt;code class="language-properties"># SLF4J's SimpleLogger configuration file
+# Simple implementation of Logger that sends all enabled log messages, for all defined loggers, to System.err.
+# Default logging detail level for all instances of SimpleLogger.
+# Must be one of (&amp;quot;trace&amp;quot;, &amp;quot;debug&amp;quot;, &amp;quot;info&amp;quot;, &amp;quot;warn&amp;quot;, or &amp;quot;error&amp;quot;).
+# If not specified, defaults to &amp;quot;info&amp;quot;.
+org.slf4j.simpleLogger.defaultLogLevel=trace
+# Logging detail level for a SimpleLogger instance named &amp;quot;xxxxx&amp;quot;.
+# Must be one of (&amp;quot;trace&amp;quot;, &amp;quot;debug&amp;quot;, &amp;quot;info&amp;quot;, &amp;quot;warn&amp;quot;, or &amp;quot;error&amp;quot;).
+# If not specified, the default logging detail level is used.
+#org.slf4j.simpleLogger.log.xxxxx=
+# Set to true if you want the current date and time to be included in output messages.
+# Default is false, and will output the number of milliseconds elapsed since startup.
+org.slf4j.simpleLogger.showDateTime=true
+# The date and time format to be used in the output messages.
+# The pattern describing the date and time format is the same that is used in java.text.SimpleDateFormat.
+# If the format is not specified or is invalid, the default format is used.
+# The default format is yyyy-MM-dd HH:mm:ss:SSS Z.
+org.slf4j.simpleLogger.dateTimeFormat=[HH:mm:ss:SSS]
+# Set to true if you want to output the current thread name.
+# Defaults to true.
+org.slf4j.simpleLogger.showThreadName=true
+# Set to true if you want the Logger instance name to be included in output messages.
+# Defaults to true.
+org.slf4j.simpleLogger.showLogName=false
+# Set to true if you want the last component of the name to be included in output messages.
+# Defaults to false.
+org.slf4j.simpleLogger.showShortLogName=true
+org.slf4j.simpleLogger.levelInBrackets=true
+&lt;/code>&lt;/pre>
+&lt;h2 id="run">Run&lt;/h2>
+&lt;p>Connect your PO and SAM readers.&lt;/p>
+&lt;p>Put the SAM in the SAM reader.&lt;/p>
+&lt;p>Place the PO on the PO reader.&lt;/p>
+&lt;p>Configure the PO and SAM readers you use in the java file (you have to respect the case for the reader name) :&lt;/p>
+&lt;pre>&lt;code class="language-java"> /* PO Reader name */
+private final static String PO_READER_NAME = &amp;quot;XXX&amp;quot;;
+/* SAM Reader name */
+private final static String SAM_READER_NAME = &amp;quot;XXX&amp;quot;;
+&lt;/code>&lt;/pre>
+&lt;p>If you don’t know the reader name, run the application in debug mode and get the reader name in plugin variable returned by:&lt;/p>
+&lt;blockquote>
+&lt;p>seProxyService.getPlugin(PLUGIN_NAME) methode: plugin -&amp;gt; readers -&amp;gt; X -&amp;gt; terminal -&amp;gt; name .&lt;/p>
+&lt;/blockquote>
+&lt;p>Run the application.&lt;/p>
+&lt;p>Note: All project dependencies, including Keyple components, are downloaded during the first run, which can take several minutes.&lt;/p></description></item><item><title>Build your First Android Application</title><link>/keyple-website/docs/build-your-first-app/android-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/build-your-first-app/android-app/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Keyple SDK is supported by the Operating System Android. As Keyple request low level reader access, the key features of
+the SDK relies on components called &amp;lsquo;Plugins&amp;rsquo;.&lt;/p>
+&lt;p>Keyple Android Plugins are low level implementation of Keyple contracts described in the section &amp;lsquo;Develop a plugin&amp;rsquo; in Developer
+guide. Once a plugin is provided, any classic Android application can use Keyple to provide ticketing features.&lt;/p>
+&lt;p>This Guide will describe how to start a ticketing application using Keyple SDK.&lt;/p>
+&lt;h2 id="compatibility">Compatibility&lt;/h2>
+&lt;ul>
+&lt;li>Android OS 19+&lt;/li>
+&lt;/ul>
+&lt;h1 id="integration">Integration&lt;/h1>
+&lt;h2 id="sdk-integration">SDK Integration&lt;/h2>
+&lt;h3 id="keyple-core">Keyple Core&lt;/h3>
+&lt;p>This high-level API is convenient for developers implementing smart card processing application for terminal interfaced
+with smart card readers. Access to the readers is provided by the plugins.&lt;/p>
+&lt;p>To use Keyple core API (and in fact, anything keyple&amp;rsquo;s related) import the jar within the gradle dependencies of your
+Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>Please refer to Architecture/Keyle Core&lt;/p>
+&lt;h3 id="keyple-plugins">Keyple Plugins&lt;/h3>
+&lt;p>There are many Keyple plugins available, the one to use depends on the device and ticketing tools you are aiming to
+use.&lt;/p>
+&lt;p>For a standard device the keyple-android-plugin-nfc and keyple-android-plugin-omapi should be be used. They will allow keyple to
+connect to, respectively, a smart card in the NFC field of the device or, a smart card inserted in a SIM like port. The
+plugins for Android are Android Libraries (AAR).&lt;/p>
+&lt;p>To use the plugins simply import it within the gradle dependencies of your Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h3 id="keyple-calypso">Keyple Calypso&lt;/h3>
+&lt;p>The Keyple Calypso User API is an extension of the Keyple Core User API to manage Calypso Portable Object securely using
+Calypso SAM.&lt;/p>
+&lt;p>Please refer to Architecture/Keyle Calypso&lt;/p>
+&lt;p>To use Keyple Calypso User API simply import the jar within the gradle dependencies of your Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h2 id="initializing-the-sdk">Initializing the SDK&lt;/h2>
+&lt;h3 id="register-a-plugin">Register a plugin&lt;/h3>
+&lt;p>The Singleton SeProxyService is the entry point of the SE Proxy Service, its instance has to be called by a
+ticketing application in order to establish a link with a SE’s application.&lt;/p>
+&lt;p>In order to access to SE we have to register at least one plugin.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+/* register Omapi Plugin to the SeProxyService */
+try {
+SeProxyService.getInstance().registerPlugin(AndroidOmapiPluginFactory(this))
+} catch (e: KeyplePluginInstantiationException) {
+/* do something with it */
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="retrieve-the-readers">Retrieve the readers&lt;/h3>
+&lt;p>With the plugin registered we can retrieve all instance of the component mapping the smartcard readers provided by this
+plugins. For example, some plugins provide access to contact and contactless readers)&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME is a constant provided by the keyple plugin
+val readers = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).readers
+&lt;/code>&lt;/pre>
+&lt;h3 id="retrieve-one-specific-reader">Retrieve one specific reader&lt;/h3>
+&lt;p>It is also possible to retrieve a specific reader.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME and READER_NAME are constants provided by the used keyple plugin
+val reader = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).getReader(READER_NAME)
+&lt;/code>&lt;/pre>
+&lt;h2 id="select-a-po">Select a PO&lt;/h2>
+&lt;h3 id="seproxy-api">SeProxy API&lt;/h3>
+&lt;p>Using a reader, it is possible to select a PO using its AID. Here we use the low level SeProxy API of Keyple core to do so.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin"> /*
+* Configuration of the selector
+* Setting of an AID based selection of a Calypso REV3 PO
+*/
+val seSelector = SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
+.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
+.build()
+//build the request by passing the seSelector.
+//As second parameter of the SeRequest consctructor, an APDU can be added to be executed
+//right after the selection.
+val seRequest = SeRequest(seSelector, null)
+//A ProxyReader is a physical reader, it allows to send and receive synchronised APDUS
+val seResponse = (reader.value as ProxyReader).transmitSeRequest(seRequest, ChannelControl.KEEP_OPEN)
+//Check is selection is successful
+if (seResponse?.selectionStatus?.hasMatched() == true) {
+//Selection is done
+} else {
+//Selection failed
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="selection-api">Selection API&lt;/h3>
+&lt;p>The bellow example illustrates the same operation using the Selection API, an higher level API of Keyple Core.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">var seSelection = SeSelection()
+/*
+* Close the channel after the selection
+*/
+seSelection.prepareReleaseSeChannel()
+/*
+* AID based selection: get the first application occurrence matching the AID, keep the
+* physical channel open
+*/
+seSelection.prepareSelection(GenericSeSelectionRequest(
+SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(AidSelector.builder()
+.aidToSelect(seAidPrefix)
+.fileOccurrence(AidSelector.FileOccurrence.FIRST)
+.fileControlInformation(AidSelector.FileControlInformation.FCI).build())
+.build()))
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Execution og the selection
+*/
+val selectionsResult = seSelection.processExplicitSelection(reader)
+/**
+* Check if PO has been selected successfuly
+*/
+if (selectionsResult.hasActiveSelection()) {
+//Selection is done
+val matchedSe = selectionsResult.activeMatchingSe
+val fci = matchedSe.fciBytes
+val atr = matchedSe.atrBytes
+} else {
+//Selection failed
+}
+&lt;/code>&lt;/pre>
+&lt;h2 id="reading-and-writing-data">Reading and writing data&lt;/h2>
+&lt;h3 id="reading-environment-and-usage">Reading Environment and usage&lt;/h3>
+&lt;p>Exemple of reading Environmement and usage data of an Hoplink application. As Hoplink is a calypso application, we can map
+cast the result of the selection with CalypsoPo. It will allow us to easily access calypso datas.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">var poAid= &amp;quot;A000000291A000000191&amp;quot;
+val sfiHoplinkEFEnvironment = 0x14.toByte()
+val sfiHoplinkEFUsage = 0x1A.toByte()
+/*
+* Prepare a Calypso PO selection
+*/
+val seSelection = SeSelection()
+/*
+* Setting of an AID based selection of a Calypso REV3 PO
+*
+* Select the first application matching the selection AID whatever the SE
+* communication protocol keep the logical channel open after the selection
+*/
+/*
+* Calypso selection: configures a PoSelectionRequest with all the desired
+* attributes to make the selection and read additional information afterwards
+*/
+val poSelectionRequest = PoSelectionRequest(
+PoSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
+.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
+.invalidatedPo(InvalidatedPo.REJECT).build())
+/*
+* Prepare the reading order and keep the associated parser for later use once
+* the selection has been made.
+*/
+poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFEnvironment, 1)
+poSelectionRequest.prepareReadRecordFile(
+sfiHoplinkEFUsage, 1)
+/*
+* Add the selection case to the current selection (we could have added other
+* cases here)
+*
+* Ignore the returned index since we have only one selection here.
+*/
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Actual PO communication: operate through a single request the Calypso PO
+* selection and the file read
+*/
+try {
+val selectionsResult = seSelection.processExplicitSelection(seReader)
+if (selectionsResult.hasActiveSelection()) {
+val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
+val environmentAndHolder = calypsoPo.getFileBySfi(sfiHoplinkEFEnvironment).data.content
+val usage = calypsoPo.getFileBySfi(sfiHoplinkEFUsage).data.content
+} else {
+//The selection of the PO Failed
+}
+} catch (e: Exception) {
+//The selection of the PO Failed with an error
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="incrementing-a-counter">Incrementing a counter&lt;/h3>
+&lt;p>In this example, we&amp;rsquo;ll increase Counter 1 by 10 on a contactless ticketing NFC PO. The counter will be increased
+when the PO will enter NFC Field.&lt;/p>
+&lt;h4 id="setup-to-catch-reader-event">Setup to catch reader event&lt;/h4>
+&lt;pre>&lt;code class="language-kotlin">/*
+* In order to received readers events (Inserted, removed etc..), the interface ObservableReader.ReaderObserver must be
+* implemented.
+*
+*/
+import org.eclipse.keyple.core.seproxy.event.ObservableReader
+import org.eclipse.keyple.core.seproxy.event.ReaderEvent
+class MainActivity : ObservableReader.ReaderObserver{
+//Initialise Android NFC Reader
+override fun initReaders() {
+// Initialize SEProxy with Android Plugins
+val nfcPlugin = SeProxyService.getInstance().registerPlugin(AndroidNfcPluginFactory())
+//Example of plugin for device with a sam reader
+val samPlugin = SeProxyService.getInstance().registerPlugin(AndroidFamocoPluginFactory())
+// Configuration of AndroidNfc Reader
+poReader = nfcPlugin.getReader(AndroidNfcReader.READER_NAME) as AndroidNfcReader
+poReader.setParameter(&amp;quot;FLAG_READER_RESET_STATE&amp;quot;, &amp;quot;0&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_PRESENCE_CHECK_DELAY&amp;quot;, &amp;quot;100&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_NO_PLATFORM_SOUNDS&amp;quot;, &amp;quot;0&amp;quot;)
+poReader.setParameter(&amp;quot;FLAG_READER_SKIP_NDEF_CHECK&amp;quot;, &amp;quot;0&amp;quot;)
+(poReader as ObservableReader).addObserver(this)
+(poReader as ObservableReader).addSeProtocolSetting(SeCommonProtocols.PROTOCOL_ISO14443_4,
+AndroidNfcProtocolSettings.getSetting(SeCommonProtocols.PROTOCOL_ISO14443_4))
+}
+// Reader event will be caught in this method
+override fun update(event: ReaderEvent?) {
+CoroutineScope(Dispatchers.Main).launch {
+when (event?.eventType) {
+ReaderEvent.EventType.SE_MATCHED -&amp;gt; {
+//PO with set AID detected
+samReader.setParameter(AndroidFamocoReader.FLAG_READER_RESET_STATE, &amp;quot;&amp;quot;)
+val samResource = checkSamAndOpenChannel(samReader)
+val selectionsResult = seSelection.processDefaultSelection(event.defaultSelectionsResponse)
+if (selectionsResult.hasActiveSelection()) {
+val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
+val poTransaction = PoTransaction(SeResource(poReader, calypsoPo), getSecuritySettings(samResource))
+when (transactionType) {
+TransactionType.INCREASE -&amp;gt; {
+/*
+* Open Session for the debit key
+*/
+poTransaction.processOpening(PoTransaction.SessionSetting.AccessLevel.SESSION_LVL_LOAD)
+poTransaction.prepareReadRecordFile(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
+poTransaction.processPoCommandsInSession()
+//Process PO increase counter by 10
+poTransaction.prepareIncreaseCounter(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt(), 10)
+poTransaction.processClosing(ChannelControl.CLOSE_AFTER)
+addResultEvent(&amp;quot;Increase by 10: SUCCESS&amp;quot;)
+}
+}
+}
+//Notifying Keyple that we handled event
+(poReader as ObservableReader).notifySeProcessed()
+}
+ReaderEvent.EventType.SE_INSERTED -&amp;gt; {
+//PO detected but AID didn't match with AID set
+//Notifying Keyple that we handled event
+(poReader as ObservableReader).notifySeProcessed()
+}
+ReaderEvent.EventType.SE_REMOVED -&amp;gt; {
+//Action when SE is Removed
+}
+ReaderEvent.EventType.TIMEOUT_ERROR -&amp;gt; {
+//Action when timeout with SE
+}
+}
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="launch-detection">Launch detection&lt;/h4>
+&lt;pre>&lt;code class="language-kotlin"> /* Prepare a Calypso PO selection */
+val seSelection = SeSelection(MultiSeRequestProcessing.FIRST_MATCH)
+/* Calypso selection: configures a PoSelector with all the desired attributes to make the selection and read additional information afterwards */
+val poSelectionRequest = PoSelectionRequest(PoSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(SeSelector.AidSelector.builder().aidToSelect(CalypsoClassicInfo.AID).build())
+.invalidatedPo(PoSelector.InvalidatedPo.REJECT).build())
+/* Prepare the reading order */
+poSelectionRequest.prepareReadRecordFile(CalypsoClassicInfo.SFI_EnvironmentAndHolder, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
+/*
+* Add the selection request to the current selection (we could have added other request
+* here)
+*/
+seSelection.prepareSelection(poSelectionRequest)
+/*
+* Provide the SeReader with the selection operation to be processed when a PO is
+* inserted.
+*/
+(poReader as ObservableReader).setDefaultSelectionRequest(seSelection.selectionOperation,
+ObservableReader.NotificationMode.MATCHED_ONLY)
+// notify reader that se detection has been launched
+poReader.startSeDetection(ObservableReader.PollingMode.REPEATING)
+&lt;/code>&lt;/pre>
+&lt;p>#FAQ:&lt;/p>
+&lt;p>When should I use the Selection API instead of SeProxy API?&lt;/p></description></item><item><title>Build your First C++ Application</title><link>/keyple-website/docs/build-your-first-app/cpp-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/build-your-first-app/cpp-app/</guid><description/></item></channel></rss>

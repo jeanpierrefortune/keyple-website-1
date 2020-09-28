@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Guides | Eclipse Keyple</title><link>/keyple-website/docs/developer-guide/</link><atom:link href="/keyple-website/docs/developer-guide/index.xml" rel="self" type="application/rss+xml"/><description>Developer Guides</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><image><url>/keyple-website/images/logo_hu673a59176cd62c570f44ed2728665b48_42188_300x300_fit_lanczos_2.png</url><title>Developer Guides</title><link>/keyple-website/docs/developer-guide/</link></image><item><title>(WIP)Develop a Ticketing Application</title><link>/keyple-website/docs/developer-guide/develop-ticketing-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/developer-guide/develop-ticketing-app/</guid><description>&lt;h2 id="test-shortcode-java-kotlin-cpp">Test shortcode &amp;ldquo;java-kotlin-cpp&amp;rdquo;&lt;/h2>
+&lt;section class="project-tab" id="tabs">
+&lt;div class="container" style="margin: 0; padding: 0">
+&lt;div class="flex-row">
+&lt;div>
+&lt;nav>
+&lt;div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+&lt;a aria-controls="nav-java" aria-selected="true" class="nav-item nav-link active"
+data-toggle="tab" href="#nav-java" id="nav-java-tab" role="tab">
+JAVA
+&lt;/a>
+&lt;a aria-controls="nav-kotlin" aria-selected="false" class="nav-item nav-link" data-toggle="tab"
+href="#nav-kotlin" id="nav-kotlin-tab" role="tab">
+KOTLIN
+&lt;/a>
+&lt;a aria-controls="nav-cpp" aria-selected="false" class="nav-item nav-link" data-toggle="tab"
+href="#nav-cpp" id="nav-cpp-tab" role="tab">
+C++
+&lt;/a>
+&lt;/div>
+&lt;/nav>
+&lt;div class="tab-content" id="nav-tabContent">
+&lt;div aria-labelledby="nav-java-tab" class="tab-pane fade show active" id="nav-java" role="tabpanel">
+&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">SelectionsResult selectionsResult &lt;span style="color:#f92672">=&lt;/span> seSelection&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">processExplicitSelection&lt;/span>&lt;span style="color:#f92672">(&lt;/span>reader&lt;span style="color:#f92672">);&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">(&lt;/span>selectionsResult&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">hasActiveSelection&lt;/span>&lt;span style="color:#f92672">())&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+MatchingSe matchingSe &lt;span style="color:#f92672">=&lt;/span> selectionsResult&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">getActiveMatchingSe&lt;/span>&lt;span style="color:#f92672">();&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div aria-labelledby="nav-kotlin-tab" class="tab-pane fade" id="nav-kotlin" role="tabpanel">
+&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-kt" data-lang="kt">&lt;span style="color:#66d9ef">val&lt;/span> selectionsResult = seSelection.processExplicitSelection(reader)
+&lt;span style="color:#66d9ef">if&lt;/span> (selectionsResult.hasActiveSelection()) {
+&lt;span style="color:#66d9ef">val&lt;/span> matchingSe = selectionsResult.activeMatchingSe
+}&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div aria-labelledby="nav-cpp-tab" class="tab-pane fade" id="nav-cpp" role="tabpanel">
+&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#66d9ef">if&lt;/span> (selectionResult&lt;span style="color:#f92672">-&amp;gt;&lt;/span>hasActiveSelection()) {
+std&lt;span style="color:#f92672">::&lt;/span>shared_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>MatchingSelection&lt;span style="color:#f92672">&amp;gt;&lt;/span> matchingSelection &lt;span style="color:#f92672">=&lt;/span>
+selectionResult&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getActiveSelection();
+std&lt;span style="color:#f92672">::&lt;/span>shared_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>CalypsoPo&lt;span style="color:#f92672">&amp;gt;&lt;/span> calypsoPo &lt;span style="color:#f92672">=&lt;/span>
+std&lt;span style="color:#f92672">::&lt;/span>dynamic_pointer_cast&lt;span style="color:#f92672">&amp;lt;&lt;/span>CalypsoPo&lt;span style="color:#f92672">&amp;gt;&lt;/span>(
+matchingSelection&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getMatchingSe());
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;h2 id="standard-code-insertion">Standard code insertion&lt;/h2>
+&lt;pre>&lt;code class="language-kotlin">//nativeReader is an instance of android.se.omapi.Reader
+override fun checkSePresence(): Boolean {
+return nativeReader.isSecureElementPresent
+}
+&lt;/code>&lt;/pre></description></item><item><title>(WIP)Develop a Plugin</title><link>/keyple-website/docs/developer-guide/develop-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/developer-guide/develop-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
+illustrate the creation processus using the implementation of the Android NFC Plugin and OMAPI plugins.
+This plugins can be consulted with the keyple-java/android repository.&lt;/p>
+&lt;h2 id="imports">Imports&lt;/h2>
+&lt;p>Your plugin will use be based upon Keyple Core libraries:&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;h2 id="implement-keyple-reader">Implement Keyple Reader&lt;/h2>
+&lt;p>The basis component of a Keyple plugin is the implementation of an AbstractLocalReader. The AbstractLocalReader implementation will map the native reader&amp;rsquo;s
+features of the device to Keyple Reader component allowing to be used within the Keyple suite.&lt;/p>
+&lt;p>The &amp;lsquo;local&amp;rsquo; in AbstractLocalReader is used to specify devices physicaly connected to the device.&lt;/p>
+&lt;p>Relying on native libraries capacities of the device, implementations to be done are:&lt;/p>
+&lt;ul>
+&lt;li>checkSePresence()&lt;/li>
+&lt;li>getATR()&lt;/li>
+&lt;li>openPhysicalChannel()&lt;/li>
+&lt;li>closePhysicalChannel()&lt;/li>
+&lt;li>isPhysicalChannelOpen()&lt;/li>
+&lt;li>ProtocolFlagMatches()&lt;/li>
+&lt;li>TransmitApdu&lt;/li>
+&lt;/ul>
+&lt;p>###Examples&lt;/p>
+&lt;h4 id="checksepresence">checkSePresence()&lt;/h4>
+&lt;p>Allow Keyple to check if the secure elements is inserted or in the NFC field of the device.&lt;/p>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//nativeReader is an instance of android.se.omapi.Reader
+override fun checkSePresence(): Boolean {
+return nativeReader.isSecureElementPresent
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//When a SE is presented in the NFC field, we can get a tagproxy object. When the SE is removed,
+//this value is reinited. So when it is not null, we can assume the SE is currently in the field.
+public override fun checkSePresence(): Boolean {
+return tagProxy != null
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="getatr">getAtr()&lt;/h4>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//Session is a native object of android.se.omapi package
+override fun getATR(): ByteArray? {
+return session?.let {
+it.atr
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//TagProxy is an object mapping android.nfc.tech.TagTechnology. Atr is obtained from data of this object (epending of protocol)
+public override fun getATR(): ByteArray? {
+val atr = tagProxy?.atr
+return if (atr?.isNotEmpty() == true) atr else null
+}
+&lt;/code>&lt;/pre>
+&lt;h4 id="openphysicalchannel">openPhysicalChannel()&lt;/h4>
+&lt;p>OMAPI Exemple&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">@Throws(KeypleReaderIOException::class)
+override fun openPhysicalChannel() {
+try {
+session = nativeReader.openSession()
+} catch (e: IOException) {
+throw KeypleReaderIOException(&amp;quot;IOException while opening physical channel.&amp;quot;, e)
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Android NFC Example&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">@Throws(KeypleReaderIOException::class)
+public override fun openPhysicalChannel() {
+if (tagProxy?.isConnected != true) {
+try {
+tagProxy?.connect()
+} catch (e: IOException) {
+throw KeypleReaderIOException(&amp;quot;Error while opening physical channel&amp;quot;, e)
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Also, this implementation could be done extending AbstractObservableLocalReader. It provides :&lt;/p>
+&lt;ul>
+&lt;li>State machine regarding SE event: &amp;lsquo;WAIT_FOR_START_DETECTION&amp;rsquo;, &amp;lsquo;WAIT_FOR_SE_INSERTION&amp;rsquo;&amp;hellip;&lt;/li>
+&lt;li>Extended readers features
+&lt;ul>
+&lt;li>Smart Insertion Reader: Allow to detect SE insertion&lt;/li>
+&lt;li>Smart Removal Reader: Allow to detect SE Removal&lt;/li>
+&lt;li>Smart Selection Reader: Allow to use native SE selection process&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>(WIP)Develop an Extension</title><link>/keyple-website/docs/developer-guide/develop-extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/developer-guide/develop-extension/</guid><description/></item><item><title>Migration Guide - Keyple Java 0.8.1 to 0.9.0</title><link>/keyple-website/docs/developer-guide/migration-0.8.1-to-0.9.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/developer-guide/migration-0.8.1-to-0.9.0/</guid><description>&lt;p>This guide is intended to help a user of version 0.8.1 of Keyple Java to upgrade his application to the 0.9 alpha version of the library.&lt;/p>
+&lt;p>From a user API point of view, the changes relate to the following topics:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;a href="#plugin-registration-in-the-seproxyservice">plugin registration in the SeProxyService&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#preparation-of-selection-cases">preparation of selection cases&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#retrieving-selection-results">retrieving selection results&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#definition-of-the-security-settings-of-the-transaction">definition of the security settings of the transaction&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#creation-of-the-potransaction-object">creation of the PoTransaction object&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#transaction-commands-preparation">transaction commands preparation&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#transaction-commands-processing">transaction commands processing&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#retrieving-data-read-from-pos">retrieving data read from POs&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="#error-handling">error handling&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="plugin-registration-in-the-seproxyservice">Plugin registration in the SeProxyService&lt;/h2>
+&lt;p>The &lt;code>registerPlugin&lt;/code> method of the &lt;code>SeProxyService&lt;/code> class now returns the reference of the registered plugin.&lt;/p>
+&lt;p>This makes it possible, for example, to perform a reader setup in an application such as this one:&lt;/p>
+&lt;pre>&lt;code class="language-java"> // Create a PcscPlugin and register it into the SeProxyService
+ReaderPlugin pcscPlugin = seProxyService.registerPlugin(new PcscPluginFactory());`
+// Get the PO reader from the plugin
+SeReader poReader = pcscPlugin.getReader(&amp;quot;ASK LoGO 0&amp;quot;);
+&lt;/code>&lt;/pre>
+&lt;h2 id="preparation-of-selection-cases">Preparation of selection cases&lt;/h2>
+&lt;p>The &lt;code>AidSelector&lt;/code>, &lt;code>Selector&lt;/code> and &lt;code>PoSelector&lt;/code> classes now follow the Fluent Builder pattern for better handling of optional parameters.&lt;/p>
+&lt;p>The construction of an &lt;code>AidSelector&lt;/code> is as follows:&lt;/p>
+&lt;pre>&lt;code class="language-java">AidSelector appAidSelector = AidSelector.builder()
+.aidToSelect(AID)
+.fileControlInformation(AidSelector.FileControlInformation.FCI)
+.fileOccurrence(AidSelector.FileOccurrence.FIRST)
+.build();
+&lt;/code>&lt;/pre>
+&lt;p>The &lt;code>fileControlInformation&lt;/code> and &lt;code>fileOccurrence&lt;/code> fields are optional (shown here with their default values), so a simple version can be :&lt;/p>
+&lt;pre>&lt;code class="language-java">AidSelector aidSelector = AidSelector.builder().aidToSelect(CalypsoClassicInfo.AID).build();
+&lt;/code>&lt;/pre>
+&lt;p>The construction of a &lt;code>SeSelector&lt;/code> is as follows:&lt;/p>
+&lt;pre>&lt;code class="language-java">seSelector = SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(appAidSelector)
+.build();
+&lt;/code>&lt;/pre>
+&lt;p>The &lt;code>PoSelector&lt;/code> adds the possibility to specify that an invalidated PO should be processed&lt;/p>
+&lt;pre>&lt;code class="language-java">seSelector = SeSelector.builder()
+.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
+.aidSelector(appAidSelector)
+.invalidatedPo(InvalidatedPo.ACCEPT)
+.build();
+&lt;/code>&lt;/pre>
+&lt;p>The management of PO commands to be performed after the selection step (when it has been successful) is handled by the methods of the &lt;code>PoSelectionRequest&lt;/code> class:&lt;/p>
+&lt;ul>
+&lt;li>preparing to read files has been simplified and is done using the unique following method:&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-java">public void prepareReadRecordFile(byte sfi, int recordNumber)
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>preparing to select files is done using the following method:&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-java">public void prepareSelectFile(byte[] lid)
+public void prepareSelectFile(short lid)
+&lt;/code>&lt;/pre>
+&lt;p>Note that from now the &amp;ldquo;prepare&amp;rdquo; methods no longer return indexes, the data will be placed in the CalypsoPo object.&lt;/p>
+&lt;h2 id="retrieving-selection-results">Retrieving selection results&lt;/h2>
+&lt;p>The &lt;code>MatchingSelection&lt;/code> class no longer exists.
+In the class &lt;code>SelectionsResult&lt;/code> (see &lt;code>processDefaultSelection/processExplicitSelection&lt;/code>):&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>getActiveSelection&lt;/code> is replaced by &lt;code>getActiveMatchingSe&lt;/code> which returns an &lt;code>AbstractMatchingSe&lt;/code> object (the still existing &lt;code>hasActiveSelection&lt;/code> method must be used before)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>getMatchingSelection&lt;/code> is replaced by &lt;code>getMatchingSe&lt;/code> which returns an &lt;code>AbstractMatchingSe&lt;/code> object (may be null if the index provided does not correspond to a successful selection case)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>getMatchingSelections&lt;/code> now returns a Map containing a list of associated &lt;code>AbstractMatchingSe&lt;/code> with the selection index that produced it (&lt;code>Map&amp;lt;Integer, AbstractMatchingSe&amp;gt;&lt;/code>)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>a new &lt;code>hasSelectionMatched&lt;/code> method indicates whether the selection index provided corresponds to a successful selection case&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>a new &lt;code>getActiveSelectionIndex&lt;/code> method returns the index of the active selection (the still existing &lt;code>hasActiveSelection&lt;/code> method must be used before)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="definition-of-the-security-settings-of-the-transaction">Definition of the security settings of the transaction&lt;/h2>
+&lt;p>These parameters are defined via the &lt;code>PoSecuritySettings&lt;/code> class, whose construction now follows the Fluent Builder pattern.&lt;/p>
+&lt;p>All parameters are optional except the &lt;code>SamResource&lt;/code>.&lt;/p>
+&lt;p>Here is an example of a complete &lt;code>PoSecuritySettings&lt;/code> build:&lt;/p>
+&lt;pre>&lt;code class="language-java">poSecuritySettings = new PoSecuritySettings.PoSecuritySettingsBuilder(samResource)
+.sessionDefaultKif(AccessLevel.SESSION_LVL_PERSO, DEFAULT_KIF_PERSO)
+.sessionDefaultKif(AccessLevel.SESSION_LVL_LOAD, DEFAULT_KIF_LOAD)
+.sessionDefaultKif(AccessLevel.SESSION_LVL_DEBIT, DEFAULT_KIF_DEBIT)
+.sessionDefaultKeyRecordNumber(AccessLevel.SESSION_LVL_PERSO, DEFAULT_KEY_RECORD_NUMBER_PERSO)
+.sessionDefaultKeyRecordNumber(AccessLevel.SESSION_LVL_LOAD, DEFAULT_KEY_RECORD_NUMBER_LOAD)
+.sessionDefaultKeyRecordNumber(AccessLevel.SESSION_LVL_DEBIT, DEFAULT_KEY_RECORD_NUMBER_DEBIT)
+.sessionModificationMode(ModificationMode.ATOMIC)
+.ratificationMode(RatificationMode.CLOSE_RATIFIED)
+.sessionAuthorizedKvcList(authKvcs)
+.build();
+&lt;/code>&lt;/pre>
+&lt;h2 id="creation-of-the-potransaction-object">Creation of the PoTransaction object&lt;/h2>
+&lt;p>Since PoSecuritySettings now integrates SamResource, the construction of PoTransaction has evolved slightly.&lt;/p>
+&lt;p>Here is an example:&lt;/p>
+&lt;pre>&lt;code class="language-java">PoTransaction poTransaction = new PoTransaction(new PoResource(poReader, calypsoPo), poSecuritySettings);
+&lt;/code>&lt;/pre>
+&lt;h2 id="transaction-commands-preparation">Transaction commands preparation&lt;/h2>
+&lt;p>Just as with the &amp;ldquo;prepare&amp;rdquo; commands used for selection, the &amp;ldquo;prepare&amp;rdquo; commands used for transactions no longer return indexes.&lt;/p>
+&lt;p>The available commands in version 0.9 are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public final void prepareSelectFile(SelectFileControl control)
+public final void prepareSelectFile(short lid)
+public final void prepareSelectFile(byte[] lid)
+public final void prepareReadRecordFile(byte sfi, int recordNumber)
+public final void prepareReadRecordFile(byte sfi, int firstRecordNumber, int numberOfRecords, int recordSize))
+public final void prepareReadCounterFile(byte sfi, int countersNumber)
+public final void prepareUpdateRecord(byte sfi, int recordNumber, byte[] recordData)
+public final void prepareWriteRecord(byte sfi, int recordNumber, byte[] recordData)
+public final void prepareAppendRecord(byte sfi, byte[] recordData)
+public final void prepareIncreaseCounter(byte sfi, int counterNumber, int incValue)
+public final void prepareDecreaseCounter(byte sfi, int counterNumber, int decValue)
+&lt;/code>&lt;/pre>
+&lt;h2 id="transaction-commands-processing">Transaction commands processing&lt;/h2>
+&lt;p>The &amp;ldquo;process&amp;rdquo; commands have also been revised and simplified.&lt;/p>
+&lt;p>They all return &lt;code>void&lt;/code>.&lt;/p>
+&lt;p>In case of failure a exception is raised (see below).&lt;/p>
+&lt;pre>&lt;code class="language-java">public final void processOpening(PoTransaction.SessionSetting.AccessLevel accessLevel)
+&lt;/code>&lt;/pre>
+&lt;p>The &lt;code>ModificationMode&lt;/code> is no longer required since it is integrated in the &lt;code>PoSecuritySettings&lt;/code>.&lt;/p>
+&lt;p>Parameters previously used to specify that a file is read at login are removed.&lt;/p>
+&lt;p>Instead, the first prepareReadFile command will be automatically taken into account.&lt;/p>
+&lt;pre>&lt;code class="language-java">public final void processPoCommands()
+public final void processPoCommandsInSession()
+public final void processCancel(ChannelControl channelControl)
+public final void processClosing(ChannelControl channelControl)
+&lt;/code>&lt;/pre>
+&lt;h2 id="retrieving-data-read-from-pos">Retrieving data read from POs&lt;/h2>
+&lt;p>This is a major evolution of the Keyple API. Previously, data read from Calyspo POs were retrieved by applications using &amp;ldquo;parser&amp;rdquo; methods.&lt;/p>
+&lt;p>With Keyple API 0.9, Calypso PO data is made available in the CalypsoPo object obtained during selection and enriched all along the operations performed with PoTransaction.&lt;/p>
+&lt;p>The public getter methods of CalypsoPo are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public final String getDfName()
+public final byte[] getDfNameBytes()
+public final String getApplicationSerialNumber()
+public final byte[] getApplicationSerialNumberBytes()
+public final String getAtr()
+public final String getStartupInfo()
+public final PoRevision getRevision()
+public final byte getSessionModification()
+public final byte getApplicationType()
+public final byte getApplicationSubtype()
+public final byte getPlatform()
+public final byte getSoftwareIssuer()
+public final byte getSoftwareVersion()
+public final byte getSoftwareRevision()
+public final boolean isDeselectRatificationSupported()
+public final boolean isConfidentialSessionModeSupported()
+public final boolean isPublicAuthenticationSupported()
+public final boolean isPinFeatureAvailable()
+public final boolean isSvFeatureAvailable()
+public final boolean isDfInvalidated()
+public final boolean isDfRatified()
+public final DirectoryHeader getDirectoryHeader()
+public final ElementaryFile getFileBySfi(byte sfi)
+public final ElementaryFile getFileByLid(short lid)
+public final Map&amp;lt;Byte, ElementaryFile&amp;gt; getAllFiles()
+&lt;/code>&lt;/pre>
+&lt;p>Four new classes &lt;code>DirectoryHeader&lt;/code>, &lt;code>ElementaryFile&lt;/code>, &lt;code>FileHeader&lt;/code> and &lt;code>FileData&lt;/code> have been added.&lt;/p>
+&lt;h5 id="directoryheader">DirectoryHeader&lt;/h5>
+&lt;p>The public getters for this class are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public short getLid()
+public byte[] getAccessConditions()
+public byte[] getKeyIndexes()
+public byte getDfStatus()
+public byte getKif(AccessLevel level)
+public byte getKvc(AccessLevel level)
+public String toString()
+&lt;/code>&lt;/pre>
+&lt;h5 id="elementaryfile">ElementaryFile&lt;/h5>
+&lt;p>The public getters for this class are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public byte getSfi()
+public FileHeader getHeader()
+public FileData getData()
+public String toString()
+&lt;/code>&lt;/pre>
+&lt;h5 id="fileheader">FileHeader&lt;/h5>
+&lt;p>The public getters for this class are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public short getLid()
+public int getRecordsNumber()
+public int getRecordSize()
+public FileType getType()
+public byte getDfStatus()
+public boolean isShared()
+public Short getSharedReference()
+public byte[] getAccessConditions()
+public byte[] getKeyIndexes()
+public String toString()
+&lt;/code>&lt;/pre>
+&lt;h5 id="filedata">FileData&lt;/h5>
+&lt;p>The public getters for this class are:&lt;/p>
+&lt;pre>&lt;code class="language-java">public byte[] getContent()
+public byte[] getContent(int numRecord)
+public byte[] getContent(int numRecord, int dataOffset, int dataLength)
+public SortedMap&amp;lt;Integer, byte[]&amp;gt; getAllRecordsContent()
+public int getContentAsCounterValue(int numCounter)
+public SortedMap&amp;lt;Integer, Integer&amp;gt; getAllCountersValue()
+public String toString()
+&lt;/code>&lt;/pre>
+&lt;p>So, for example to extract the contents of contract files present in the PO, the code might look like this:&lt;/p>
+&lt;pre>&lt;code class="language-java">[...]
+/* Read all 4 contracts command, record size set to 29 */
+poTransaction.prepareReadRecordFile(CalypsoClassicInfo.SFI_Contracts,
+CalypsoClassicInfo.RECORD_NUMBER_1, 4, 29);
+/* proceed with the sending of commands, don't close the channel */
+poTransaction.processPoCommandsInSession();
+ElementaryFile efContracts = calypsoPo.getFileBySfi(CalypsoClassicInfo.SFI_Contracts);
+SortedMap&amp;lt;Integer, byte[]&amp;gt; records = efContracts.getData().getAllRecordsContent();
+for (Map.Entry&amp;lt;Integer, byte[]&amp;gt; entry : records.entrySet()) {
+logger.info(&amp;quot;Contract #{}: {}&amp;quot;, entry.getKey(),
+ByteArrayUtil.toHex(entry.getValue()));
+}
+[...]
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-handling">Error handling&lt;/h2>
+&lt;p>Since version 0.9, all Keyple exceptions are of the RuntimeException type.&lt;/p>
+&lt;p>Catching exceptions is therefore now optional.&lt;/p>
+&lt;p>However, it is possible to selectively catch certain exceptions in order to deal with particular cases.&lt;/p>
+&lt;p>The new hierarchy of Keyple exceptions is shown
+&lt;a href="https://keyple.atlassian.net/projects/KEYP/issues/KEYP-154?filter=allissues&amp;amp;orderby=priority%20DESC&amp;amp;keyword=exceptions" target="_blank" rel="noopener">here&lt;/a>&lt;/p></description></item></channel></rss>
