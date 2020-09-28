@@ -596,107 +596,7 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;blockquote>
 &lt;p>cf.
 &lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java" target="_blank" rel="noopener">“Calypso Use Case 5 / PO Multiple Session&amp;quot;&lt;/a> example&lt;/p>
-&lt;/blockquote></description></item><item><title>(WIP)Developer guide - Develop a ticketing application</title><link>/keyple-website/docs/developer-guides/developer-guide-ticketing-app/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/developer-guides/developer-guide-ticketing-app/</guid><description>&lt;p>This guide is intended for developers of ticketing applications.
-It shows, based on sample code, the different operations that can constitute a Calypso card-based transaction application.
-In this guide the card readers are PC/SC type but the principles would be the same with other types of readers.&lt;/p>
-&lt;h2 id="imports">Imports&lt;/h2>
-&lt;p>The application imports the keyple-core (base), keyple-plugin-pcsc (PC/SC reader access) and keyple-calyspo (Calypso card operations) modules.&lt;/p>
-&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
-implementation &amp;quot;org.eclipse.keyple:keyple-java-calypso:$keyple_version&amp;quot;
-implementation &amp;quot;org.eclipse.keyple:keyple-java-plugin-pcsc:$keyple_version&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;h2 id="code-toggle-test">Code toggle test&lt;/h2>
-&lt;section class="project-tab" id="tabs">
-&lt;div class="container" style="margin: 0; padding: 0">
-&lt;div class="flex-row">
-&lt;div>
-&lt;nav>
-&lt;div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-&lt;a aria-controls="nav-java" aria-selected="true" class="nav-item nav-link active"
-data-toggle="tab" href="#nav-java" id="nav-java-tab" role="tab">
-JAVA
-&lt;/a>
-&lt;a aria-controls="nav-kotlin" aria-selected="false" class="nav-item nav-link" data-toggle="tab"
-href="#nav-kotlin" id="nav-kotlin-tab" role="tab">
-KOTLIN
-&lt;/a>
-&lt;a aria-controls="nav-cpp" aria-selected="false" class="nav-item nav-link" data-toggle="tab"
-href="#nav-cpp" id="nav-cpp-tab" role="tab">
-C++
-&lt;/a>
-&lt;/div>
-&lt;/nav>
-&lt;div class="tab-content" id="nav-tabContent">
-&lt;div aria-labelledby="nav-java-tab" class="tab-pane fade show active" id="nav-java" role="tabpanel">
-&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">SelectionsResult selectionsResult &lt;span style="color:#f92672">=&lt;/span> seSelection&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">processExplicitSelection&lt;/span>&lt;span style="color:#f92672">(&lt;/span>reader&lt;span style="color:#f92672">);&lt;/span>
-&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">(&lt;/span>selectionsResult&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">hasActiveSelection&lt;/span>&lt;span style="color:#f92672">())&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
-MatchingSe matchingSe &lt;span style="color:#f92672">=&lt;/span> selectionsResult&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">getActiveMatchingSe&lt;/span>&lt;span style="color:#f92672">();&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/div>
-&lt;/div>
-&lt;div aria-labelledby="nav-kotlin-tab" class="tab-pane fade" id="nav-kotlin" role="tabpanel">
-&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-kt" data-lang="kt">&lt;span style="color:#66d9ef">val&lt;/span> selectionsResult = seSelection.processExplicitSelection(reader)
-&lt;span style="color:#66d9ef">if&lt;/span> (selectionsResult.hasActiveSelection()) {
-&lt;span style="color:#66d9ef">val&lt;/span> matchingSe = selectionsResult.activeMatchingSe
-}&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/div>
-&lt;/div>
-&lt;div aria-labelledby="nav-cpp-tab" class="tab-pane fade" id="nav-cpp" role="tabpanel">
-&lt;div>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#66d9ef">if&lt;/span> (selectionResult&lt;span style="color:#f92672">-&amp;gt;&lt;/span>hasActiveSelection()) {
-std&lt;span style="color:#f92672">::&lt;/span>shared_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>MatchingSelection&lt;span style="color:#f92672">&amp;gt;&lt;/span> matchingSelection &lt;span style="color:#f92672">=&lt;/span>
-selectionResult&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getActiveSelection();
-std&lt;span style="color:#f92672">::&lt;/span>shared_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>CalypsoPo&lt;span style="color:#f92672">&amp;gt;&lt;/span> calypsoPo &lt;span style="color:#f92672">=&lt;/span>
-std&lt;span style="color:#f92672">::&lt;/span>dynamic_pointer_cast&lt;span style="color:#f92672">&amp;lt;&lt;/span>CalypsoPo&lt;span style="color:#f92672">&amp;gt;&lt;/span>(
-matchingSelection&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getMatchingSe());
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/section>
-&lt;h2 id="connect-a-plugin">Connect a plugin&lt;/h2>
-&lt;h2 id="configuring-a-plugin">Configuring a plugin&lt;/h2>
-&lt;h2 id="retrieve-a-reader">Retrieve a reader&lt;/h2>
-&lt;h2 id="subscribe-to-the-events-of-a-reader">Subscribe to the events of a reader&lt;/h2>
-&lt;h2 id="receive-a-card-event">Receive a card event&lt;/h2>
-&lt;h2 id="make-an-explicit-selection">Make an explicit selection&lt;/h2>
-&lt;h2 id="make-an-implicit-selection">Make an implicit selection&lt;/h2>
-&lt;h2 id="preparing-commands">Preparing commands&lt;/h2>
-&lt;h2 id="sending-commands">Sending commands&lt;/h2>
-&lt;h2 id="retrieve-responses">Retrieve responses&lt;/h2>
-&lt;h2 id="open-a-calypso-session">Open a calypso session&lt;/h2>
-&lt;h2 id="close-a-calypso-session">Close a calypso session&lt;/h2></description></item><item><title>Build your First Java Application</title><link>/keyple-website/docs/build-your-first-app/java-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/build-your-first-app/java-app/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
+&lt;/blockquote></description></item><item><title>Build your First Java Application</title><link>/keyple-website/docs/build-your-first-app/java-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/keyple-website/docs/build-your-first-app/java-app/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
 &lt;p>The example demonstrate Keyple capabilities with the Keyple PCSC plugin and PO/SAM provided in the Calypso Test Kit.&lt;/p>
 &lt;h2 id="build">Build&lt;/h2>
 &lt;p>The example can run on any machine: Linux, Windows and MacOS. If not installed in your machine, you will need to download :&lt;/p>
@@ -1753,18 +1653,6 @@ Currently all the components of Eclipse Keyple Java are following the same versi
 &lt;li>the project plan,&lt;/li>
 &lt;li>the guides of the different public API,&lt;/li>
 &lt;li>and a guide to manage the migration between the release 0.8.1 &amp;amp; 0.9.0.&lt;/li>
-&lt;/ul></description></item><item><title>Reference API</title><link>/keyple-website/docs/reference_apis/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/keyple-website/docs/reference_apis/</guid><description>&lt;h1 id="javadoc">JavaDoc&lt;/h1>
-&lt;p>The JavaDoc for the Keyple project is available online. The documentation is split into the following parts:&lt;/p>
-&lt;p>RELEASES&lt;/p>
-&lt;p>SNAPSHOTS&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-core/index.html" target="_blank">JavaDoc for the Keyple Core API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-calypso/index.html" target="_blank">JavaDoc for the Keyple Calypso API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-pcsc/index.html" target="_blank">JavaDoc for the Keyple PC/SC plugin API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-remotese/index.html" target="_blank">JavaDoc for the Keyple Remote SE plugin API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-java-plugin-stub/index.html" target="_blank">JavaDoc for the Keyple Stub plugin API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-nfc/index.html" target="_blank">JavaDoc for the Keyple Android NFC plugin API&lt;/a>&lt;/li>
-&lt;li>&lt;a href="/keyple-website/keyple-website/reference/keyple-android-plugin-omapi/index.html" target="_blank">JavaDoc for the Keyple Android OMAPI plugin API&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>First Meet Up Eclipse Keyple</title><link>/keyple-website/post/first-meetup-eclipse-keyple/</link><pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate><guid>/keyple-website/post/first-meetup-eclipse-keyple/</guid><description>&lt;p>On October 17, 2019, we organized the first Meet Up Eclipse Keyple! Great moments of exchanges around the first Open Source SDK for Ticketing with Benoît Boute, Nicolas Generali, Pierre Terree, Hicham ELBIZY, Benoist Laforge, Gaël Blondelle, Camille Moulin, Philippe Vappereau, Valentina Zajackowski. Many thanks to them for their interventions and also to Manon Chaix, Jean-Pierre Fortune, Olivier Delcroix, Ludovic TEIXEIRA COSTA and all the participants!&lt;/p>
 &lt;p>See the whole event on video:&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
