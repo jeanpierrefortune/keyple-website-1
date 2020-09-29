@@ -7,9 +7,9 @@ weight: 400
 ---
 # Understanding the Keyple stack 1.0
 
-Below is a simplified illustration of the main Keyple API existing between a ticketing application and a secure element.
+Below is a simplified illustration of the main Keyple APIs existing between a ticketing application and a secure element.
 
-The simplification is here mainly related to the fact that the potential for a dual access to a portable secure element (PO) and an internal secure element (SAM) is not shown. However, the approach to access to each of these elements follows this scheme.
+The simplification is here mainly related to the fact that the potential for dual access to a portable secure element (PO) and an internal secure element (SAM) is not shown. However, the approach to access to each of these elements follows this scheme.
 
 The software components that are a supply from Keyple (or a partner) are surrounded by dotted lines.
 
