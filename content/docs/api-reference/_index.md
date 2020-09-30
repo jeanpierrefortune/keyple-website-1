@@ -17,8 +17,6 @@ The component here generically named "Specific Solution Extension" corresponds s
 
 
 <img style="width:75%" src="keyple-interfaces.svg" />
-<br/>
-<img style="width:75%" src="keyple-interfaces-2.svg" />
 
 
 # The 5 Keyple APIs
