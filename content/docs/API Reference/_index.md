@@ -13,12 +13,10 @@ The simplification is here mainly related to the fact that the potential for dua
 
 The software components that are a supply from Keyple (or a partner) are surrounded by dotted lines.
 
-The component here generically named "Keyple SE Solution Extension" corresponds so far to the Keyple Calypso module dedicated to the processing of Calypso transactions. It could be supplemented by a similar component dedicated to the processing of another family of secure elements.
+The component here generically named "Specific Solution Extension" corresponds so far to the Keyple Calypso module dedicated to the processing of Calypso transactions. It could be supplemented by a similar component dedicated to the processing of another family of secure elements.
 
 
 <img style="width:75%" src="keyple-interfaces.svg" />
-<br/>
-<img style="width:75%" src="keyple-interfaces-2.svg" />
 
 
 # The 5 Keyple APIs
