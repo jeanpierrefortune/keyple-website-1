@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Guides | Eclipse Keyple</title><link>/docs/developer-guide/</link><atom:link href="/docs/developer-guide/index.xml" rel="self" type="application/rss+xml"/><description>Developer Guides</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><image><url>/images/logo_hu673a59176cd62c570f44ed2728665b48_42188_300x300_fit_lanczos_2.png</url><title>Developer Guides</title><link>/docs/developer-guide/</link></image><item><title>(WIP)Develop a Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app/</guid><description>&lt;h2 id="test-shortcode-java-kotlin-cpp">Test shortcode &amp;ldquo;java-kotlin-cpp&amp;rdquo;&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Guides | Eclipse Keyple</title><link>/docs/developer-guide/</link><atom:link href="/docs/developer-guide/index.xml" rel="self" type="application/rss+xml"/><description>Developer Guides</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © Eclipse Foundation, Inc. All Rights Reserved.</copyright><image><url>/images/logo_hu673a59176cd62c570f44ed2728665b48_42188_300x300_fit_lanczos_2.png</url><title>Developer Guides</title><link>/docs/developer-guide/</link></image><item><title>Develop a Local Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app-local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app-local/</guid><description>&lt;h2 id="test-shortcode-java-kotlin-cpp">Test shortcode &amp;ldquo;java-kotlin-cpp&amp;rdquo;&lt;/h2>
 &lt;section class="project-tab" id="tabs">
 &lt;div class="container" style="margin: 0; padding: 0">
 &lt;div class="flex-row">
@@ -83,7 +83,848 @@ matchingSelection&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getMatchingSe
 override fun checkSePresence(): Boolean {
 return nativeReader.isSecureElementPresent
 }
-&lt;/code>&lt;/pre></description></item><item><title>(WIP)Develop a Plugin</title><link>/docs/developer-guide/develop-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
+&lt;/code>&lt;/pre></description></item><item><title>Develop a Remote Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app-remote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app-remote/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;strong>Keyple provides the &amp;ldquo;Keyple Remote Plugin&amp;rdquo; solution which allows a terminal to communicate with a smart card reader available in another terminal&lt;/strong>.&lt;/p>
+&lt;p>In this way, you can manage transactions within a distributed architecture.&lt;/p>
+&lt;p>The diagram below shows the role of the &lt;strong>Keyple Remote Plugin&lt;/strong> components in the software layers used in a distributed architecture :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/component/Remote_Component_Overview.svg" >
+&lt;img src="../../media/remote-plugin/component/Remote_Component_Overview.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="how-to-use-it-">How to use it ?&lt;/h2>
+&lt;ol>
+&lt;li>In pre-requisite, read page
+&lt;a href="../../docs/developer-guide/develop-ticketing-app-local/">Develop a Local Ticketing Application&lt;/a> to understand the main concepts of Keyple in a local application.&lt;/li>
+&lt;li>Read chapter
+&lt;a href="#concepts">Concepts&lt;/a> to understand the main terms and concepts of the &lt;strong>Keyple Remote Plugin&lt;/strong> solution.&lt;/li>
+&lt;li>Read the introduction of chapter
+&lt;a href="#remote-plugins">Remote Plugins&lt;/a> to be informed about the different remote plugins and APIs proposed by the solution.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#use-cases">Use cases&lt;/a>, find your use case. This will help you to determine exactly which library and API to use.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#download">Download&lt;/a>, import into your project the libraries specified by your use case.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#network-configuration">Network configuration&lt;/a>, implement the transport layer adapted to your network configuration.&lt;/li>
+&lt;li>Implement your ticketing services as specified in the associated use case.&lt;/li>
+&lt;/ol>
+&lt;h2 id="concepts">Concepts&lt;/h2>
+&lt;p>Here are the main concepts to keep in mind before continuing to read this developer guide :&lt;/p>
+&lt;div id="concepts-table-1">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Concept&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Remote Lib&lt;/strong>&lt;/td>
+&lt;td>This is the library &lt;code>keyple-plugin-remote-remote&lt;/code>.&lt;br>It must be imported and used by the application installed on the terminal not having local access to the smart card reader and that wishes to control the reader remotely.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Local Lib&lt;/strong>&lt;/td>
+&lt;td>This is the library &lt;code>keyple-plugin-remote-local&lt;/code>.&lt;br>It must be imported and used by the application installed on the terminal having local access to the smart card reader but wishes to delegate all or part of the ticketing processing to a remote application.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Remote Lib&lt;/strong>, this is a Keyple plugin which provides only &lt;strong>Remote Readers&lt;/strong> to the application. It manages data exchanges with the &lt;strong>Local Service&lt;/strong>. This plugin must be registered to the smart card service like any Keyple plugin.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Reader&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Remote Plugin&lt;/strong>, this is a Keyple reader which has some specificities :&lt;br>- each remote reader is connected to a local reader ;&lt;br>- any command sent by the application to a remote reader will be forwarded to the associated local reader ;&lt;br>- any event occurs on a local reader or plugin will be forwarded to the associated remote reader or plugin.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Local Lib&lt;/strong>, this service ensures data exchange between the &lt;strong>Remote Plugin&lt;/strong> and local plugins and readers. It must be initialized and started by the host application.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each have a specific factory class to initialize them.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each have a specific utility class to access them everywhere in the code.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Node&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each are bind to a specific internal node which is responsible for the interfacing with the &lt;strong>Network Endpoint&lt;/strong>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Network Endpoint&lt;/strong>&lt;/td>
+&lt;td>At the user&amp;rsquo;s charge, this component ensures the network exchanges between the &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> nodes.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#concepts-table-1 table th:first-of-type {
+width: 130px;
+}
+&lt;/style>
+&lt;p>The diagram below illustrates the main functional concepts through a standard use case :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/component/Remote_Component_Concepts_1.svg" >
+&lt;img src="../../media/remote-plugin/component/Remote_Component_Concepts_1.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>The second diagram below illustrates an arbitrary more complex possible use case with several hardware readers connected to different terminals.&lt;/p>
+&lt;p>These could be for example a ticketing reloading service, where the intelligence would be on the terminal with remote readers, with thin clients on A &amp;amp; B terminals communicating locally with the cards.&lt;/p>
+&lt;p>In this use case, the &lt;strong>Remote Plugin&lt;/strong> is used for card communication.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/component/Remote_Component_Concepts_2.svg" >
+&lt;img src="../../media/remote-plugin/component/Remote_Component_Concepts_2.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>Here is another example, but this time it illustrates several &lt;strong>Remote Plugins&lt;/strong> connected to the same &lt;strong>Local Service&lt;/strong>.&lt;/p>
+&lt;p>These could be for example ticketing terminals with transaction logic, which communicate locally with cards, but which do not have SAM, and which use a SAM server with hardware reader.&lt;/p>
+&lt;p>In this use case, the &lt;strong>Remote Plugin&lt;/strong> is used for SAM communication.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/component/Remote_Component_Concepts_3.svg" >
+&lt;img src="../../media/remote-plugin/component/Remote_Component_Concepts_3.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="remote-plugins">Remote Plugins&lt;/h2>
+&lt;p>The &lt;strong>Keyple Remote Plugin&lt;/strong> solution provides &lt;strong>3&lt;/strong> different specific &lt;strong>Remote Plugin&lt;/strong> components, each one having a specific API described in chapter
+&lt;a href="#remote-plugins-apis">Remote Plugins APIs&lt;/a> designed on a &lt;strong>Client-Server&lt;/strong> model in which &lt;strong>the Client is always the initiator of the communication&lt;/strong> :&lt;/p>
+&lt;div id="plugins-table-1">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Plugin&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>server&lt;/strong> application to control a smart card reader available on a &lt;strong>client&lt;/strong> (e.g. PO reader).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a> or&lt;br>
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>client&lt;/strong> application to control a smart card reader available on a &lt;strong>server&lt;/strong> (e.g. SAM reader).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#poolremotepluginclient">PoolRemotePluginClient&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>client&lt;/strong> application to control a &lt;strong>pool&lt;/strong> of smart cards readers available on a &lt;strong>server&lt;/strong> (e.g. HSM readers).&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#plugins-table-1 table th:first-of-type {
+width: 220px;
+}
+&lt;/style>
+&lt;p>Moreover, some plugins have different modes in which they allow or not the observation of plugin or reader events (such as smart card insertion, reader connection, etc&amp;hellip;).&lt;/p>
+&lt;p>Each &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> has a default name, but it&amp;rsquo;s possible to specify a custom name during the initialization phase.&lt;/p>
+&lt;p>It is thus possible to have within an application as many instances of a specific &lt;strong>Remote Plugin&lt;/strong> or &lt;strong>Local Service&lt;/strong> as desired.&lt;/p>
+&lt;h3 id="remotepluginserver">RemotePluginServer&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>server&lt;/strong> application to control a smart card reader available on a &lt;strong>client&lt;/strong> (e.g. PO reader).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory by providing the network and plugin observer implementation. Please note that &lt;strong>this plugin is observable only to trigger ticketing services&lt;/strong> on the server side, but does not allow observation on the local plugin (reader insertion, etc&amp;hellip;),&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>await for events of type &lt;code>PluginEvent.READER_CONNECTED&lt;/code>,&lt;/li>
+&lt;li>when an event occurs, get the specified remote reader from the &lt;strong>Remote Plugin&lt;/strong>,&lt;/li>
+&lt;li>use information inside the remote reader to identify the ticketing service to execute,&lt;/li>
+&lt;li>execute the specified ticketing service using the remote reader and all of its others information,&lt;/li>
+&lt;li>terminate the remote ticketing service using the &lt;strong>Remote Plugin&lt;/strong> API by transmitting if needed personal information to the client.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service and get the local reader to connect to the server,&lt;/li>
+&lt;li>execute the remote service using the &lt;strong>Local Service&lt;/strong> API by indicating the ticketing service id to execute and transmitting to the server if needed personal information or smart card content previously read.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="illustration">ILLUSTRATION&lt;/h4>
+&lt;p>The following sequence diagram shows the capabilities of the plugin through an arbitrary example that illustrates :&lt;/p>
+&lt;ul>
+&lt;li>the initialization phase of the local and remote components ;&lt;/li>
+&lt;li>the registration of the local plugin and observable reader ;&lt;/li>
+&lt;li>the selection phase of an observable reader carried out directly by the client ;&lt;/li>
+&lt;li>the sending of the selection result and additional information to the server to remotely perform a specific ticketing service (materialization, validation, etc&amp;hellip;) ;&lt;/li>
+&lt;li>the reception by the server of the transmitted data ;&lt;/li>
+&lt;li>the execution of the remote ticketing service ;&lt;/li>
+&lt;li>the server subscription to observable reader events ;&lt;/li>
+&lt;li>the sending of information to the client at the end of processing.&lt;/li>
+&lt;/ul>
+&lt;p>Note that the network layer is deliberately hide in this diagram. Its implementation is describe in the
+&lt;a href="#network-configuration">Network configuration&lt;/a> chapter.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/sequence/Remote_Sequence_RemotePluginServer_API.svg" >
+&lt;img src="../../media/remote-plugin/sequence/Remote_Sequence_RemotePluginServer_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="remotepluginclient">RemotePluginClient&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>client&lt;/strong> application to control a smart card reader available on a &lt;strong>server&lt;/strong> (e.g. SAM reader).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-1">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="observableremotepluginclient">ObservableRemotePluginClient&lt;/h3>
+&lt;p>This plugin is a
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a> which also allows to observe the plugin events (such as reader connection, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is possible only if the local plugin is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>ObservableRemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-2">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local observable plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="poolremotepluginclient">PoolRemotePluginClient&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>client&lt;/strong> application to control a &lt;strong>pool&lt;/strong> of smart cards readers available on a &lt;strong>server&lt;/strong> (e.g. HSM readers).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-3">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local pool plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local pool plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="remote-plugins-apis">Remote Plugins APIs&lt;/h2>
+&lt;p>The class diagrams below shows the different APIs exposed and SPIs required by the &lt;strong>Keyple Remote Plugin&lt;/strong> solution.&lt;/p>
+&lt;p>An &lt;strong>SPI&lt;/strong> (Service Provider Interface) is an interface that must be implemented by the user.&lt;/p>
+&lt;p>Here are the available APIs depending on the library imported by your project :&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th style="text-align:center">Remote Lib&lt;/th>
+&lt;th style="text-align:center">Local Lib&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>
+&lt;a href="#common-api">Common API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#remote-plugin-api">Remote Plugin API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#local-service-api">Local Service API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="common-api">Common API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/class/Remote_Class_Common_API.svg" >
+&lt;img src="../../media/remote-plugin/class/Remote_Class_Common_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="remote-plugin-api">Remote Plugin API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/class/Remote_Class_RemotePlugin_API.svg" >
+&lt;img src="../../media/remote-plugin/class/Remote_Class_RemotePlugin_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="local-service-api">Local Service API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/class/Remote_Class_LocalService_API.svg" >
+&lt;img src="../../media/remote-plugin/class/Remote_Class_LocalService_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="use-cases">Use cases&lt;/h2>
+&lt;p>Here is a summary table of all proposed use cases. Search for the one that corresponds to your need and then look at the associated description :&lt;/p>
+&lt;div id="use-cases-table-2">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Use Case&lt;/th>
+&lt;th style="text-align:center">Reader type&lt;/th>
+&lt;th style="text-align:center">Reader endpoint&lt;/th>
+&lt;th style="text-align:center">Reader observation&lt;/th>
+&lt;th style="text-align:center">Plugin observation&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-1">UC 1&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Client&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-2">UC 2&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Client&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-3">UC 3&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-4">UC 4&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-5">UC 5&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-6">UC 6&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-7">UC 7&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Pool&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#use-cases-table-2 table th:nth-of-type(6) {
+width: 240px;
+}
+&lt;/style>
+&lt;h4 id="uc-1">UC 1&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the client side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemoteReaderServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-2">UC 2&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withReaderObservation(...)&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableRemoteReaderServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>To observe &amp;ldquo;remotely&amp;rdquo; the reader events, you must :&lt;/p>
+&lt;ul>
+&lt;li>Server
+&lt;ol>
+&lt;li>register at least one observer to the remote reader created during the first client call and await for reader events,&lt;/li>
+&lt;li>retrieve the remote reader from the &lt;strong>Remote Plugin&lt;/strong> &lt;strong>imperatively&lt;/strong> using the reader name contained in the received event,&lt;/li>
+&lt;li>execute the ticketing service associated to the event using the remote reader and all of its others information,&lt;/li>
+&lt;li>terminate the remote ticketing service associated to the event using the &lt;strong>Remote Plugin&lt;/strong> API by transmitting if needed personal information to the client.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client
+&lt;ol>
+&lt;li>execute a remote service first in order to connect a remote reader to the local reader and to allow the remote application to subscribe to the events of the remote reader.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="uc-3">UC 3&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the server side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutPluginObservation()&lt;/code>&lt;br>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-4">UC 4&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutPluginObservation()&lt;/code>&lt;br>&lt;code>withReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-5">UC 5&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the server side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withPluginObservation()&lt;/code>&lt;br>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-6">UC 6&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withPluginObservation()&lt;/code>&lt;br>&lt;code>withReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-7">UC 7&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#poolremotepluginclient">PoolRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>This unique mode proposed for this plugin does not allow to observe the local reader.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="network-configuration">Network configuration&lt;/h2>
+&lt;p>The &lt;strong>Keyple Remote Plugin&lt;/strong> solution &lt;strong>does not provide&lt;/strong> the network layer implementation, but it provides a set of SPIs (Service Provider Interfaces) to be implemented by the user in order to enable it to exchange data between &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> components.&lt;/p>
+&lt;h3 id="synchronous">Synchronous&lt;/h3>
+&lt;p>Choose this mode if you want to implement a Client-Server &lt;strong>Synchronous&lt;/strong> communication protocol, such as standard HTTP for example.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SPI to be implemented&lt;/td>
+&lt;td>&lt;code>SyncEndpointClient&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Node API&lt;/td>
+&lt;td>&lt;code>SyncNodeClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>SyncNodeServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withSyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>withSyncNode()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Utility method to use to access the node&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>&lt;code>getSyncNode()&lt;/code> or&lt;br> &lt;code>getSyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Here is the minimal algorithm to implement in a context with a &lt;strong>single server instance&lt;/strong> :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/sequence/Remote_Sequence_SyncNode_API.svg" >
+&lt;img src="../../media/remote-plugin/sequence/Remote_Sequence_SyncNode_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>In a context with several server instances, a mechanism must be implemented to ensure that all messages containing information about a &lt;code>serverNodeId&lt;/code> are routed to the server associated with a &lt;code>SyncNodeServer&lt;/code> node having the &lt;code>serverNodeId&lt;/code>.&lt;/p>
+&lt;h3 id="asynchronous">Asynchronous&lt;/h3>
+&lt;p>Choose this mode if you want to implement a Full-Duplex &lt;strong>Asynchronous&lt;/strong> communication protocol, such as Web Sockets for example.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SPI to be implemented&lt;/td>
+&lt;td>&lt;code>AsyncEndpointClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>AsyncEndpointServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Node API&lt;/td>
+&lt;td>&lt;code>AsyncNodeClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>AsyncNodeServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withAsyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>withAsyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Utility method to use to access the node&lt;/td>
+&lt;td>&lt;code>getAsyncNode()&lt;/code> or&lt;br> &lt;code>getAsyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>getAsyncNode()&lt;/code> or&lt;br> &lt;code>getAsyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Here is the minimal algorithm to implement :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="../../media/remote-plugin/sequence/Remote_Sequence_AsyncNode_API.svg" >
+&lt;img src="../../media/remote-plugin/sequence/Remote_Sequence_AsyncNode_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="exchanged-data">Exchanged data&lt;/h3>
+&lt;p>The data exchanged between &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> components are contain in the DTO (Data Transfer Object) &lt;code>MessageDto&lt;/code>. It is built and processed by the plugin and &lt;strong>you don&amp;rsquo;t need to modify it&lt;/strong>.&lt;/p>
+&lt;p>However, it is necessary in some contexts to access certain information such as the &lt;code>sessionId&lt;/code> in the case of asynchronous communication or the &lt;code>serverNodeId&lt;/code> in the case of synchronous communication with several server instances.&lt;/p>
+&lt;h2 id="download">Download&lt;/h2>
+&lt;h3 id="releases">Releases&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Date&lt;/th>
+&lt;th>Release note&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1.0.0&lt;/strong>&lt;/td>
+&lt;td>DD/MM/YYYY&lt;/td>
+&lt;td>First version&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="using-gradle">Using Gradle&lt;/h3>
+&lt;p>Remote Lib&lt;/p>
+&lt;pre>&lt;code>implementation 'org.eclipse.keyple:keyple-java-plugin-remote-remote:[TO_BE_REPLACED_BY_VERSION]'
+&lt;/code>&lt;/pre>
+&lt;p>Local Lib&lt;/p>
+&lt;pre>&lt;code>implementation 'org.eclipse.keyple:keyple-java-plugin-remote-local:[TO_BE_REPLACED_BY_VERSION]'
+&lt;/code>&lt;/pre>
+&lt;h3 id="using-maven">Using Maven&lt;/h3>
+&lt;p>Remote Lib&lt;/p>
+&lt;pre>&lt;code>&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.eclipse.keyple&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;keyple-java-plugin-remote-remote&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;[TO_BE_REPLACED_BY_VERSION]&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;p>Local Lib&lt;/p>
+&lt;pre>&lt;code>&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.eclipse.keyple&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;keyple-java-plugin-remote-local&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;[TO_BE_REPLACED_BY_VERSION]&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h3 id="binaries--documentation">Binaries &amp;amp; Documentation&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Binaries&lt;/th>
+&lt;th>Javadoc&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1.0.0&lt;/strong>&lt;/td>
+&lt;td>keyple-java-plugin-remote-remote-1.0.0.jar&lt;br>keyple-java-plugin-remote-local-1.0.0.jar&lt;/td>
+&lt;td>keyple-java-plugin-remote-remote-doc-1.0.0.zip&lt;br>keyple-java-plugin-remote-local-doc-1.0.0.zip&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="sources">Sources&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/remote/README.md" target="_blank" rel="noopener">Remote Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/local/README.md" target="_blank" rel="noopener">Local Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/common/README.md" target="_blank" rel="noopener">Common Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Develop a Plugin</title><link>/docs/developer-guide/develop-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
 illustrate the creation processus using the implementation of the Android NFC Plugin and OMAPI plugins.
 This plugins can be consulted with the keyple-java/android repository.&lt;/p>
 &lt;h2 id="imports">Imports&lt;/h2>
@@ -169,7 +1010,7 @@ throw KeypleReaderIOException(&amp;quot;Error while opening physical channel&amp
 &lt;li>Smart Selection Reader: Allow to use native SE selection process&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>(WIP)Develop an Extension</title><link>/docs/developer-guide/develop-extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-extension/</guid><description/></item><item><title>Migration Guide - Keyple Java 0.8.1 to 0.9.0</title><link>/docs/developer-guide/migration-0.8.1-to-0.9.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/migration-0.8.1-to-0.9.0/</guid><description>&lt;p>This guide is intended to help a user of version 0.8.1 of Keyple Java to upgrade his application to the 0.9 version of the library.&lt;/p>
+&lt;/ul></description></item><item><title>Develop an Extension</title><link>/docs/developer-guide/develop-extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-extension/</guid><description/></item><item><title>Migration Guide - Keyple Java 0.8.1 to 0.9.0</title><link>/docs/developer-guide/migration-0.8.1-to-0.9.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/migration-0.8.1-to-0.9.0/</guid><description>&lt;p>This guide is intended to help a user of version 0.8.1 of Keyple Java to upgrade his application to the 0.9 version of the library.&lt;/p>
 &lt;p>From a user API point of view, the changes relate to the following topics:&lt;/p>
 &lt;ul>
 &lt;li>

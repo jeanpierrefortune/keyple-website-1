@@ -6,38 +6,38 @@ Discover more about CNA here : &lt;a href="http://calypsonet-asso.org">http://ca
 &lt;p>Calypso Networks Association provides a
 &lt;a href="https://www.calypsonet-asso.org/content/calypso-test-kit" target="_blank" rel="noopener">Calypso Test Kit&lt;/a>.
 The Calypso Test Kit aims at helping ticketing system developers to fully experience
-Eclipse Keyple with a set of Calypso SAM and Calypso certified portable objects from
-several manufacturers in various configurations.&lt;/p></description></item><item><title>Keyple's main features</title><link>/what-is-keyple/main-features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/main-features/</guid><description>&lt;p>The goal of Keyple™ is to allow developers to easily implement fast and secure off-line contactless transactions
+Eclipse Keyple™ with a set of Calypso® SAM and Calypso® certified portable objects from
+several manufacturers in various configurations.&lt;/p></description></item><item><title>Keyple's main features</title><link>/what-is-keyple/main-features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/main-features/</guid><description>&lt;p>The goal of Eclipse Keyple™ is to allow developers to easily implement fast and secure off-line contactless transactions
 (using NFC cards, mobile phones, …) based on the Calypso standard.&lt;/p>
 &lt;p>More specifically, Keyple™ is a set of open source libraries that will initially be available in Java and C++,
 designed on the same mutual Object-Oriented Model compatible with any terminal architecture: mobile, embedded
 or server and Interoperable with any smart card reader solution: standard or proprietary, local or remote.&lt;/p>
 &lt;p>To fully understand how Keyple™ works, it is important to discern two main components of contactless ticketing technology:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Secure Elements (SE) readers&lt;/strong>: Readers are situated at the entrance and exit of events, venues and transport sites.
-For example, a smart reader could be a terminal, a portable scanning laser gun, or a swipe tablet area that is embedded
+&lt;li>&lt;strong>Smart Card Readers&lt;/strong>: Readers are situated at the entrance and exit of events, venues and transport sites.
+For example, a smart card reader could be a terminal, a portable scanning laser gun, or a swipe tablet area that is embedded
 into a door, vehicle or gate. Code is written for a terminal to set the parameters for allowing cards or apps to transmit
 ticketing information data. Sometimes in a distributed architecture system design, the code for the reader is not on the
 terminal, but in a cloud environment, so the reader sends the data to cloud-based architecture.&lt;/li>
-&lt;li>&lt;strong>Ticketing application&lt;/strong>: This is behind-the-scenes code that is able to take the data from the smart reader terminal
+&lt;li>&lt;strong>Ticketing application&lt;/strong>: This is behind-the-scenes code that is able to take the data from the smart card reader
 and, in milliseconds real-time, analyze the balance of the ticket, confirm the permissions for entry, and update the data
 on the ticket (for example, to confirm that the ticket holder can enter the gate or vehicle, and then to deduct the cost
 of the journey and calculate the new balance).&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>According to this scheme, Keyple™ defines two layers:&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>SE readers&lt;/strong> are integrated through plugins implementing the SE Proxy API which manages the communications with
-a contactless secure element through ant type of contactless reader (local, remote, standard, proprietary…)&lt;/li>
-&lt;li>&lt;strong>Ticketing applications&lt;/strong> relies on a high-level Calypso processing API to manage Calypso commands &amp;amp; security features.
+&lt;li>&lt;strong>Smart Card readers&lt;/strong> are integrated through plugins implementing the SE Proxy API which manages the communications with
+a smart card through any type of contactless or contact reader (local, remote, standard, proprietary…)&lt;/li>
+&lt;li>&lt;strong>Ticketing applications&lt;/strong> relies on a high-level Calypso® processing API to manage Calypso® commands &amp;amp; security features.
 This API uses the SE Proxy API to communicate with the reader&lt;/li>
 &lt;/ul>
-&lt;p>Keyple™ comes with dedicated plugins that integrate directly with smartcard readers that have been built on standard
-software interfaces including PC/ SC, Android NFC, and Android OMAPI.&lt;/p>
-&lt;p>In cases where there is a distributed architecture design, Keyple™ includes a Remote Secure Element API plugin so that
-a smartcard terminal can be operated remotely, as if it were local to the terminal, and ensures that robust security and
+&lt;p>Keyple™ comes with dedicated plugins that integrate directly with smart card readers that have been built on standard
+software interfaces including PC/SC, Android NFC reader, and Android OMAPI.&lt;/p>
+&lt;p>In cases where there is a distributed architecture design, Keyple™ includes a Remote API plugin so that
+a smart card terminal can be operated remotely, as if it were local to the terminal, and ensures that robust security and
 speed is not sacrificed in a cloud-based system.&lt;/p>
 &lt;p>The Calypso Processing API is also available as a Keyple™ extension. This component carries out the terminal processing
-element of ticketing technology. Access to Calypso’s security features are automatically managed by the Keyple™ extension.&lt;/p></description></item><item><title>What is Calypso?</title><link>/what-is-keyple/what-is-calypso/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/what-is-calypso/</guid><description>&lt;p>Calypso® is a set of specifications describing a fast and secure off-line contactless transaction, between a portable object and a terminal.
+element of ticketing technology. Access to Calypso’s security features are automatically managed by the Keyple™ extension.&lt;/p></description></item><item><title>What is Calypso®?</title><link>/what-is-keyple/what-is-calypso/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/what-is-calypso/</guid><description>&lt;p>Calypso® is a set of specifications describing a fast and secure off-line contactless transaction, between a portable object and a terminal.
 It has been created for public transport ticketing at the end of the 1990s by some European public transport operators or authority
 (RATP and SNCF in Paris and all France, STIB in Brussels, OTLIS in Lisbon, ACTV in Venice, Konstanz in Germany), in order to create an open,
 interoperable and secure standard independent from industrials to ensure a real competition.&lt;/p>
@@ -46,7 +46,7 @@ It brings to his user a guarantee of security and interoperability which relies 
 (ISO 14443, ISO 7816-4, Global Platform). The Calypso® standard is managed by the Calypso Networks Association (CNA) ,
 which is led by transports operators and public authorities in order to ensure openness and independence from industrials
 in confront of other proprietary schemes.&lt;/p></description></item><item><title>Who is it for?</title><link>/what-is-keyple/who-is-it-for/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/who-is-it-for/</guid><description>&lt;p>Whether you are a transport authority or operator, a mobility provider, a system integrator, an event manager, a mobility aggregator
-or a multi-mobility startup, Keyple™ allows you to:&lt;/p>
+or a multi-mobility startup, Eclipse Keyple™ allows you to:&lt;/p>
 &lt;ul>
 &lt;li>Have easy access to a highly secure and interoperable standard, Calypso®.&lt;/li>
 &lt;li>Reduce your costs and accelerate your developments.&lt;/li>
@@ -54,17 +54,17 @@ or a multi-mobility startup, Keyple™ allows you to:&lt;/p>
 &lt;li>Quickly build new apps and integrations that conform to the Calypso standard and other ticketing schemas.&lt;/li>
 &lt;li>Use libraries to enable instant payments, remote top-ups, event and multimodal transport integrations, connection to park-and-ride services, and more.&lt;/li>
 &lt;li>Easily create applications or services compatible with existing card-centric or server-centric systems.&lt;/li>
-&lt;li>Benefit from a more diverse and easily collaborative network that encourages co-opetition in a multimodal market: compete where you can, collaborate when necessary to create integrated mobility customer journeys.&lt;/li>
-&lt;li>Easily migrate from an existing, closed ticketing schemes to Calypso, a high-end open ticketing, certified solution.&lt;/li>
+&lt;li>Benefit from a more diverse and easily collaborative network that encourages coopetition in a multimodal market: compete where you can, collaborate when necessary to create integrated mobility customer journeys.&lt;/li>
+&lt;li>Easily migrate from an existing, closed ticketing schemes to Calypso®, a high-end open ticketing, certified solution.&lt;/li>
 &lt;li>Harness the flexibility to introduce modern, mobile and new architecture systems while maintaining integrations to legacy infrastructure.&lt;/li>
 &lt;li>Ensure the sustainability and future-proofing of your ticketing system, as Keyple™ is compatible with any smart card reader and SIO-enabled terminal.&lt;/li>
 &lt;li>Unchain from vendor lock in, black box and single provider systems to an open solution with access to multiple suppliers.&lt;/li>
 &lt;li>Enable partnerships with multimodal transport, building facilities including parking, tourism operators and events to offer seamless, single ticketing across the end customer’s journey.&lt;/li>
 &lt;li>Easily integrate with public transport providers that are using the Calypso standard, today used in major cities around the world in over 25 countries.&lt;/li>
-&lt;/ul></description></item><item><title>Why trust Eclipse Keyple?</title><link>/what-is-keyple/why-trust/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/why-trust/</guid><description>&lt;p>Keyple™ is an Eclipse open source project developped and leaded by Calypso Networks Association, which has been the leader in contactless electronic
-ticketing transportation standards since 2003. For many years, our mission has been to create innovative solutions that are fully interoperable,
-reliable, secure, and open. We collaborate with a dynamic network of city leaders and transport authorities that are keen to work with system
-integrators with Calypso standard expertise.&lt;/p>
+&lt;/ul></description></item><item><title>Why trust Eclipse Keyple™?</title><link>/what-is-keyple/why-trust/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/what-is-keyple/why-trust/</guid><description>&lt;p>Eclipse Keyple™ is an Eclipse open source project developped and leaded by Calypso Networks Association, which has been the leader in contactless
+electronic ticketing transportation standards since 2003. For many years, our mission has been to create innovative solutions that are fully
+interoperable, reliable, secure, and open. We collaborate with a dynamic network of city leaders and transport authorities that are keen to work
+with system integrators with Calypso standard expertise.&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/3CWNho1rrSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
@@ -79,13 +79,13 @@ integrators with Calypso standard expertise.&lt;/p>
 &lt;tbody>
 &lt;tr>
 &lt;td>Interoperable with any smart card reader solution (standard/proprietary, local/remote)&lt;/td>
-&lt;td>Open source libraries in Java, C and C++&lt;/td>
+&lt;td>Open source libraries in Java and C++&lt;/td>
 &lt;td>Audit and certification&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Compatible with any terminal architecture (mobile, embedded, server)&lt;/td>
 &lt;td>Developer-friendly, up-to-date documentation, code samples and how-to guides&lt;/td>
-&lt;td>Permanent compliance to the latest Calypso release&lt;/td>
+&lt;td>Permanent compliance to the latest Calypso® release&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Options for creating add-on features that incorporate Calypso’s advanced security together with non-Calypso smart cards for ticketing and payment&lt;/td>
@@ -95,7 +95,7 @@ integrators with Calypso standard expertise.&lt;/p>
 &lt;tr>
 &lt;td>&lt;/td>
 &lt;td>Help desk-Separate maintenance for software and equipment&lt;/td>
-&lt;td>Online and offline trainings available that will help you get the most of Keyple&lt;/td>
+&lt;td>Online and offline trainings available that will help you get the most of Keyple™&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;/td>
@@ -108,13 +108,13 @@ However, in order for the concept of Mobility as a Service to become a reality, 
 rely on open standards, APIs and SDKs as well as Open Source technologies. This openness has already been a reality for several years in the field
 of passenger information and has enabled the explosion of rich and high-quality applications, thanks in particular to Open Data. Today, CNA is
 paving the way for ticketing to follow the same path, by making available for free the first fully Open Source API: Eclipse Keyple™.&lt;/p>
-&lt;p>Keyple™ accelerates the integration and development of ticketing applications by enabling multimodal transport services, public transport operators
-and event organizers to implement ticketing systems based on a common, open and modular base, while benefiting from Calypso®'s main features of
-reliability, security and interoperability.&lt;/p>
-&lt;p>Keyple™ transforms complex contactless ticketing, transportation and event access systems into a simple integration to manage terminal readers and
-portals that use smart cards and mobile applications to enter and exit.&lt;/p>
-&lt;p>As an open source technology, Keyple™ offers uniformity of structure but does not lock you into a specific ticketing system. Plugins are being created,
-or may be created by developers, to allow ticket processing integrating technologies other than Calypso, based on several programming languages.&lt;/p></description></item><item><title>Global Architecture of Keyple</title><link>/docs/architecture/keyple-global/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/architecture/keyple-global/</guid><description>&lt;p>&lt;img src="docs/img/Keyple-components.svg" alt="global architecture" title="keyple SDK global architecture">&lt;/p>
+&lt;p>Eclipse Keyple™ accelerates the integration and development of ticketing applications by enabling multimodal transport services, public transport
+operators and event organizers to implement ticketing systems based on a common, open and modular base, while benefiting from Calypso®'s main features
+of reliability, security and interoperability.&lt;/p>
+&lt;p>Eclipse Keyple™ transforms complex contactless ticketing, transportation and event access systems into a simple integration to manage terminal readers
+and portals that use smart cards and mobile applications to enter and exit.&lt;/p>
+&lt;p>As an open source technology, Eclipse Keyple™ offers uniformity of structure but does not lock you into a specific ticketing system. Plugins are being
+created, or may be created by developers, to allow ticket processing integrating technologies other than Calypso®, based on several programming languages.&lt;/p></description></item><item><title>Global Architecture of Keyple</title><link>/docs/architecture/keyple-global/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/architecture/keyple-global/</guid><description>&lt;p>&lt;img src="docs/img/Keyple-components.svg" alt="global architecture" title="keyple SDK global architecture">&lt;/p>
 &lt;p>The API is currently divided in two major layers:&lt;/p>
 &lt;ul>
 &lt;li>The ‘Keyple Core' : a Secure Element Proxy API which allows managing SE readers in a generic way, whaterver the reader driver or environment, and for standalone or distributed solution (
@@ -596,20 +596,29 @@ A ‘PO resource’ is the set of a Calypso PO and the reader on which it is sel
 &lt;blockquote>
 &lt;p>cf.
 &lt;a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java" target="_blank" rel="noopener">“Calypso Use Case 5 / PO Multiple Session&amp;quot;&lt;/a> example&lt;/p>
-&lt;/blockquote></description></item><item><title>Build your First Java Application</title><link>/docs/build-your-first-app/java-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/java-app/</guid><description>&lt;p>This getting stated contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
+&lt;/blockquote></description></item><item><title>Connect a plugin</title><link>/docs/developer-guides/ticketing-application/connect-a-plugin/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0100</pubDate><guid>/docs/developer-guides/ticketing-application/connect-a-plugin/</guid><description>&lt;p>This guide is intended for developers of ticketing applications.
+It shows, based on sample code, the different operations that can constitute a Calypso card-based transaction application.
+In this guide the card readers are PC/SC type but the principles would be the same with other types of readers.&lt;/p>
+&lt;h2 id="imports">Imports&lt;/h2>
+&lt;p>The application imports the keyple-core (base), keyple-plugin-pcsc (PC/SC reader access) and keyple-calyspo (Calypso card operations) modules.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-core:$keyple_version&amp;quot;
+implementation &amp;quot;org.eclipse.keyple:keyple-java-calypso:$keyple_version&amp;quot;
+implementation &amp;quot;org.eclipse.keyple:keyple-java-plugin-pcsc:$keyple_version&amp;quot;
+&lt;/code>&lt;/pre></description></item><item><title>Build your First Java Application</title><link>/docs/build-your-first-app/java-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/java-app/</guid><description>&lt;p>This getting started contains one ready-to-execute JAVA example starting from a new Gradle project.&lt;/p>
 &lt;p>The example demonstrate Keyple capabilities with the Keyple PCSC plugin and PO/SAM provided in the Calypso Test Kit.&lt;/p>
 &lt;h2 id="build">Build&lt;/h2>
 &lt;p>The example can run on any machine: Linux, Windows and MacOS. If not installed in your machine, you will need to download :&lt;/p>
 &lt;p>Java 1.6 or newer&lt;/p>
-&lt;p>Gradle (any version) download&lt;/p>
+&lt;p>
+&lt;a href="https://gradle.org/install/" target="_blank" rel="noopener">Gradle (any version)&lt;/a>&lt;/p>
 &lt;p>We recommend that you use a Java IDE like Eclipse or Intellij to create your new Gradle project.&lt;/p>
 &lt;p>Create a new Gradle project.&lt;/p>
 &lt;p>Add the following statements to your build.gradle file to import Keyple components into your project:&lt;/p>
 &lt;pre>&lt;code class="language-java">repositories {
 //to import snapshots
-maven {url 'https://oss.sonatype.org/content/repositories/snapshots' }
+//maven {url 'https://oss.sonatype.org/content/repositories/snapshots' }
 //to import releases
-//maven { url 'https://oss.sonatype.org/content/repositories/releases' }
+maven { url 'https://oss.sonatype.org/content/repositories/releases' }
 }
 dependencies {
 //Keyple core is a mandatory library for using Keyple, in this case import the last version of keyple-java-core
@@ -626,286 +635,167 @@ implementation &amp;quot;org.slf4j:slf4j-simple:1.7.25&amp;quot;
 implementation &amp;quot;org.slf4j:slf4j-ext:1.7.25&amp;quot;
 }
 &lt;/code>&lt;/pre>
-&lt;p>Copy the source code below in a new Java Class named Demo_CalypsoTestKit_App2_Pcsc:&lt;/p>
-&lt;pre>&lt;code class="language-java">/********************************************************************************
-* Copyright (c) Calypso Networks Association 2020 https://www.calypsonet-asso.org/
+&lt;p>Copy the source code below in a new Java Class named DemoPoAuthentication:&lt;/p>
+&lt;pre>&lt;code class="language-java">/* **************************************************************************************
+* Copyright (c) 2020 Calypso Networks Association https://www.calypsonet-asso.org/
 *
-* See the NOTICE file(s) distributed with this work for additional information regarding copyright
-* ownership.
+* See the NOTICE file(s) distributed with this work for additional information
+* regarding copyright ownership.
 *
-* This program and the accompanying materials are made available under the terms of the Eclipse
-* Public License 2.0 which is available at http://www.eclipse.org/legal/epl-2.0
+* This program and the accompanying materials are made available under the terms of the
+* Eclipse Public License 2.0 which is available at http://www.eclipse.org/legal/epl-2.0
 *
 * SPDX-License-Identifier: EPL-2.0
-********************************************************************************/
-import org.eclipse.keyple.calypso.command.po.parser.ReadDataStructure;
-import org.eclipse.keyple.calypso.command.po.parser.ReadRecordsRespPars;
-import org.eclipse.keyple.calypso.command.sam.SamRevision;
+************************************************************************************** */
 import org.eclipse.keyple.calypso.transaction.*;
+import org.eclipse.keyple.calypso.transaction.PoSelector.*;
+import org.eclipse.keyple.calypso.command.sam.SamRevision;
 import org.eclipse.keyple.core.selection.*;
 import org.eclipse.keyple.core.seproxy.*;
-import org.eclipse.keyple.core.seproxy.exception.KeypleBaseException;
-import org.eclipse.keyple.core.seproxy.exception.KeypleReaderException;
-import org.eclipse.keyple.core.seproxy.exception.NoStackTraceThrowable;
-import org.eclipse.keyple.core.seproxy.protocol.SeCommonProtocols;
+import org.eclipse.keyple.core.seproxy.SeSelector.*;
 import org.eclipse.keyple.core.util.ByteArrayUtil;
-import org.eclipse.keyple.plugin.pcsc.PcscPlugin;
-import org.eclipse.keyple.plugin.pcsc.PcscPluginFactory;
-import org.eclipse.keyple.plugin.pcsc.PcscProtocolSetting;
-import org.eclipse.keyple.plugin.pcsc.PcscReader;
+import org.eclipse.keyple.plugin.pcsc.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class Demo_CalypsoTestKit_App2_Pcsc {
-private static final Logger logger =
-LoggerFactory.getLogger(Demo_CalypsoTestKit_App2_Pcsc.class);
-/* Plugin name */
-private final static String PLUGIN_NAME = &amp;quot;PcscPlugin&amp;quot;;
-/* PO Reader name */
-private final static String PO_READER_NAME = &amp;quot;ASK LoGO 0&amp;quot;;
-/* SAM Reader name */
-private final static String SAM_READER_NAME = &amp;quot;Identive CLOUD 2700 R Smart Card Reader 0&amp;quot;;
-/* AID: Keyple test kit profile 1, Application 2 */
+public class DemoPoAuthentication {
+private static final Logger logger = LoggerFactory.getLogger(DemoPoAuthentication.class);
+// PO Reader name
+private final static String PO_READER_NAME = &amp;quot;XXX&amp;quot;;
+// SAM Reader name
+private final static String SAM_READER_NAME = &amp;quot;XXX&amp;quot;;
+// Keyple test kit profile 1, Application 2
 private final static String AID = &amp;quot;315449432E49434131&amp;quot;;
 private final static byte RECORD_NUMBER_1 = 1;
-private final static byte SFI_EnvironmentAndHolder = (byte) 0x07;
-public static void main(String[] args) throws KeypleBaseException, NoStackTraceThrowable {
-/* Get the instance of the SeProxyService (Singleton pattern) */
+private final static byte SFI_Environment = (byte) 0x07;
+public static void main(String[] args) {
+// Get the instance of the SeProxyService (Singleton pattern)
 SeProxyService seProxyService = SeProxyService.getInstance();
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= Configuration of the PO &amp;amp; SAM Readers =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-/* Assign PcscPlugin to the SeProxyService */
-seProxyService.registerPlugin(new PcscPluginFactory());
-/* Get the PcscPlugin */
-ReaderPlugin plugin = seProxyService.getPlugin(PcscPlugin.PLUGIN_NAME);
-/* Get the PO reader */
-SeReader poReader = plugin.getReader(PO_READER_NAME);
-/* Sets the PO reader parameters for contactless secure elements */
-setContactlessSettings(poReader);
-/* Get a SAM reader */
-SeReader samReader = plugin.getReader(SAM_READER_NAME);
-/* Sets the reader parameters for contacts secure elements */
-setContactsSettings(samReader);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= Opening logical channel with the SAM =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-/*
-* Open logical channel for the SAM inserted in the reader
-* (We expect the right is inserted)
-*/
-SamResource samResource = checkSamAndOpenChannel(samReader);
-/* Check if the readers exists */
-if (poReader == null || samResource == null) {
-throw new IllegalStateException(&amp;quot;Bad PO or SAM reader setup&amp;quot;);
-}
-logger.info(&amp;quot;======= Secure reading of Environment and Holder file &amp;amp; Po Authentication =======&amp;quot;);
-logger.info(&amp;quot;= PO Reader NAME = {}&amp;quot;, poReader.getName());
-logger.info(&amp;quot;= SAM Reader NAME = {}&amp;quot;, samResource.getSeReader().getName());
-/* Check if a PO is present in the reader */
-if (poReader.isSePresent()) {
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= Start of the Calypso PO processing. =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= 1st PO exchange =&amp;quot;);
-logger.info(
-&amp;quot;= AID based selection =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-/*
-* Prepare a Calypso PO selection
-*/
-SeSelection seSelection = new SeSelection();
-/*
-* Setting of an AID based selection of a Calypso REV3 PO
-*
-* Select the first application matching the selection AID whatever the SE communication protocol
-* Keep the logical channel open after the selection
-*
-* Calypso PO selection: configures a PoSelectionRequest with all the desired attributes to
-* make the selection and read additional information afterwards
-*/
-PoSelectionRequest poSelectionRequest = new PoSelectionRequest(
-new PoSelector( //the selector to target a particular SE
-SeCommonProtocols.PROTOCOL_ISO14443_4, // the SE communication protocol
-null, // the ATR filter
-new PoSelector.PoAidSelector( // the AID selection data
-new SeSelector.AidSelector.IsoAid(AID), // the application identifier
-PoSelector.InvalidatedPo.REJECT), // an enum value to indicate if an invalidated PO should be accepted or not
-&amp;quot;AID: &amp;quot;+ AID), // information string (to be printed in logs)
-ChannelState.KEEP_OPEN); // tell if the channel is to be closed or not after the command
-/*
-* Add the selection case to the current selection (we could have added other cases
-* here)
-*/
-seSelection.prepareSelection(poSelectionRequest);
-/*
-* Actual PO communication: operate through a single request the Calypso PO selection
-* and the file read
-*/
-SelectionsResult selectionsResult = seSelection.processExplicitSelection(poReader);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Get and Configure the PO &amp;amp; SAM Readers =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+// Register the PcscPlugin with SeProxyService, get the corresponding generic ReaderPlugin
+ReaderPlugin readerPlugin = seProxyService.registerPlugin(new PcscPluginFactory());
+// Get the PO reader
+SeReader poReader = readerPlugin.getReader(PO_READER_NAME);
+// Configure the PO reader parameters
+((PcscReader)poReader).setContactless(true);
+// Get a SAM reader
+SeReader samReader = readerPlugin.getReader(SAM_READER_NAME);
+// Eventually, configure the SAM reader parameters
+// ...
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Create a SAM resource after selecting the SAM =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+// Prepare the selector to ensure the correct SAM is used
+SamSelector samSelector = SamSelector.builder().samRevision(SamRevision.AUTO).build();
+// Make the SAM selection
+SeSelection samSelection = new SeSelection();
+samSelection.prepareSelection(new SamSelectionRequest(samSelector));
+CalypsoSam calypsoSam;
+if (samReader.isSePresent()) {
+SelectionsResult selectionsResult = samSelection.processExplicitSelection(samReader);
 if (selectionsResult.hasActiveSelection()) {
-MatchingSelection matchingSelection = selectionsResult.getActiveSelection();
-CalypsoPo calypsoPo = (CalypsoPo) matchingSelection.getMatchingSe();
+calypsoSam = (CalypsoSam) selectionsResult.getActiveMatchingSe();
+} else {
+throw new IllegalStateException(&amp;quot;SAM matching failed!&amp;quot;);
+}
+} else {
+throw new IllegalStateException(&amp;quot;No SAM is present in the reader &amp;quot; + samReader.getName());
+}
+// Associate the calypsoSam and the samReader to create the samResource
+SeResource&amp;lt;CalypsoSam&amp;gt; samResource = new SeResource&amp;lt;CalypsoSam&amp;gt;(samReader, calypsoSam);
+// Prepare the security settings used during the Calypso transaction
+PoSecuritySettings poSecuritySettings = new PoSecuritySettings.PoSecuritySettingsBuilder(samResource).build();
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Display basic information about the readers and SAM =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(
+&amp;quot;= PO Reader Name = {}&amp;quot;,
+poReader.getName());
+String samSerialNumber = ByteArrayUtil.toHex(samResource.getMatchingSe().getSerialNumber());
+logger.info(
+&amp;quot;= SAM Reader Name = {}, Serial Number = {}&amp;quot;,
+samResource.getSeReader().getName(),
+samSerialNumber);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Prepare the Calypso PO selection =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+// Prepare a Calypso PO selection
+SeSelection seSelection = new SeSelection();
+// Setting of an AID based selection of a Calypso Revision 3.1 PO
+//
+// Select the first application matching the selection AID whatever the card communication protocol
+// Keep the logical channel open after the selection
+//
+// Calypso selection: configures a PoSelectionRequest with all the desired attributes to
+// make the selection and read additional information afterwards
+PoSelectionRequest poSelectionRequest = new PoSelectionRequest(
+PoSelector.builder()
+.aidSelector(AidSelector.builder().aidToSelect(AID).build()) // the application identifier
+.invalidatedPo(InvalidatedPo.REJECT) // to indicate if an invalidated PO should be accepted or not
+.build());
+// Add the selection case to the current selection
+// (we could have added other cases)
+seSelection.prepareSelection(poSelectionRequest);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Check if a PO is present in the reader =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+if (poReader.isSePresent()) {
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= Start of the Calypso PO processing =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= 1st PO exchange =&amp;quot;);
+logger.info(&amp;quot;= AID based selection =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+try {
+// Actual PO communication: operate through a single request the Calypso PO selection
+CalypsoPo calypsoPo =
+(CalypsoPo) seSelection.processExplicitSelection(poReader).getActiveMatchingSe();
 logger.info(&amp;quot;The selection of the PO has succeeded.&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= 2nd PO exchange =&amp;quot;);
-logger.info(
-&amp;quot;= Open a secure session =&amp;quot;);
-logger.info(
-&amp;quot;= Reading of Environment and Holder file (SFI=07h) =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-PoTransaction poTransaction = new PoTransaction(new PoResource(poReader, calypsoPo),
-samResource, new SecuritySettings());
-/*
-* Prepare the reading order and keep the associated parser for later use once the
-* transaction has been processed.
-*/
-int readEnvironmentAndHolderParserIndex = poTransaction.prepareReadRecordsCmd(
-SFI_EnvironmentAndHolder, // the sfi top select
-ReadDataStructure.SINGLE_RECORD_DATA, // read mode enum to indicate a SINGLE, MULTIPLE or COUNTER read
-RECORD_NUMBER_1, // the record number to read (or first record to read in case of several records)
-String.format( // extra information included in the logs (can be null or empty)
-&amp;quot;EventLog (SFI=%02X, recnbr=%d))&amp;quot;,
-SFI_EnvironmentAndHolder,
-RECORD_NUMBER_1));
-/*
-* Open Session for the debit key
-*/
-boolean poProcessStatus = poTransaction.processOpening(
-PoTransaction.ModificationMode.ATOMIC,
-PoTransaction.SessionAccessLevel.SESSION_LVL_DEBIT, (byte) 0, (byte) 0);
-if (!poProcessStatus) {
-throw new IllegalStateException(&amp;quot;processingOpening failure.&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= 2nd PO exchange =&amp;quot;);
+logger.info(&amp;quot;= Open a Calypso secure session =&amp;quot;);
+logger.info(&amp;quot;= Reading of Environment file (SFI=07h) =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+// Create a PoTransaction object to manage the Calypso transaction
+PoTransaction poTransaction = new PoTransaction(
+new SeResource&amp;lt;CalypsoPo&amp;gt;(poReader, calypsoPo),
+poSecuritySettings);
+// Read the Environment file at the Session Opening
+// (we could have added other commands)
+poTransaction.prepareReadRecordFile(
+SFI_Environment, // the sfi to select
+RECORD_NUMBER_1);
+// Open Session with the debit key
+poTransaction.processOpening(PoTransaction.SessionSetting.AccessLevel.SESSION_LVL_DEBIT);
+// Get the Environment data
+ElementaryFile efEnvironment = calypsoPo.getFileBySfi(SFI_Environment);
+String environmentLog = ByteArrayUtil.toHex(efEnvironment.getData().getContent());
+logger.info(&amp;quot;File Environment log: {}&amp;quot;, environmentLog);
+if (!calypsoPo.isDfRatified()) {
+logger.info(&amp;quot;============= Previous Calypso Secure Session was not ratified =============&amp;quot;);
 }
-if (!poTransaction.wasRatified()) {
-logger.info(
-&amp;quot;=================== Previous Secure Session was not ratified ====================&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= 3th PO exchange =&amp;quot;);
+logger.info(&amp;quot;= Close the Calypso secure session =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+// To close the channel with the PO after the closing
+poTransaction.prepareReleasePoChannel();
+// Close the Calypso Secure Session
+// A ratification command will be sent (CONTACTLESS_MODE)
+poTransaction.processClosing();
+logger.info(&amp;quot;============================================================================&amp;quot;);
+logger.info(&amp;quot;= The Calypso secure session ended successfully =&amp;quot;);
+logger.info(&amp;quot;= (Successful mutual authentication) =&amp;quot;);
+logger.info(&amp;quot;= End of the Calypso PO processing =&amp;quot;);
+logger.info(&amp;quot;============================================================================&amp;quot;);
+} catch (Exception e) {
+logger.error(&amp;quot;Exception: {}&amp;quot;, e.getMessage());
 }
-/*
-* Retrieve the data read from the parser updated during the transaction process
-*/
-byte EnvironmentAndHolderLog[] = (((ReadRecordsRespPars) poTransaction
-.getResponseParser(readEnvironmentAndHolderParserIndex)).getRecords())
-.get((int) RECORD_NUMBER_1);
-/* Log the result */
-logger.info(&amp;quot;Environment And Holder file data: {}&amp;quot;, ByteArrayUtil.toHex(EnvironmentAndHolderLog));
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= 3th PO exchange =&amp;quot;);
-logger.info(
-&amp;quot;= Close the secure session =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-/*
-* Close the Secure Session.
-* A ratification command will be sent (CONTACTLESS_MODE).
-*/
-poProcessStatus = poTransaction.processClosing(ChannelState.CLOSE_AFTER);
-if (!poProcessStatus) {
-throw new IllegalStateException(&amp;quot;processClosing failure.&amp;quot;);
-}
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
-logger.info(
-&amp;quot;= Successful mutual authentication =&amp;quot;);
-logger.info(
-&amp;quot;= End of the Calypso PO processing =&amp;quot;);
-logger.info(
-&amp;quot;=================================================================================&amp;quot;);
 } else {
 logger.error(&amp;quot;The selection of the PO has failed.&amp;quot;);
 }
-} else {
-logger.error(&amp;quot;No PO were detected.&amp;quot;);
-}
 System.exit(0);
-}
-/**
-* Sets the reader parameters for contactless secure elements
-*
-* @param reader the reader to configure
-* @throws KeypleBaseException in case of an error while settings the parameters
-*/
-private static void setContactlessSettings(SeReader reader) throws KeypleBaseException {
-/* Enable logging */
-reader.setParameter(PcscReader.SETTING_KEY_LOGGING, &amp;quot;true&amp;quot;);
-/* Contactless SE works with T1 protocol */
-reader.setParameter(PcscReader.SETTING_KEY_PROTOCOL, PcscReader.SETTING_PROTOCOL_T1);
-/*
-* PC/SC card access mode:
-* The PO reader is set to EXCLUSIVE mode to avoid side effects during the selection step
-* that may result in session failures.
-*/
-reader.setParameter(PcscReader.SETTING_KEY_MODE, PcscReader.SETTING_MODE_EXCLUSIVE);
-/* Set the PO reader protocol flag */
-reader.addSeProtocolSetting(
-SeCommonProtocols.PROTOCOL_ISO14443_4,
-PcscProtocolSetting.PCSC_PROTOCOL_SETTING.get(SeCommonProtocols.PROTOCOL_ISO14443_4));
-}
-/**
-* Sets the reader parameters for contacts secure elements
-*
-* @param reader the reader to configure
-* @throws KeypleBaseException in case of an error while settings the parameters
-*/
-private static void setContactsSettings(SeReader reader) throws KeypleBaseException {
-/* Enable logging */
-reader.setParameter(PcscReader.SETTING_KEY_LOGGING, &amp;quot;true&amp;quot;);
-/* Contactless SE works with T0 protocol */
-reader.setParameter(PcscReader.SETTING_KEY_PROTOCOL, PcscReader.SETTING_PROTOCOL_T0);
-/*
-* PC/SC card access mode:
-* The SAM is left in the SHARED mode (by default) to avoid automatic resets due to the
-* limited time between two consecutive exchanges granted by Windows.
-*/
-reader.setParameter(PcscReader.SETTING_KEY_MODE, PcscReader.SETTING_MODE_SHARED);
-/* Set the SAM reader protocol flag */
-reader.addSeProtocolSetting(
-SeCommonProtocols.PROTOCOL_ISO7816_3,
-PcscProtocolSetting.PCSC_PROTOCOL_SETTING.get(SeCommonProtocols.PROTOCOL_ISO7816_3));
-}
-/**
-* Check SAM presence and consistency and return a SamResource when everything is correct.
-*
-* Throw an exception if the expected SAM is not available
-*
-* @param samReader the SAM reader
-*/
-private static SamResource checkSamAndOpenChannel(SeReader samReader) {
-/*
-* Check the availability of the SAM doing a ATR based selection,
-* open its physical and logical channels,
-* keep it open
-*/
-SeSelection samSelection = new SeSelection();
-SamSelector samSelector = new SamSelector(SamRevision.C1, &amp;quot;.*&amp;quot;, &amp;quot;Selection SAM C1&amp;quot;);
-/* Prepare selector, ignore AbstractMatchingSe here */
-samSelection.prepareSelection(new SamSelectionRequest(samSelector, ChannelState.KEEP_OPEN));
-CalypsoSam calypsoSam;
-try {
-calypsoSam = (CalypsoSam) samSelection.processExplicitSelection(samReader)
-.getActiveSelection().getMatchingSe();
-if (!calypsoSam.isSelected()) {
-throw new IllegalStateException(&amp;quot;Unable to open a logical channel for SAM!&amp;quot;);
-}
-} catch (KeypleReaderException e) {
-throw new IllegalStateException(&amp;quot;SAM Reader exception: &amp;quot; + e.getMessage());
-}
-return new SamResource(samReader, calypsoSam);
 }
 }
 &lt;/code>&lt;/pre>
@@ -915,7 +805,7 @@ return new SamResource(samReader, calypsoSam);
 # Default logging detail level for all instances of SimpleLogger.
 # Must be one of (&amp;quot;trace&amp;quot;, &amp;quot;debug&amp;quot;, &amp;quot;info&amp;quot;, &amp;quot;warn&amp;quot;, or &amp;quot;error&amp;quot;).
 # If not specified, defaults to &amp;quot;info&amp;quot;.
-org.slf4j.simpleLogger.defaultLogLevel=trace
+org.slf4j.simpleLogger.defaultLogLevel=debug
 # Logging detail level for a SimpleLogger instance named &amp;quot;xxxxx&amp;quot;.
 # Must be one of (&amp;quot;trace&amp;quot;, &amp;quot;debug&amp;quot;, &amp;quot;info&amp;quot;, &amp;quot;warn&amp;quot;, or &amp;quot;error&amp;quot;).
 # If not specified, the default logging detail level is used.
@@ -949,23 +839,42 @@ private final static String PO_READER_NAME = &amp;quot;XXX&amp;quot;;
 /* SAM Reader name */
 private final static String SAM_READER_NAME = &amp;quot;XXX&amp;quot;;
 &lt;/code>&lt;/pre>
-&lt;p>If you don’t know the reader name, run the application in debug mode and get the reader name in plugin variable returned by:&lt;/p>
-&lt;blockquote>
-&lt;p>seProxyService.getPlugin(PLUGIN_NAME) methode: plugin -&amp;gt; readers -&amp;gt; X -&amp;gt; terminal -&amp;gt; name .&lt;/p>
-&lt;/blockquote>
+&lt;p>If you don’t know the reader name, run the application in debug mode and get the reader name in plugin variable&lt;/p>
 &lt;p>Run the application.&lt;/p>
-&lt;p>Note: All project dependencies, including Keyple components, are downloaded during the first run, which can take several minutes.&lt;/p></description></item><item><title>Build your First Android Application</title><link>/docs/build-your-first-app/android-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/android-app/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;div class="alert alert-note">
+&lt;div>
+All project dependencies, including Keyple components, are downloaded during the first run, which can take several minutes.
+&lt;/div>
+&lt;/div></description></item><item><title>Build your First Android Application</title><link>/docs/build-your-first-app/android-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/android-app/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>Keyple SDK is supported by the Operating System Android. As Keyple request low level reader access, the key features of
-the SDK relies on components called &amp;lsquo;Plugins&amp;rsquo;.&lt;/p>
-&lt;p>Keyple Android Plugins are low level implementation of Keyple contracts described in the section &amp;lsquo;Develop a plugin&amp;rsquo; in Developer
-guide. Once a plugin is provided, any classic Android application can use Keyple to provide ticketing features.&lt;/p>
-&lt;p>This Guide will describe how to start a ticketing application using Keyple SDK.&lt;/p>
-&lt;h2 id="compatibility">Compatibility&lt;/h2>
+&lt;p>&lt;strong>Since Keyple is supported by the Android operating system, developers can take advantage of this quick and easy to implement solution to provide SmartCard communication functionalities in their own mobile application.&lt;/strong>&lt;/p>
+&lt;p>For exemple, Keyple could be used to facilitate the development of a ticketing application based of the use of conteners on a SIM card and relying on
+&lt;a href="https://developer.android.com/reference/android/se/omapi/package-summary" target="_blank" rel="noopener">Android SE OMAPI&lt;/a>.
+Keyple could also be used to develop an application reading SmartCard content through NFC using
+&lt;a href="https://developer.android.com/guide/topics/connectivity/nfc/advanced-nfc" target="_blank" rel="noopener">Android NFC&lt;/a>.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/android-app/component/Android_App_Overview.png" >
+&lt;img src="./media/android-app/component/Android_App_Overview.png" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>As Keyple request low level reader access, the key features of Keyple SDK relies on components called &amp;lsquo;Plugins&amp;rsquo;. These are the plugins that allow access to the hardware functionality of the terminal by using the native Android SDK or the terminal manufacturer&amp;rsquo;s own custom SDKs.&lt;/p>
+&lt;p>This guide will describe how to start a ticketing application using Keyple SDK and Android NFC plugin to read the content of a Calypso SmartCard. As we want to focus on Keyple integration, the Android application architecture will remain the simplest as possible.&lt;/p>
+&lt;h2 id="what-to-we-need-for-this-guide">What to we need for this guide?&lt;/h2>
 &lt;ul>
+&lt;li>Retail Device with NFC powered by android.nfc library (integrated into standard Android SDK).&lt;/li>
 &lt;li>Android OS 19+&lt;/li>
+&lt;li>A NFC SmartCard with Calypso PO&lt;/li>
 &lt;/ul>
 &lt;h1 id="integration">Integration&lt;/h1>
+&lt;h2 id="application-setup">Application setup&lt;/h2>
+&lt;p>Like for any other Android NFC Application, we need to declare items in the application manifest.&lt;/p>
+&lt;pre>&lt;code class="language-xml">&amp;lt;manifest xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;&amp;gt;
+...
+&amp;lt;uses-permission android:name=&amp;quot;android.permission.NFC&amp;quot; /&amp;gt;
+&amp;lt;uses-feature android:name=&amp;quot;android.hardware.nfc&amp;quot; android:required=&amp;quot;true&amp;quot; /&amp;gt;
+...
+&amp;lt;/manifest&amp;gt;
+&lt;/code>&lt;/pre>
 &lt;h2 id="sdk-integration">SDK Integration&lt;/h2>
 &lt;h3 id="keyple-core">Keyple Core&lt;/h3>
 &lt;p>This high-level API is convenient for developers implementing smart card processing application for terminal interfaced
@@ -978,262 +887,310 @@ Android application.&lt;/p>
 &lt;h3 id="keyple-plugins">Keyple Plugins&lt;/h3>
 &lt;p>There are many Keyple plugins available, the one to use depends on the device and ticketing tools you are aiming to
 use.&lt;/p>
-&lt;p>For a standard device the keyple-android-plugin-nfc and keyple-android-plugin-omapi should be be used. They will allow keyple to
-connect to, respectively, a smart card in the NFC field of the device or, a smart card inserted in a SIM like port. The
-plugins for Android are Android Libraries (AAR).&lt;/p>
-&lt;p>To use the plugins simply import it within the gradle dependencies of your Android application.&lt;/p>
-&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;p>To use the NFC plugin simply import it within the gradle dependencies of your Android application.&lt;/p>
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-nfc:$keyple_version&amp;quot;
 &lt;/code>&lt;/pre>
 &lt;h3 id="keyple-calypso">Keyple Calypso&lt;/h3>
-&lt;p>The Keyple Calypso User API is an extension of the Keyple Core User API to manage Calypso Portable Object securely using
-Calypso SAM.&lt;/p>
+&lt;p>The Keyple Calypso User API is an extension of the Keyple Core User API to manage Calypso Portable Objects.&lt;/p>
 &lt;p>Please refer to Architecture/Keyle Calypso&lt;/p>
 &lt;p>To use Keyple Calypso User API simply import the jar within the gradle dependencies of your Android application.&lt;/p>
-&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-android-plugin-omapi:$keyple_version&amp;quot;
+&lt;pre>&lt;code class="language-gradle">implementation &amp;quot;org.eclipse.keyple:keyple-java-calypso:$keyple_version&amp;quot;
 &lt;/code>&lt;/pre>
+&lt;h1 id="lets-code">Let&amp;rsquo;s code&lt;/h1>
 &lt;h2 id="initializing-the-sdk">Initializing the SDK&lt;/h2>
 &lt;h3 id="register-a-plugin">Register a plugin&lt;/h3>
-&lt;p>The Singleton SeProxyService is the entry point of the SE Proxy Service, its instance has to be called by a
-ticketing application in order to establish a link with a SE’s application.&lt;/p>
-&lt;p>In order to access to SE we have to register at least one plugin.&lt;/p>
+&lt;p>In order to setup Keyple, we need to register at least one plugin. Here we register our NFC plugin. To do so, we use the singleton SmartCardService and the plugin Factory. (See plugin development guide to know more about plugins)&lt;/p>
 &lt;pre>&lt;code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
 super.onCreate(savedInstanceState)
-/* register Omapi Plugin to the SeProxyService */
+/* register Android NFC Plugin to the SmartCardService */
 try {
-SeProxyService.getInstance().registerPlugin(AndroidOmapiPluginFactory(this))
-} catch (e: KeyplePluginInstantiationException) {
+SmartCardService.getInstance().registerPlugin(AndroidNfcPluginFactory())
+}catch (e: KeypleException){
 /* do something with it */
 }
 }
 &lt;/code>&lt;/pre>
-&lt;h3 id="retrieve-the-readers">Retrieve the readers&lt;/h3>
-&lt;p>With the plugin registered we can retrieve all instance of the component mapping the smartcard readers provided by this
-plugins. For example, some plugins provide access to contact and contactless readers)&lt;/p>
-&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME is a constant provided by the keyple plugin
-val readers = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).readers
+&lt;p>Note: Plugins Factory&amp;rsquo;s initialisation could request more steps to execute before passing it to registerPlugin(). It depends on plugins, please check the documentation or usage exemple of desired plugin.&lt;/p>
+&lt;h3 id="unregister-a-plugin">Unregister a plugin&lt;/h3>
+&lt;p>Clean resources.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">override fun onDestroy() {
+super.onCreate(savedInstanceState)
+/* Unregister Android NFC Plugin to the SmartCardService */
+try {
+SmartCardService.getInstance().unregisterPlugin(AndroidNfcPlugin.PLUGIN_NAME)
+}catch (e: KeypleException){
+/* do something with it */
+}
+super.onDestroy()
+}
 &lt;/code>&lt;/pre>
-&lt;h3 id="retrieve-one-specific-reader">Retrieve one specific reader&lt;/h3>
-&lt;p>It is also possible to retrieve a specific reader.&lt;/p>
-&lt;pre>&lt;code class="language-kotlin">//PLUGIN_NAME and READER_NAME are constants provided by the used keyple plugin
-val reader = SeProxyService.getInstance().getPlugin(PLUGIN_NAME).getReader(READER_NAME)
+&lt;h2 id="retrieve-a-specific-reader">Retrieve a specific reader&lt;/h2>
+&lt;p>With the plugin registered we can retrieve all instances of the component mapping the SmartCard readers. Here we want to retrieve the NFC reader.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//We keep a reference to the reader for later use
+private lateinit var reader: AndroidNfcReader
+...
+//PLUGIN_NAME and READER_NAME are constants provided by the used Keyple plugin
+reader = plugin.readers[AndroidNfcReader.READER_NAME] as AndroidNfcReader
 &lt;/code>&lt;/pre>
-&lt;h2 id="select-a-po">Select a PO&lt;/h2>
-&lt;h3 id="seproxy-api">SeProxy API&lt;/h3>
-&lt;p>Using a reader, it is possible to select a PO using its AID. Here we use the low level SeProxy API of Keyple core to do so.&lt;/p>
-&lt;pre>&lt;code class="language-kotlin"> /*
-* Configuration of the selector
-* Setting of an AID based selection of a Calypso REV3 PO
-*/
-val seSelector = SeSelector.builder()
-.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
-.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
+&lt;h2 id="add-observer-to-handle-nfc-events">Add observer to handle NFC events&lt;/h2>
+&lt;p>When native NFC is activated on an Android device, the OS dispatches insertion events occurring in the NFC detection field. In our application, we need detect it in order to proceed to exchanges with the SmartCard.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">//To keep it simple we choose to have our MainActivity implementing ObservableReader.ReaderObserver
+//interface.
+class MainActivity : AppCompatActivity(), ObservableReader.ReaderObserver {
+...
+reader.addObserver(this)
+...
+//Belongs to ObservableReader.ReaderObserver
+//NFC Reader events will be received here.
+//this method is not triggered in UI thread
+override fun update(event: ReaderEvent) {
+if(event.eventType == ReaderEvent.EventType.CARD_INSERTED){
+//We'll select PO when SmartCard is presented in field
+//Method handlePo is described below
+handlePo()
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Now we have an access to our NFC Reader, we can activate Card Detection.&lt;/p>
+&lt;h2 id="activate-card-detection">Activate Card detection&lt;/h2>
+&lt;p>We will start detection as soon as our application comes in foreground and stop when application go background.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">class MainActivity : AppCompatActivity(), ObservableReader.ReaderObserver {
+override fun onResume() {
+super.onResume()
+reader?.let {
+//Set Keyple in a detection mode
+//We choose to stop detection as soon as one card is detected
+it.startCardDetection(ObservableReader.PollingMode.SINGLESHOT)
+//Activate NFC detection (To be removed soon for merge with below step)
+it.enableNFCReaderMode(this)
+}
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h2 id="deactivate-card-detection">Deactivate Card detection&lt;/h2>
+&lt;pre>&lt;code class="language-kotlin">class MainActivity : AppCompatActivity(), ObservableReader.ReaderObserver {
+override fun onPause() {
+reader?.let {
+it.disableNFCReaderMode(this)
+it.stopCardDetection()
+}
+super.onPause()
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>Now we can detect when a SmartCard is presented in the field, we can proceed to card application selection and data reading.&lt;/p>
+&lt;h2 id="handling-a-calypso-po">Handling a Calypso PO&lt;/h2>
+&lt;h3 id="calypso-selection-api">Calypso Selection API&lt;/h3>
+&lt;p>With Keyple, PO selection and FCI retrieving can be done using only Keyple Core, but Keyple Calypso API provides specific tools to handle Calypso POs and make the process a bit more simple.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin">fun handlePo(){
+reader?.let {
+//check if card is in the NFC field
+if(it.isCardPresent){
+//Instanciate class handling card selection process
+val cardSelection = CardSelection()
+//We only want to select the PO so we choose to close communication channel once
+//selection is done
+cardSelection.prepareReleaseChannel()
+//We build a selection request managing specific characteristics of Calypso POs
+val poSelectionRequest = PoSelectionRequest(
+PoSelector
+.builder()
+//Smarcard standard protocol
+.cardProtocol(ContactlessCardCommonProtocols.ISO_14443_4.name)
+.aidSelector(
+CardSelector.AidSelector.builder()
+.aidToSelect(YOUR_AID) //Set the AID of your Calypso PO
+//indicates how to carry out the file occurrence in accordance with
+//ISO7816-4
+.fileOccurrence(CardSelector.AidSelector.FileOccurrence.FIRST)
+//indicates which template is expected in accordance with ISO7816-4
+.fileControlInformation(
+CardSelector.AidSelector.FileControlInformation.FCI)
 .build()
-//build the request by passing the seSelector.
-//As second parameter of the SeRequest consctructor, an APDU can be added to be executed
-//right after the selection.
-val seRequest = SeRequest(seSelector, null)
-//A ProxyReader is a physical reader, it allows to send and receive synchronised APDUS
-val seResponse = (reader.value as ProxyReader).transmitSeRequest(seRequest, ChannelControl.KEEP_OPEN)
-//Check is selection is successful
-if (seResponse?.selectionStatus?.hasMatched() == true) {
-//Selection is done
-} else {
-//Selection failed
+).build())
+cardSelection.prepareSelection(poSelectionRequest)
+//Proceed to selection using the reader
+val selectionResult = cardSelection.processExplicitSelection(it)
+runOnUiThread {
+//We check the selection result and read the FCI
+if(selectionResult.hasActiveSelection()){
+val matchedSmartCard = selectionResult.activeSmartCard
+val fci = matchedSmartCard.fciBytes
+Toast.makeText(this, String.format(&amp;quot;Selected, Fci %s&amp;quot;,
+ByteArrayUtil.toHex(fci)), Toast.LENGTH_LONG).show()
+}else {
+Toast.makeText(this,
+String.format(&amp;quot;Not selected&amp;quot;), Toast.LENGTH_SHORT).show()
+}
+}
+}
+}
 }
 &lt;/code>&lt;/pre>
-&lt;h3 id="selection-api">Selection API&lt;/h3>
-&lt;p>The bellow example illustrates the same operation using the Selection API, an higher level API of Keyple Core.&lt;/p>
-&lt;pre>&lt;code class="language-kotlin">var seSelection = SeSelection()
-/*
-* Close the channel after the selection
-*/
-seSelection.prepareReleaseSeChannel()
-/*
-* AID based selection: get the first application occurrence matching the AID, keep the
-* physical channel open
-*/
-seSelection.prepareSelection(GenericSeSelectionRequest(
-SeSelector.builder()
-.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
-.aidSelector(AidSelector.builder()
-.aidToSelect(seAidPrefix)
-.fileOccurrence(AidSelector.FileOccurrence.FIRST)
-.fileControlInformation(AidSelector.FileControlInformation.FCI).build())
-.build()))
-seSelection.prepareSelection(poSelectionRequest)
-/*
-* Execution og the selection
-*/
-val selectionsResult = seSelection.processExplicitSelection(reader)
-/**
-* Check if PO has been selected successfuly
-*/
-if (selectionsResult.hasActiveSelection()) {
-//Selection is done
-val matchedSe = selectionsResult.activeMatchingSe
-val fci = matchedSe.fciBytes
-val atr = matchedSe.atrBytes
-} else {
-//Selection failed
-}
-&lt;/code>&lt;/pre>
-&lt;h2 id="reading-and-writing-data">Reading and writing data&lt;/h2>
+&lt;p>Now we&amp;rsquo;ve seen we can select our PO we can retrieve more data from it.&lt;/p>
 &lt;h3 id="reading-environment-and-usage">Reading Environment and usage&lt;/h3>
-&lt;p>Exemple of reading Environmement and usage data of an Hoplink application. As Hoplink is a calypso application, we can map
-cast the result of the selection with CalypsoPo. It will allow us to easily access calypso datas.&lt;/p>
-&lt;pre>&lt;code class="language-kotlin">var poAid= &amp;quot;A000000291A000000191&amp;quot;
+&lt;p>In the below example we&amp;rsquo;ll read Environment and Usage data of an Hoplink container.&lt;/p>
+&lt;pre>&lt;code class="language-kotlin"> ...
+//Data related to Hoplink
+val poAid= &amp;quot;A000000291A000000191&amp;quot;
 val sfiHoplinkEFEnvironment = 0x14.toByte()
 val sfiHoplinkEFUsage = 0x1A.toByte()
-/*
-* Prepare a Calypso PO selection
-*/
-val seSelection = SeSelection()
-/*
-* Setting of an AID based selection of a Calypso REV3 PO
-*
-* Select the first application matching the selection AID whatever the SE
-* communication protocol keep the logical channel open after the selection
-*/
-/*
-* Calypso selection: configures a PoSelectionRequest with all the desired
-* attributes to make the selection and read additional information afterwards
-*/
-val poSelectionRequest = PoSelectionRequest(
-PoSelector.builder()
-.seProtocol(SeCommonProtocols.PROTOCOL_ISO7816_3)
-.aidSelector(AidSelector.builder().aidToSelect(poAid).build())
-.invalidatedPo(InvalidatedPo.REJECT).build())
-/*
-* Prepare the reading order and keep the associated parser for later use once
-* the selection has been made.
-*/
+...
+private fun handlePo(){
+...
+//Prepare the reading order. We'll read the first record of the EF
+//specified by its SFI. This reading will be done within explicit selection.
 poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFEnvironment, 1)
-poSelectionRequest.prepareReadRecordFile(
-sfiHoplinkEFUsage, 1)
-/*
-* Add the selection case to the current selection (we could have added other
-* cases here)
-*
-* Ignore the returned index since we have only one selection here.
-*/
-seSelection.prepareSelection(poSelectionRequest)
-/*
-* Actual PO communication: operate through a single request the Calypso PO
-* selection and the file read
-*/
+poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFUsage, 1)
+...
+//Hoplink is a Calypso PO, we can cast the SmartCard
+//with CalypsoPo class, representing the PO content.
+val calypsoPO = selectionResult.activeSmartCard as CalypsoPo
+val environment = calypsoPO.getFileBySfi(sfiHoplinkEFEnvironment)
+val usage = calypsoPO.getFileBySfi(sfiHoplinkEFUsage)
+Toast.makeText(this, String.format(&amp;quot;Environment %s&amp;quot;,
+ByteArrayUtil.toHex(environment.data.content)), Toast.LENGTH_SHORT).show()
+Toast.makeText(this, String.format(&amp;quot;Usage %s&amp;quot;,
+ByteArrayUtil.toHex(usage.data.content)), Toast.LENGTH_SHORT).show()
+}
+&lt;/code>&lt;/pre>
+&lt;h2 id="full-code">Full code&lt;/h2>
+&lt;pre>&lt;code class="language-xml">&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;manifest xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+package=&amp;quot;org.eclipse.keyple.android.quickstart&amp;quot;&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;android.permission.NFC&amp;quot; /&amp;gt;
+&amp;lt;uses-feature
+android:name=&amp;quot;android.hardware.nfc&amp;quot;
+android:required=&amp;quot;true&amp;quot; /&amp;gt;
+&amp;lt;application
+android:allowBackup=&amp;quot;true&amp;quot;
+android:screenOrientation=&amp;quot;portrait&amp;quot;
+android:icon=&amp;quot;@mipmap/ic_launcher&amp;quot;
+android:label=&amp;quot;@string/app_name&amp;quot;
+android:roundIcon=&amp;quot;@mipmap/ic_launcher_round&amp;quot;
+android:supportsRtl=&amp;quot;true&amp;quot;
+android:theme=&amp;quot;@style/AppTheme&amp;quot;&amp;gt;
+&amp;lt;activity android:name=&amp;quot;.MainActivity&amp;quot;&amp;gt;
+&amp;lt;intent-filter&amp;gt;
+&amp;lt;action android:name=&amp;quot;android.intent.action.MAIN&amp;quot; /&amp;gt;
+&amp;lt;category android:name=&amp;quot;android.intent.category.LAUNCHER&amp;quot; /&amp;gt;
+&amp;lt;/intent-filter&amp;gt;
+&amp;lt;/activity&amp;gt;
+&amp;lt;/application&amp;gt;
+&amp;lt;/manifest&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-kotlin">class MainActivity : AppCompatActivity(), ObservableReader.ReaderObserver {
+private var reader: AndroidNfcReader? = null
+val poAid= &amp;quot;A000000291A000000191&amp;quot;
+val sfiHoplinkEFEnvironment = 0x14.toByte()
+val sfiHoplinkEFUsage = 0x1A.toByte()
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
 try {
-val selectionsResult = seSelection.processExplicitSelection(seReader)
-if (selectionsResult.hasActiveSelection()) {
-val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
-val environmentAndHolder = calypsoPo.getFileBySfi(sfiHoplinkEFEnvironment).data.content
-val usage = calypsoPo.getFileBySfi(sfiHoplinkEFUsage).data.content
-} else {
-//The selection of the PO Failed
+val plugin = SmartCardService.getInstance().registerPlugin(AndroidNfcPluginFactory())
+val reader = plugin.readers[AndroidNfcReader.READER_NAME] as AndroidNfcReader
+reader.addObserver(this)
+reader.activateProtocol(ContactlessCardCommonProtocols.ISO_14443_4.name, ContactlessCardCommonProtocols.ISO_14443_4.name)
+this.reader = reader
+}catch (e: KeypleException){
+Timber.e(e)
+Toast.makeText(this, String.format(&amp;quot;Error: %s&amp;quot;, e.message), Toast.LENGTH_LONG).show()
 }
-} catch (e: Exception) {
-//The selection of the PO Failed with an error
+}
+override fun onResume() {
+super.onResume()
+reader?.let {
+it.startCardDetection(ObservableReader.PollingMode.SINGLESHOT)
+it.enableNFCReaderMode(this)
+Toast.makeText(this, String.format(&amp;quot;Hunt enabled&amp;quot;), Toast.LENGTH_SHORT).show()
+}
+}
+override fun onPause() {
+reader?.let {
+it.disableNFCReaderMode(this)
+it.stopCardDetection()
+}
+super.onPause()
+}
+override fun onDestroy() {
+SmartCardService.getInstance().unregisterPlugin(AndroidNfcPlugin.PLUGIN_NAME)
+reader = null
+super.onDestroy()
+}
+override fun update(event: ReaderEvent) {
+Timber.d(&amp;quot;Event: %s&amp;quot;, event.eventType.name)
+runOnUiThread {
+Toast.makeText(this, String.format(&amp;quot;Event: %s&amp;quot;, event.eventType.name),
+Toast.LENGTH_SHORT).show()
+}
+if(event.eventType == ReaderEvent.EventType.CARD_INSERTED){
+handlePo()
+}
+}
+//With Calypso API
+private fun handlePo(){
+reader?.let {
+if(it.isCardPresent){
+val cardSelection = CardSelection()
+cardSelection.prepareReleaseChannel()
+val poSelectionRequest = PoSelectionRequest(
+PoSelector
+.builder()
+.cardProtocol(ContactlessCardCommonProtocols.ISO_14443_4.name)
+.aidSelector(
+CardSelector.AidSelector.builder()
+.aidToSelect(poAid)
+.fileOccurrence(
+CardSelector.AidSelector.FileOccurrence.FIRST)
+.fileControlInformation(
+CardSelector.AidSelector.FileControlInformation.FCI)
+.build()
+).build())
+cardSelection.prepareSelection(poSelectionRequest)
+//Prepare the reading order. We'll read the first record of the EF
+//specified by his SFI. This reading will be done with selection.
+poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFEnvironment, 1)
+poSelectionRequest.prepareReadRecordFile(sfiHoplinkEFUsage, 1)
+//Selection and file reading will be done here
+val selectionResult = cardSelection.processExplicitSelection(it)
+runOnUiThread {
+if(selectionResult.hasActiveSelection()){
+val matchedSmartCard = selectionResult.activeSmartCard
+val fci = matchedSmartCard.fciBytes
+Toast.makeText(this, String.format(&amp;quot;Selected, Fci %s&amp;quot;,
+ByteArrayUtil.toHex(fci)), Toast.LENGTH_SHORT).show()
+//Hoplink is a Calypso PO, we can cast the SmartCard
+//with CalypsoPo class, representing the PO content.
+val calypsoPO = selectionResult.activeSmartCard as CalypsoPo
+val environment = calypsoPO.getFileBySfi(sfiHoplinkEFEnvironment)
+val usage = calypsoPO.getFileBySfi(sfiHoplinkEFUsage)
+Toast.makeText(this, String.format(&amp;quot;Environment %s&amp;quot;,
+ByteArrayUtil.toHex(environment.data.content)), Toast.LENGTH_SHORT).show()
+Toast.makeText(this, String.format(&amp;quot;Usage %s&amp;quot;,
+ByteArrayUtil.toHex(usage.data.content)), Toast.LENGTH_SHORT).show()
+}else {
+Toast.makeText(this, String.format(&amp;quot;Not selected&amp;quot;), Toast.LENGTH_SHORT).show()
+}
+}
+}
+}
+}
 }
 &lt;/code>&lt;/pre>
-&lt;h3 id="incrementing-a-counter">Incrementing a counter&lt;/h3>
-&lt;p>In this example, we&amp;rsquo;ll increase Counter 1 by 10 on a contactless ticketing NFC PO. The counter will be increased
-when the PO will enter NFC Field.&lt;/p>
-&lt;h4 id="setup-to-catch-reader-event">Setup to catch reader event&lt;/h4>
-&lt;pre>&lt;code class="language-kotlin">/*
-* In order to received readers events (Inserted, removed etc..), the interface ObservableReader.ReaderObserver must be
-* implemented.
-*
-*/
-import org.eclipse.keyple.core.seproxy.event.ObservableReader
-import org.eclipse.keyple.core.seproxy.event.ReaderEvent
-class MainActivity : ObservableReader.ReaderObserver{
-//Initialise Android NFC Reader
-override fun initReaders() {
-// Initialize SEProxy with Android Plugins
-val nfcPlugin = SeProxyService.getInstance().registerPlugin(AndroidNfcPluginFactory())
-//Example of plugin for device with a sam reader
-val samPlugin = SeProxyService.getInstance().registerPlugin(AndroidFamocoPluginFactory())
-// Configuration of AndroidNfc Reader
-poReader = nfcPlugin.getReader(AndroidNfcReader.READER_NAME) as AndroidNfcReader
-poReader.setParameter(&amp;quot;FLAG_READER_RESET_STATE&amp;quot;, &amp;quot;0&amp;quot;)
-poReader.setParameter(&amp;quot;FLAG_READER_PRESENCE_CHECK_DELAY&amp;quot;, &amp;quot;100&amp;quot;)
-poReader.setParameter(&amp;quot;FLAG_READER_NO_PLATFORM_SOUNDS&amp;quot;, &amp;quot;0&amp;quot;)
-poReader.setParameter(&amp;quot;FLAG_READER_SKIP_NDEF_CHECK&amp;quot;, &amp;quot;0&amp;quot;)
-(poReader as ObservableReader).addObserver(this)
-(poReader as ObservableReader).addSeProtocolSetting(SeCommonProtocols.PROTOCOL_ISO14443_4,
-AndroidNfcProtocolSettings.getSetting(SeCommonProtocols.PROTOCOL_ISO14443_4))
-}
-// Reader event will be caught in this method
-override fun update(event: ReaderEvent?) {
-CoroutineScope(Dispatchers.Main).launch {
-when (event?.eventType) {
-ReaderEvent.EventType.SE_MATCHED -&amp;gt; {
-//PO with set AID detected
-samReader.setParameter(AndroidFamocoReader.FLAG_READER_RESET_STATE, &amp;quot;&amp;quot;)
-val samResource = checkSamAndOpenChannel(samReader)
-val selectionsResult = seSelection.processDefaultSelection(event.defaultSelectionsResponse)
-if (selectionsResult.hasActiveSelection()) {
-val calypsoPo = selectionsResult.activeMatchingSe as CalypsoPo
-val poTransaction = PoTransaction(SeResource(poReader, calypsoPo), getSecuritySettings(samResource))
-when (transactionType) {
-TransactionType.INCREASE -&amp;gt; {
-/*
-* Open Session for the debit key
-*/
-poTransaction.processOpening(PoTransaction.SessionSetting.AccessLevel.SESSION_LVL_LOAD)
-poTransaction.prepareReadRecordFile(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
-poTransaction.processPoCommandsInSession()
-//Process PO increase counter by 10
-poTransaction.prepareIncreaseCounter(CalypsoClassicInfo.SFI_Counter1, CalypsoClassicInfo.RECORD_NUMBER_1.toInt(), 10)
-poTransaction.processClosing(ChannelControl.CLOSE_AFTER)
-addResultEvent(&amp;quot;Increase by 10: SUCCESS&amp;quot;)
-}
-}
-}
-//Notifying Keyple that we handled event
-(poReader as ObservableReader).notifySeProcessed()
-}
-ReaderEvent.EventType.SE_INSERTED -&amp;gt; {
-//PO detected but AID didn't match with AID set
-//Notifying Keyple that we handled event
-(poReader as ObservableReader).notifySeProcessed()
-}
-ReaderEvent.EventType.SE_REMOVED -&amp;gt; {
-//Action when SE is Removed
-}
-ReaderEvent.EventType.TIMEOUT_ERROR -&amp;gt; {
-//Action when timeout with SE
-}
-}
-}
+&lt;h1 id="faq">FAQ:&lt;/h1>
+&lt;p>&lt;strong>How to fix &amp;ldquo;More than one file was found with OS independent path &amp;lsquo;META-INF/NOTICE.md&amp;rsquo;.&amp;quot;&lt;/strong>&lt;/p>
+&lt;p>Add lines below to your :app build.gradle file&lt;/p>
+&lt;pre>&lt;code class="language-gradle">android{
+packagingOptions {
+exclude 'META-INF/NOTICE.md'
 }
 }
 &lt;/code>&lt;/pre>
-&lt;h4 id="launch-detection">Launch detection&lt;/h4>
-&lt;pre>&lt;code class="language-kotlin"> /* Prepare a Calypso PO selection */
-val seSelection = SeSelection(MultiSeRequestProcessing.FIRST_MATCH)
-/* Calypso selection: configures a PoSelector with all the desired attributes to make the selection and read additional information afterwards */
-val poSelectionRequest = PoSelectionRequest(PoSelector.builder()
-.seProtocol(SeCommonProtocols.PROTOCOL_ISO14443_4)
-.aidSelector(SeSelector.AidSelector.builder().aidToSelect(CalypsoClassicInfo.AID).build())
-.invalidatedPo(PoSelector.InvalidatedPo.REJECT).build())
-/* Prepare the reading order */
-poSelectionRequest.prepareReadRecordFile(CalypsoClassicInfo.SFI_EnvironmentAndHolder, CalypsoClassicInfo.RECORD_NUMBER_1.toInt())
-/*
-* Add the selection request to the current selection (we could have added other request
-* here)
-*/
-seSelection.prepareSelection(poSelectionRequest)
-/*
-* Provide the SeReader with the selection operation to be processed when a PO is
-* inserted.
-*/
-(poReader as ObservableReader).setDefaultSelectionRequest(seSelection.selectionOperation,
-ObservableReader.NotificationMode.MATCHED_ONLY)
-// notify reader that se detection has been launched
-poReader.startSeDetection(ObservableReader.PollingMode.REPEATING)
-&lt;/code>&lt;/pre>
-&lt;p>#FAQ:&lt;/p>
-&lt;p>When should I use the Selection API instead of SeProxy API?&lt;/p></description></item><item><title>Build your First C++ Application</title><link>/docs/build-your-first-app/cpp-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/cpp-app/</guid><description/></item><item><title>(WIP)Develop a Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app/</guid><description>&lt;h2 id="test-shortcode-java-kotlin-cpp">Test shortcode &amp;ldquo;java-kotlin-cpp&amp;rdquo;&lt;/h2>
+&lt;p>&lt;strong>Where can I see more examples&lt;/strong>&lt;/p>
+&lt;p>Android native plugins are provided with example applications. Check it to see more use cases:
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/example" target="_blank" rel="noopener">Examples&lt;/a>&lt;/p></description></item><item><title>Build your First C++ Application</title><link>/docs/build-your-first-app/cpp-app/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/build-your-first-app/cpp-app/</guid><description/></item><item><title>Develop a Local Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app-local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app-local/</guid><description>&lt;h2 id="test-shortcode-java-kotlin-cpp">Test shortcode &amp;ldquo;java-kotlin-cpp&amp;rdquo;&lt;/h2>
 &lt;section class="project-tab" id="tabs">
 &lt;div class="container" style="margin: 0; padding: 0">
 &lt;div class="flex-row">
@@ -1318,7 +1275,848 @@ matchingSelection&lt;span style="color:#f92672">-&amp;gt;&lt;/span>getMatchingSe
 override fun checkSePresence(): Boolean {
 return nativeReader.isSecureElementPresent
 }
-&lt;/code>&lt;/pre></description></item><item><title>(WIP)Develop a Plugin</title><link>/docs/developer-guide/develop-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
+&lt;/code>&lt;/pre></description></item><item><title>Develop a Remote Ticketing Application</title><link>/docs/developer-guide/develop-ticketing-app-remote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-ticketing-app-remote/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;strong>Keyple provides the &amp;ldquo;Keyple Remote Plugin&amp;rdquo; solution which allows a terminal to communicate with a smart card reader available in another terminal&lt;/strong>.&lt;/p>
+&lt;p>In this way, you can manage transactions within a distributed architecture.&lt;/p>
+&lt;p>The diagram below shows the role of the &lt;strong>Keyple Remote Plugin&lt;/strong> components in the software layers used in a distributed architecture :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/component/Remote_Component_Overview.svg" >
+&lt;img src="./media/remote-plugin/component/Remote_Component_Overview.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="how-to-use-it-">How to use it ?&lt;/h2>
+&lt;ol>
+&lt;li>In pre-requisite, read page
+&lt;a href="./docs/developer-guide/develop-ticketing-app-local/">Develop a Local Ticketing Application&lt;/a> to understand the main concepts of Keyple in a local application.&lt;/li>
+&lt;li>Read chapter
+&lt;a href="#concepts">Concepts&lt;/a> to understand the main terms and concepts of the &lt;strong>Keyple Remote Plugin&lt;/strong> solution.&lt;/li>
+&lt;li>Read the introduction of chapter
+&lt;a href="#remote-plugins">Remote Plugins&lt;/a> to be informed about the different remote plugins and APIs proposed by the solution.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#use-cases">Use cases&lt;/a>, find your use case. This will help you to determine exactly which library and API to use.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#download">Download&lt;/a>, import into your project the libraries specified by your use case.&lt;/li>
+&lt;li>Using chapter
+&lt;a href="#network-configuration">Network configuration&lt;/a>, implement the transport layer adapted to your network configuration.&lt;/li>
+&lt;li>Implement your ticketing services as specified in the associated use case.&lt;/li>
+&lt;/ol>
+&lt;h2 id="concepts">Concepts&lt;/h2>
+&lt;p>Here are the main concepts to keep in mind before continuing to read this developer guide :&lt;/p>
+&lt;div id="concepts-table-1">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Concept&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Remote Lib&lt;/strong>&lt;/td>
+&lt;td>This is the library &lt;code>keyple-plugin-remote-remote&lt;/code>.&lt;br>It must be imported and used by the application installed on the terminal not having local access to the smart card reader and that wishes to control the reader remotely.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Local Lib&lt;/strong>&lt;/td>
+&lt;td>This is the library &lt;code>keyple-plugin-remote-local&lt;/code>.&lt;br>It must be imported and used by the application installed on the terminal having local access to the smart card reader but wishes to delegate all or part of the ticketing processing to a remote application.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Remote Lib&lt;/strong>, this is a Keyple plugin which provides only &lt;strong>Remote Readers&lt;/strong> to the application. It manages data exchanges with the &lt;strong>Local Service&lt;/strong>. This plugin must be registered to the smart card service like any Keyple plugin.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Reader&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Remote Plugin&lt;/strong>, this is a Keyple reader which has some specificities :&lt;br>- each remote reader is connected to a local reader ;&lt;br>- any command sent by the application to a remote reader will be forwarded to the associated local reader ;&lt;br>- any event occurs on a local reader or plugin will be forwarded to the associated remote reader or plugin.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>Part of the &lt;strong>Local Lib&lt;/strong>, this service ensures data exchange between the &lt;strong>Remote Plugin&lt;/strong> and local plugins and readers. It must be initialized and started by the host application.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each have a specific factory class to initialize them.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each have a specific utility class to access them everywhere in the code.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Node&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> each are bind to a specific internal node which is responsible for the interfacing with the &lt;strong>Network Endpoint&lt;/strong>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Network Endpoint&lt;/strong>&lt;/td>
+&lt;td>At the user&amp;rsquo;s charge, this component ensures the network exchanges between the &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> nodes.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#concepts-table-1 table th:first-of-type {
+width: 130px;
+}
+&lt;/style>
+&lt;p>The diagram below illustrates the main functional concepts through a standard use case :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/component/Remote_Component_Concepts_1.svg" >
+&lt;img src="./media/remote-plugin/component/Remote_Component_Concepts_1.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>The second diagram below illustrates an arbitrary more complex possible use case with several hardware readers connected to different terminals.&lt;/p>
+&lt;p>These could be for example a ticketing reloading service, where the intelligence would be on the terminal with remote readers, with thin clients on A &amp;amp; B terminals communicating locally with the cards.&lt;/p>
+&lt;p>In this use case, the &lt;strong>Remote Plugin&lt;/strong> is used for card communication.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/component/Remote_Component_Concepts_2.svg" >
+&lt;img src="./media/remote-plugin/component/Remote_Component_Concepts_2.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>Here is another example, but this time it illustrates several &lt;strong>Remote Plugins&lt;/strong> connected to the same &lt;strong>Local Service&lt;/strong>.&lt;/p>
+&lt;p>These could be for example ticketing terminals with transaction logic, which communicate locally with cards, but which do not have SAM, and which use a SAM server with hardware reader.&lt;/p>
+&lt;p>In this use case, the &lt;strong>Remote Plugin&lt;/strong> is used for SAM communication.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/component/Remote_Component_Concepts_3.svg" >
+&lt;img src="./media/remote-plugin/component/Remote_Component_Concepts_3.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="remote-plugins">Remote Plugins&lt;/h2>
+&lt;p>The &lt;strong>Keyple Remote Plugin&lt;/strong> solution provides &lt;strong>3&lt;/strong> different specific &lt;strong>Remote Plugin&lt;/strong> components, each one having a specific API described in chapter
+&lt;a href="#remote-plugins-apis">Remote Plugins APIs&lt;/a> designed on a &lt;strong>Client-Server&lt;/strong> model in which &lt;strong>the Client is always the initiator of the communication&lt;/strong> :&lt;/p>
+&lt;div id="plugins-table-1">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Plugin&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>server&lt;/strong> application to control a smart card reader available on a &lt;strong>client&lt;/strong> (e.g. PO reader).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a> or&lt;br>
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>client&lt;/strong> application to control a smart card reader available on a &lt;strong>server&lt;/strong> (e.g. SAM reader).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#poolremotepluginclient">PoolRemotePluginClient&lt;/a>&lt;/td>
+&lt;td>Allows a &lt;strong>client&lt;/strong> application to control a &lt;strong>pool&lt;/strong> of smart cards readers available on a &lt;strong>server&lt;/strong> (e.g. HSM readers).&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#plugins-table-1 table th:first-of-type {
+width: 220px;
+}
+&lt;/style>
+&lt;p>Moreover, some plugins have different modes in which they allow or not the observation of plugin or reader events (such as smart card insertion, reader connection, etc&amp;hellip;).&lt;/p>
+&lt;p>Each &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> has a default name, but it&amp;rsquo;s possible to specify a custom name during the initialization phase.&lt;/p>
+&lt;p>It is thus possible to have within an application as many instances of a specific &lt;strong>Remote Plugin&lt;/strong> or &lt;strong>Local Service&lt;/strong> as desired.&lt;/p>
+&lt;h3 id="remotepluginserver">RemotePluginServer&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>server&lt;/strong> application to control a smart card reader available on a &lt;strong>client&lt;/strong> (e.g. PO reader).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>LocalServiceClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemotePluginServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory by providing the network and plugin observer implementation. Please note that &lt;strong>this plugin is observable only to trigger ticketing services&lt;/strong> on the server side, but does not allow observation on the local plugin (reader insertion, etc&amp;hellip;),&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>await for events of type &lt;code>PluginEvent.READER_CONNECTED&lt;/code>,&lt;/li>
+&lt;li>when an event occurs, get the specified remote reader from the &lt;strong>Remote Plugin&lt;/strong>,&lt;/li>
+&lt;li>use information inside the remote reader to identify the ticketing service to execute,&lt;/li>
+&lt;li>execute the specified ticketing service using the remote reader and all of its others information,&lt;/li>
+&lt;li>terminate the remote ticketing service using the &lt;strong>Remote Plugin&lt;/strong> API by transmitting if needed personal information to the client.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service and get the local reader to connect to the server,&lt;/li>
+&lt;li>execute the remote service using the &lt;strong>Local Service&lt;/strong> API by indicating the ticketing service id to execute and transmitting to the server if needed personal information or smart card content previously read.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="illustration">ILLUSTRATION&lt;/h4>
+&lt;p>The following sequence diagram shows the capabilities of the plugin through an arbitrary example that illustrates :&lt;/p>
+&lt;ul>
+&lt;li>the initialization phase of the local and remote components ;&lt;/li>
+&lt;li>the registration of the local plugin and observable reader ;&lt;/li>
+&lt;li>the selection phase of an observable reader carried out directly by the client ;&lt;/li>
+&lt;li>the sending of the selection result and additional information to the server to remotely perform a specific ticketing service (materialization, validation, etc&amp;hellip;) ;&lt;/li>
+&lt;li>the reception by the server of the transmitted data ;&lt;/li>
+&lt;li>the execution of the remote ticketing service ;&lt;/li>
+&lt;li>the server subscription to observable reader events ;&lt;/li>
+&lt;li>the sending of information to the client at the end of processing.&lt;/li>
+&lt;/ul>
+&lt;p>Note that the network layer is deliberately hide in this diagram. Its implementation is describe in the
+&lt;a href="#network-configuration">Network configuration&lt;/a> chapter.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/sequence/Remote_Sequence_RemotePluginServer_API.svg" >
+&lt;img src="./media/remote-plugin/sequence/Remote_Sequence_RemotePluginServer_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="remotepluginclient">RemotePluginClient&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>client&lt;/strong> application to control a smart card reader available on a &lt;strong>server&lt;/strong> (e.g. SAM reader).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-1">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="observableremotepluginclient">ObservableRemotePluginClient&lt;/h3>
+&lt;p>This plugin is a
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a> which also allows to observe the plugin events (such as reader connection, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is possible only if the local plugin is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>ObservableRemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>RemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>LocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-2">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server side :
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client side :
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local observable plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="poolremotepluginclient">PoolRemotePluginClient&lt;/h3>
+&lt;p>This plugin allows a &lt;strong>client&lt;/strong> application to control a &lt;strong>pool&lt;/strong> of smart cards readers available on a &lt;strong>server&lt;/strong> (e.g. HSM readers).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>API&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>Library&lt;/strong>&lt;/td>
+&lt;td>Remote Lib&lt;/td>
+&lt;td>Local Lib&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Remote Plugin&lt;/strong> / &lt;strong>Local Service&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Factory&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClientFactory&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServerFactory&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Utility&lt;/strong>&lt;/td>
+&lt;td>&lt;code>PoolRemotePluginClientUtils&lt;/code>&lt;/td>
+&lt;td>&lt;code>PoolLocalServiceServerUtils&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="use-and-sequence-of-operations-3">USE AND SEQUENCE OF OPERATIONS&lt;/h4>
+&lt;ul>
+&lt;li>Server
+&lt;ol>
+&lt;li>configure the factory and start the &lt;strong>Local Service&lt;/strong> by providing the network implementation,&lt;/li>
+&lt;li>register at least a local pool plugin to the smart card service.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client
+&lt;ol>
+&lt;li>configure the factory by providing the network implementation,&lt;/li>
+&lt;li>register the &lt;strong>Remote Plugin&lt;/strong> to the smart card service using the factory,&lt;/li>
+&lt;li>use the &lt;strong>Remote Plugin&lt;/strong> and its remote readers as a local pool plugin with local readers.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="remote-plugins-apis">Remote Plugins APIs&lt;/h2>
+&lt;p>The class diagrams below shows the different APIs exposed and SPIs required by the &lt;strong>Keyple Remote Plugin&lt;/strong> solution.&lt;/p>
+&lt;p>An &lt;strong>SPI&lt;/strong> (Service Provider Interface) is an interface that must be implemented by the user.&lt;/p>
+&lt;p>Here are the available APIs depending on the library imported by your project :&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th style="text-align:center">Remote Lib&lt;/th>
+&lt;th style="text-align:center">Local Lib&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>
+&lt;a href="#common-api">Common API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#remote-plugin-api">Remote Plugin API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+&lt;a href="#local-service-api">Local Service API&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="common-api">Common API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/class/Remote_Class_Common_API.svg" >
+&lt;img src="./media/remote-plugin/class/Remote_Class_Common_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="remote-plugin-api">Remote Plugin API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/class/Remote_Class_RemotePlugin_API.svg" >
+&lt;img src="./media/remote-plugin/class/Remote_Class_RemotePlugin_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="local-service-api">Local Service API&lt;/h3>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/class/Remote_Class_LocalService_API.svg" >
+&lt;img src="./media/remote-plugin/class/Remote_Class_LocalService_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="use-cases">Use cases&lt;/h2>
+&lt;p>Here is a summary table of all proposed use cases. Search for the one that corresponds to your need and then look at the associated description :&lt;/p>
+&lt;div id="use-cases-table-2">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Use Case&lt;/th>
+&lt;th style="text-align:center">Reader type&lt;/th>
+&lt;th style="text-align:center">Reader endpoint&lt;/th>
+&lt;th style="text-align:center">Reader observation&lt;/th>
+&lt;th style="text-align:center">Plugin observation&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-1">UC 1&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Client&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-2">UC 2&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Client&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-3">UC 3&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-4">UC 4&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-5">UC 5&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-6">UC 6&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Simple&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">
+&lt;a href="#uc-7">UC 7&lt;/a>&lt;/td>
+&lt;td style="text-align:center">Pool&lt;/td>
+&lt;td style="text-align:center">Server&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;style>
+#use-cases-table-2 table th:nth-of-type(6) {
+width: 240px;
+}
+&lt;/style>
+&lt;h4 id="uc-1">UC 1&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the client side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>RemoteReaderServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-2">UC 2&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginserver">RemotePluginServer&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withReaderObservation(...)&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableRemoteReaderServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>To observe &amp;ldquo;remotely&amp;rdquo; the reader events, you must :&lt;/p>
+&lt;ul>
+&lt;li>Server
+&lt;ol>
+&lt;li>register at least one observer to the remote reader created during the first client call and await for reader events,&lt;/li>
+&lt;li>retrieve the remote reader from the &lt;strong>Remote Plugin&lt;/strong> &lt;strong>imperatively&lt;/strong> using the reader name contained in the received event,&lt;/li>
+&lt;li>execute the ticketing service associated to the event using the remote reader and all of its others information,&lt;/li>
+&lt;li>terminate the remote ticketing service associated to the event using the &lt;strong>Remote Plugin&lt;/strong> API by transmitting if needed personal information to the client.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Client
+&lt;ol>
+&lt;li>execute a remote service first in order to connect a remote reader to the local reader and to allow the remote application to subscribe to the events of the remote reader.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="uc-3">UC 3&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the server side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutPluginObservation()&lt;/code>&lt;br>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-4">UC 4&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#remotepluginclient">RemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withoutPluginObservation()&lt;/code>&lt;br>&lt;code>withReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-5">UC 5&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you don&amp;rsquo;t plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that it is still possible to observe locally the reader on the server side if needed.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withPluginObservation()&lt;/code>&lt;br>&lt;code>withoutReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code> or &lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-6">UC 6&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#observableremotepluginclient">ObservableRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>Use this mode if you plan to observe &amp;ldquo;remotely&amp;rdquo; the events related to the local reader (smart card insertion, removal, etc&amp;hellip;).&lt;/p>
+&lt;p>Please note that this mode is only possible if the local reader is observable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withPluginObservation()&lt;/code>&lt;br>&lt;code>withReaderObservation()&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;td>&lt;code>ObservableReader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="uc-7">UC 7&lt;/h4>
+&lt;p>This use case requires to use the plugin
+&lt;a href="#poolremotepluginclient">PoolRemotePluginClient&lt;/a>.&lt;/p>
+&lt;p>This unique mode proposed for this plugin does not allow to observe the local reader.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Possible readers to use&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;td>&lt;code>Reader&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="network-configuration">Network configuration&lt;/h2>
+&lt;p>The &lt;strong>Keyple Remote Plugin&lt;/strong> solution &lt;strong>does not provide&lt;/strong> the network layer implementation, but it provides a set of SPIs (Service Provider Interfaces) to be implemented by the user in order to enable it to exchange data between &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> components.&lt;/p>
+&lt;h3 id="synchronous">Synchronous&lt;/h3>
+&lt;p>Choose this mode if you want to implement a Client-Server &lt;strong>Synchronous&lt;/strong> communication protocol, such as standard HTTP for example.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SPI to be implemented&lt;/td>
+&lt;td>&lt;code>SyncEndpointClient&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Node API&lt;/td>
+&lt;td>&lt;code>SyncNodeClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>SyncNodeServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withSyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>withSyncNode()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Utility method to use to access the node&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>&lt;code>getSyncNode()&lt;/code> or&lt;br> &lt;code>getSyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Here is the minimal algorithm to implement in a context with a &lt;strong>single server instance&lt;/strong> :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/sequence/Remote_Sequence_SyncNode_API.svg" >
+&lt;img src="./media/remote-plugin/sequence/Remote_Sequence_SyncNode_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>In a context with several server instances, a mechanism must be implemented to ensure that all messages containing information about a &lt;code>serverNodeId&lt;/code> are routed to the server associated with a &lt;code>SyncNodeServer&lt;/code> node having the &lt;code>serverNodeId&lt;/code>.&lt;/p>
+&lt;h3 id="asynchronous">Asynchronous&lt;/h3>
+&lt;p>Choose this mode if you want to implement a Full-Duplex &lt;strong>Asynchronous&lt;/strong> communication protocol, such as Web Sockets for example.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Client&lt;/th>
+&lt;th>Server&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SPI to be implemented&lt;/td>
+&lt;td>&lt;code>AsyncEndpointClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>AsyncEndpointServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Node API&lt;/td>
+&lt;td>&lt;code>AsyncNodeClient&lt;/code>&lt;/td>
+&lt;td>&lt;code>AsyncNodeServer&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Methods to be used when initializing the factory&lt;/td>
+&lt;td>&lt;code>withAsyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>withAsyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Utility method to use to access the node&lt;/td>
+&lt;td>&lt;code>getAsyncNode()&lt;/code> or&lt;br> &lt;code>getAsyncNode(...)&lt;/code>&lt;/td>
+&lt;td>&lt;code>getAsyncNode()&lt;/code> or&lt;br> &lt;code>getAsyncNode(...)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Here is the minimal algorithm to implement :&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="./media/remote-plugin/sequence/Remote_Sequence_AsyncNode_API.svg" >
+&lt;img src="./media/remote-plugin/sequence/Remote_Sequence_AsyncNode_API.svg" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;h3 id="exchanged-data">Exchanged data&lt;/h3>
+&lt;p>The data exchanged between &lt;strong>Remote Plugin&lt;/strong> and &lt;strong>Local Service&lt;/strong> components are contain in the DTO (Data Transfer Object) &lt;code>MessageDto&lt;/code>. It is built and processed by the plugin and &lt;strong>you don&amp;rsquo;t need to modify it&lt;/strong>.&lt;/p>
+&lt;p>However, it is necessary in some contexts to access certain information such as the &lt;code>sessionId&lt;/code> in the case of asynchronous communication or the &lt;code>serverNodeId&lt;/code> in the case of synchronous communication with several server instances.&lt;/p>
+&lt;h2 id="download">Download&lt;/h2>
+&lt;h3 id="releases">Releases&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Date&lt;/th>
+&lt;th>Release note&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1.0.0&lt;/strong>&lt;/td>
+&lt;td>DD/MM/YYYY&lt;/td>
+&lt;td>First version&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="using-gradle">Using Gradle&lt;/h3>
+&lt;p>Remote Lib&lt;/p>
+&lt;pre>&lt;code>implementation 'org.eclipse.keyple:keyple-java-plugin-remote-remote:[TO_BE_REPLACED_BY_VERSION]'
+&lt;/code>&lt;/pre>
+&lt;p>Local Lib&lt;/p>
+&lt;pre>&lt;code>implementation 'org.eclipse.keyple:keyple-java-plugin-remote-local:[TO_BE_REPLACED_BY_VERSION]'
+&lt;/code>&lt;/pre>
+&lt;h3 id="using-maven">Using Maven&lt;/h3>
+&lt;p>Remote Lib&lt;/p>
+&lt;pre>&lt;code>&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.eclipse.keyple&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;keyple-java-plugin-remote-remote&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;[TO_BE_REPLACED_BY_VERSION]&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;p>Local Lib&lt;/p>
+&lt;pre>&lt;code>&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.eclipse.keyple&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;keyple-java-plugin-remote-local&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;[TO_BE_REPLACED_BY_VERSION]&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h3 id="binaries--documentation">Binaries &amp;amp; Documentation&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Binaries&lt;/th>
+&lt;th>Javadoc&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1.0.0&lt;/strong>&lt;/td>
+&lt;td>keyple-java-plugin-remote-remote-1.0.0.jar&lt;br>keyple-java-plugin-remote-local-1.0.0.jar&lt;/td>
+&lt;td>keyple-java-plugin-remote-remote-doc-1.0.0.zip&lt;br>keyple-java-plugin-remote-local-doc-1.0.0.zip&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="sources">Sources&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/remote/README.md" target="_blank" rel="noopener">Remote Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/local/README.md" target="_blank" rel="noopener">Local Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/eclipse/keyple-java/tree/master/java/component/keyple-plugin/remote-plugin/common/README.md" target="_blank" rel="noopener">Common Lib
+&lt;i class="fab fa-github pr-1 fa-fw">&lt;/i>&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Develop a Plugin</title><link>/docs/developer-guide/develop-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-plugin/</guid><description>&lt;p>This guide will provide nescessary steps to develop a Keyple plugin for a device. In order to flatten the learning curve, we&amp;rsquo;ll
 illustrate the creation processus using the implementation of the Android NFC Plugin and OMAPI plugins.
 This plugins can be consulted with the keyple-java/android repository.&lt;/p>
 &lt;h2 id="imports">Imports&lt;/h2>
@@ -1404,7 +2202,7 @@ throw KeypleReaderIOException(&amp;quot;Error while opening physical channel&amp
 &lt;li>Smart Selection Reader: Allow to use native SE selection process&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>(WIP)Develop an Extension</title><link>/docs/developer-guide/develop-extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-extension/</guid><description/></item><item><title>Migration Guide - Keyple Java 0.8.1 to 0.9.0</title><link>/docs/developer-guide/migration-0.8.1-to-0.9.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/migration-0.8.1-to-0.9.0/</guid><description>&lt;p>This guide is intended to help a user of version 0.8.1 of Keyple Java to upgrade his application to the 0.9 version of the library.&lt;/p>
+&lt;/ul></description></item><item><title>Develop an Extension</title><link>/docs/developer-guide/develop-extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/develop-extension/</guid><description/></item><item><title>Migration Guide - Keyple Java 0.8.1 to 0.9.0</title><link>/docs/developer-guide/migration-0.8.1-to-0.9.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/developer-guide/migration-0.8.1-to-0.9.0/</guid><description>&lt;p>This guide is intended to help a user of version 0.8.1 of Keyple Java to upgrade his application to the 0.9 version of the library.&lt;/p>
 &lt;p>From a user API point of view, the changes relate to the following topics:&lt;/p>
 &lt;ul>
 &lt;li>
@@ -1633,19 +2431,23 @@ ByteArrayUtil.toHex(entry.getValue()));
 &lt;p>Catching exceptions is therefore now optional.&lt;/p>
 &lt;p>However, it is possible to selectively catch certain exceptions in order to deal with particular cases.&lt;/p>
 &lt;p>The new hierarchy of Keyple exceptions is shown
-&lt;a href="https://keyple.atlassian.net/projects/KEYP/issues/KEYP-154?filter=allissues&amp;amp;orderby=priority%20DESC&amp;amp;keyword=exceptions" target="_blank" rel="noopener">here&lt;/a>&lt;/p></description></item><item><title>Webinar Eclipse Keyple for Developers, Thursday, October 15, 2020</title><link>/post/webinar-eclipse-keyple-developers-oct15-2020/</link><pubDate>Fri, 25 Sep 2020 14:57:23 +0200</pubDate><guid>/post/webinar-eclipse-keyple-developers-oct15-2020/</guid><description>&lt;h2 id="are-you-a-mobility-aggregator-a-system-integrator-an-event-manager--a-developer-or-a-multi-mobility-startup">Are you a mobility aggregator, a system integrator, an event manager, a developer or a multi-mobility startup?&lt;/h2>
+&lt;a href="https://keyple.atlassian.net/projects/KEYP/issues/KEYP-154?filter=allissues&amp;amp;orderby=priority%20DESC&amp;amp;keyword=exceptions" target="_blank" rel="noopener">here&lt;/a>&lt;/p></description></item><item><title>Webinar Eclipse Keyple™ for Developers, Thursday, October 15, 2020</title><link>/post/webinar-eclipse-keyple-developers-oct15-2020/</link><pubDate>Fri, 25 Sep 2020 14:57:23 +0200</pubDate><guid>/post/webinar-eclipse-keyple-developers-oct15-2020/</guid><description>&lt;h2 id="are-you-a-mobility-aggregator-a-system-integrator-an-event-manager-a-developer-or-a-multi-mobility-startup">Are you a mobility aggregator, a system integrator, an event manager, a developer or a multi-mobility startup?&lt;/h2>
 &lt;p>Do you want to have easy access to a highly secure and interoperable standard, Calypso®, to reduce your costs and
 accelerate your developments, to move from a black box to an open and modular solution with access to multiple
 hardware platforms, to enable partnerships with multimodal transport, building facilities including parking,
-tourism and events… or just discover what Eclipse Keyple is and how it works?&lt;/p>
-&lt;p>Join the Calypso Technical Webinar about Eclipse Keyple.&lt;/p>
+tourism and events… or just discover what Eclipse Keyple™ is and how it works?&lt;/p>
+&lt;p>On October 15, 2020, we organized a webinar Eclipse Keyple™ for Developers!&lt;/p>
+&lt;p>See the whole event on video:
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/v6EKq6ZwJUc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;/p>
 &lt;p>
-&lt;i class="fas fa-calendar pr-1 fa-fw">&lt;/i> &lt;strong>Tuesday 15th October 2020&lt;/strong>&lt;/p>
-&lt;p>
-&lt;i class="fas fa-clock pr-1 fa-fw">&lt;/i> &lt;strong>3.00 - 5.00 PM CET&lt;/strong>&lt;/p></description></item><item><title>Release 0.9.0 Java on the field</title><link>/post/release-0-9-0-java/</link><pubDate>Fri, 18 Sep 2020 14:57:56 +0200</pubDate><guid>/post/release-0-9-0-java/</guid><description>&lt;p>We are pleased to announce that the version 0.9.0 of the Java implementation of Eclipse Keyple was released September 11th, 2020.&lt;/p>
-&lt;p>The main improvement on the Calypso extension is the addition of high-level API to manage the portable object response.
-Now the APDU responses of the Calypso cards are automatically parsed to fill card images.
-Currently all the components of Eclipse Keyple Java are following the same versioning.&lt;/p>
+&lt;i class="fas fa-file-pdf pr-1 fa-fw">&lt;/i> Discover the
+&lt;a href="https://drive.google.com/file/d/1HdrThZD70bFIun8jFLYKfgozyCvX9SQg/view" target="_blank" rel="noopener">presentation&lt;/a>.&lt;/p></description></item><item><title>Release 0.9.0 Java on the field</title><link>/post/release-0-9-0-java/</link><pubDate>Fri, 18 Sep 2020 14:57:56 +0200</pubDate><guid>/post/release-0-9-0-java/</guid><description>&lt;p>We are pleased to announce that the version 0.9.0 of the Java implementation of Eclipse Keyple™ was released September 11th, 2020.&lt;/p>
+&lt;p>The main improvement on the Calypso® extension is the addition of high-level API to manage the portable object response.
+Now the APDU responses of the Calypso® cards are automatically parsed to fill card images.
+Currently all the components of Eclipse Keyple™ Java are following the same versioning.&lt;/p>
 &lt;p>From the version 1.0.0 scheduled for November 2020, the components will be defined with their own versioning in order to stabilize as possible the different APIs.&lt;/p>
 &lt;p>
 &lt;a href="./docs/">Documentation&lt;/a> currently available:&lt;/p>
@@ -1653,11 +2455,19 @@ Currently all the components of Eclipse Keyple Java are following the same versi
 &lt;li>the project plan,&lt;/li>
 &lt;li>the guides of the different public API,&lt;/li>
 &lt;li>and a guide to manage the migration between the release 0.8.1 &amp;amp; 0.9.0.&lt;/li>
-&lt;/ul></description></item><item><title>First Meet Up Eclipse Keyple</title><link>/post/first-meetup-eclipse-keyple/</link><pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate><guid>/post/first-meetup-eclipse-keyple/</guid><description>&lt;p>On October 17, 2019, we organized the first Meet Up Eclipse Keyple! Great moments of exchanges around the first Open Source SDK for Ticketing with Benoît Boute, Nicolas Generali, Pierre Terree, Hicham ELBIZY, Benoist Laforge, Gaël Blondelle, Camille Moulin, Philippe Vappereau, Valentina Zajackowski. Many thanks to them for their interventions and also to Manon Chaix, Jean-Pierre Fortune, Olivier Delcroix, Ludovic TEIXEIRA COSTA and all the participants!&lt;/p>
-&lt;p>See the whole event on video:&lt;/p>
+&lt;/ul></description></item><item><title>First Meet Up Eclipse Keyple™</title><link>/post/first-meetup-eclipse-keyple/</link><pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate><guid>/post/first-meetup-eclipse-keyple/</guid><description>&lt;p>On October 17, 2019, we organized the first Meet Up Eclipse Keyple™!
+Great moments of exchanges around the first Open Source SDK for Ticketing with Benoît Boute,
+Nicolas Generali, Pierre Terree, Hicham Elbizy, Benoist Laforge, Gaël Blondelle, Camille Moulin,
+Philippe Vappereau, Valentina Zajackowski. Many thanks to them for their interventions and also
+to Manon Chaix, Jean-Pierre Fortune, Olivier Delcroix, Ludovic Teixeira Costa and all the participants!&lt;/p>
+&lt;p>See the whole event on video:
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/4j5rkvdXU7g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
-&lt;p>Discover the photos: &lt;a href="https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8">https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8&lt;/a>&lt;/p>
-&lt;p>And the presentations: &lt;a href="https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view">https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view&lt;/a>&lt;/p></description></item><item><title>RATP Smart Systems - Remote SE use case</title><link>/post/rss-remote-se/</link><pubDate>Tue, 01 Jan 2019 14:13:44 +0200</pubDate><guid>/post/rss-remote-se/</guid><description>&lt;p>RATP Smart Systems has integrated in 2019 Eclipse Keyple into the new retail shops reloading system of RATP in Paris Great Region.
-1800 Android terminals from Coppernic to retaillers has been deployed.&lt;/p></description></item><item><title/><link>/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/components/</guid><description/></item></channel></rss>
+&lt;/p>
+&lt;p>
+&lt;i class="fas fa-file-pdf pr-1 fa-fw">&lt;/i> Discover the
+&lt;a href="https://drive.google.com/file/d/1GAAhW-mv-E6kxqVySv8-KSjMJ15tZBkM/view" target="_blank" rel="noopener">presentation&lt;/a>.&lt;/p>
+&lt;p>
+&lt;i class="fas fa-images pr-1 fa-fw">&lt;/i> Discover the
+&lt;a href="https://drive.google.com/drive/folders/1StRgiAxKrn0mHsP9WwIQ_bopQW-eGVb8" target="_blank" rel="noopener">photos&lt;/a>.&lt;/p></description></item><item><title/><link>/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/components/</guid><description/></item></channel></rss>
